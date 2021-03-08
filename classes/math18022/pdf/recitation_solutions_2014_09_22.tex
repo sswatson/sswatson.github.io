@@ -1,0 +1,156 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8x]{inputenc}
+\usepackage[L7x]{fontenc}  
+\usepackage[pdftex]{graphicx}
+\usepackage{fourier}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{wrapfig}
+\usepackage{sectsty}
+\usepackage{asymptote}
+\usepackage{colonequals}
+\usepackage{color}
+\usepackage{calc}
+\usepackage{etoolbox}
+
+% COMMENT OUT THE SECOND LINE TO MAKE A HANDOUT WITHOUT SOLUTIONS
+\newtoggle{solutions}
+\toggletrue{solutions}
+
+\usepackage{amsthm}
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{defn}{Definition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newtheorem{exercise}{Exercise}
+
+\sectionfont{\large}
+\sectionfont{\normalsize}
+
+\def\Arg{\mathop{\rm Arg}\nolimits}
+\def\Res{\mathop{\rm Res}}
+\renewcommand\Im{\mathop{\rm Im}\nolimits}
+\renewcommand\Re{\mathop{\rm Re}\nolimits}
+\newcommand\Arctan{\mathop{\rm Arctan}\nolimits}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\renewcommand{\P}{\mathbb{P}}
+\newcommand{\Chat}{\hat{\mathbb{C}}}
+\newcommand{\UHP}{\mathbb{H}}
+\DeclareMathOperator{\area}{area}
+\DeclareMathOperator{\dist}{dist}
+\DeclareMathOperator{\interior}{int}
+\DeclareMathOperator{\id}{id}
+
+\pagestyle{empty}
+
+\textwidth = 6.5 in
+\textheight = 9 in
+\oddsidemargin = -0.125 in
+\evensidemargin = 0.0 in
+\topmargin = -0.2 in
+\headheight = 0.0 in
+\headsep = 0.2 in
+\parskip = 0.2 in
+\parindent = 0.0 in
+
+\def\inv{^{-1}}
+
+\newcounter{prob}
+	\setcounter{prob}{1}
+
+\newcounter{subprob}
+	\setcounter{subprob}{1}
+
+\newcommand\itm{\theprob.  \stepcounter{prob}\setcounter{subprob}{1}}
+\newcommand\subitm{(\alph{subprob}) \refstepcounter{subprob}}
+
+\newcommand\sol[2]{\iftoggle{solutions}{\textit{Solution}. #1}{#2}}
+%\newcommand\sol[2]{#2}
+
+
+\newcommand{\problem}[1]{
+\makebox[0.2cm]{\textbf{\itm}}  \begin{minipage}[t]{\linewidth-0.75cm}
+#1
+\end{minipage}
+}
+
+\newcommand\twomatrix[4]{
+\left(
+\begin{array}{cc}
+#1 & #2 \\
+#3 & #4
+\end{array}
+\right)
+}
+
+\renewcommand\vec[1]{\mathbf{#1}}
+
+\begin{document}
+\thispagestyle{empty}
+
+\begin{center}
+  18.022 Recitation Handout \iftoggle{solutions}{(with solutions)}{} \\
+  22 September 2014 
+\end{center}
+
+
+\itm (1.9.22 in \textit{Colley}) Given an arbitrary tetrahedron, associate to each of its four triangular faces a vector outwardly normal to that face with length equal to the area of the face. Show that the sum of these four vectors is zero. 
+
+\sol{If $\vec{a}$, $\vec{b}$, and $\vec{c}$ are three vectors along three edges of the tetrahedron, then the four vectors in question are $\frac12 \vec{a}\times\vec{b}$, $\frac12 \vec{b}\times\vec{c}$, $\frac12 \vec{c}\times\vec{a}$, and $\frac12 (\vec{c}-\vec{a})\times(\vec{b}-\vec{a})$. Summing these and using linearity of the cross product, we find that their sum vanishes. }{\vfill}
+
+\itm (1.9.14 in \textit{Colley}) The median of a triangle is the line segment that joins a vertex of a triangle to the midpoint of the opposite side. The purpose of this problem is to use vectors to show that the medians of a triangle all meet at a point. 
+
+\subitm Let $M_1$ be the midpoint of $BC$, let $M_2$ be the midpoint of $AC$, and let $M_3$ be the midpoint of $AB$. Write $\overrightarrow{BM_2}$ and $\overrightarrow{CM_3}$ in terms of $\overrightarrow{AB}$ and $\overrightarrow{AC}$.
+
+\subitm Use the fact that $\overrightarrow{CB}=\overrightarrow{CP}+\overrightarrow{PB}=\overrightarrow{CA}+\overrightarrow{AB}$ to show that $P$ must lie two-thirds of the way from $B$ to $M_2$ and two-thirds of the way from $C$ to $M_3$. 
+
+\subitm Use part (b) to show why all three medians must meet at $P$.  
+
+\sol{(a) We have $\overrightarrow{CM_3}=\frac12\overrightarrow{AB} - \overrightarrow{AC}$ and $\overrightarrow{BM_2}=\frac12\overrightarrow{AC} - \overrightarrow{AB}$, by definition of vector addition. (b) Define $\lambda$ and $\mu$ so that $\overrightarrow{CP}=\lambda \overrightarrow{CM_3}$ and $\overrightarrow{BP}= \overrightarrow{BM_2}$. Using the suggested equation, we get $\overrightarrow{AB}-\overrightarrow{AC}=(\lambda/2+\mu)\overrightarrow{AB}-(\lambda + \mu/2)\overrightarrow{AC}$. Since $\overrightarrow{AB}$ and $\overrightarrow{AC}$ are linearly independent, this happens only if the coefficients on both sides match. Solving this system for $\lambda$ and $\mu$, we find $\lambda = \mu = 2/3$ as desired. (c) If the segment from $A$ to $M_1$ does not pass through $P$, then it intersects $CM_3$ and $BM_2$ at two different points $Q$ and $R$. However, the preceding argument applied to the pairs $(A,C)$ and $(A,B)$ in place of $(B,C)$ shows that $Q$ and $R$ each lie 2/3 of the way from $A$ to $M_1$. Thus $Q=R$, a contradiction. } {\vfill}
+
+\iftoggle{solutions}{}{\newpage}
+
+\itm Find the equation of a plane $P$ perpendicular to $(1,2,-1)$ containing the line that passes through the two points $(-2,5,4)$ and $(5,1,3)$. Find the distance from $P$ to the plane $P'$ whose equation is $x+2y-z=28$. 
+
+\sol{The equation of the plane is $(1,2,-1)\cdot(x+2,y-5,z-4)=0$, which simplifies to $x+2y-z=4$. Note that we would have gotten the same result had we used the second point instead of the first point. The distance between the planes is $(28-4)/\sqrt{1^2+2^2+(-1)^2}=\boxed{4\sqrt{6}}$. See the 19 September 2012 recitation handout for a derivation of this formula.}{\vfill}
+
+% \itm Write inequalities describing the unit sphere in cylindrical coordinates. 
+
+% \sol{Since the sphere is rotationally symmetric, $\theta$ ranges freely over $[0,2\pi]$. Also, $z$ ranges from $-1$ to 1. Finally, $r$ ranges from 0 to its maximum value of $\sqrt{1-z^2}$, by the Pythagorean theorem. Altogether, we have 
+% \begin{align*}
+%   0\leq \theta &\leq 2\pi \\
+%   -1 \leq z &\leq 1 \\
+%   0 \leq r &\leq \sqrt{1-z^2}. 
+% \end{align*}
+% }{\vfill}
+
+% \itm Consider a sphere of radius 10 centered at the origin. Suppose that the portion of the sphere above the plane $z=8$ is removed. Furthermore, a sphere of radius $2$ is removed from the center of the solid. Write inequalities in spherical coordinates to describe the resulting shape.
+
+% \sol{We have $0\leq \theta \leq 2\pi$ and $0\leq \varphi \leq \pi$. For $\rho$, we note that $2\leq \rho \leq 10$ when $\varphi\geq \arctan(3/4)$. When $\varphi \leq \arctan(3/4)$, $\rho$ ranges from 2 to $8\sec\varphi$. Altogether, we have 
+% \begin{align*}
+%   0\leq \theta &\leq 2\pi \\
+%   -1 \leq z &\leq 1 \\
+%   2 \leq \rho &\leq 
+% \left\{
+% \begin{array}{cl}
+%   10 & \text{ if }\varphi \geq \arctan(3/4) \\
+%   8\sec\varphi & \text{ if }\varphi \leq \arctan(3/4). \\
+% \end{array}
+% \right.
+% \end{align*}
+%  }{\vfill}
+
+% \itm Find the point $P$ on the line $(3-t,2+2t,-4t)$ which is closest to the point $Q=(3,7,1)$. 
+
+% \sol{Let $P_0=(3,2,0)$ be the point on the line obtained by setting $t=0$. We can find $\overrightarrow{P_0P}$ by projecting $\overrightarrow{P_0Q}$ onto $\vec{a}$. We get $\frac{\vec{a}\cdot\overrightarrow{P_0Q}}{\vec{a}\cdot\vec{a}}\vec{a}=(-2/7,4/7,-8/7)$. Thus $P=(3,2,0)+(-2/7,4/7,-8/7)=\boxed{(19/7,18/7,-8/7)}$. }{\vfill}
+
+\itm (Fun/Challenge problem) Example 9 of Section 1.5 in the book asks us to compute the distance between the lines $\ell_1(t) = (0,5,-1) + t(2,1,3)$ and $\ell_2(t)=(-1,2,0)+t(1,-1,0)$. The solution given in the book uses vectors; our goal here is to take an algebraic approach for comparison. Define $D(s,t)=|\ell_1(t)-\ell_2(t)|^2$, and find the values of $s$ and $t$ which minimize $D(s,t)$ (using calculus methods or otherwise). 
+
+\sol{We have $D(s,t)=(2 t - (-1 + s))^2 + (5 + t - (2 - s))^2 + (-1 + 3 t)^2$, and if $D$ is minimized then $\partial D/\partial s=0$ and $\partial D/\partial t=0$. These two derivatives are $\partial D/\partial s = 4 + 4 s - 2 t$ and $\partial D/\partial t = 4 - 2 s + 28 t$. Setting each of these equal to 0 and solving the system, we find $s=-10/9$ and $t=-2/9$. Substituting into $D(s,t)$, we find that the minimal squared distance is 25/3. }{\vfill}
+
+\end{document}

@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  
+  <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="/css/tipuesearch.css">
+  <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="/css/scribble.css">
+  <link rel="stylesheet" type="text/css" href="/css/franklin.css">
+  <link rel="stylesheet" type="text/css" href="/css/custom.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
+  <link rel="icon" href="/assets/favicon/favicon.ico">
+  <link rel="manifest" href="/assets/favicon/manifest.json">
+  
+  
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <title>Math 0520: Introductory Linear Algebra</title> 
+  <script type="text/javascript" charset="UTF-8"
+  src="https://cdn.jsdelivr.net/npm/jsxgraph@1.2.1/distrib/jsxgraphcore.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/jsxgraph@1.2.1/distrib/jsxgraph.css" />
+</head>
+
+<body>
+
+  <!-- A standard Twitter Bootstrap nav bar -->
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="container">
+      <div class="navbar-header">
+        <a href="/" class="navbar-brand">
+          <img class="navbar-logo" src="/assets/profile-small.jpg" width="40"></img>
+        </a>
+      </div>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar_collapse" aria-controls="navbar_collapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbar_collapse">
+        <ul class="nav navbar-nav">
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/teaching/">Teaching</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="/technology/">Technology</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="/resume/">Resume</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">About</a>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav ml-auto">
+          <li class="nav-item">
+            <div>
+                <div class="tipue_search_left_menu">
+                <a class="nav-link" href="/search/">
+                  <img src="/assets/glass.svg" class="tipue_navbar_icon default">
+                  <img src="/assets/glass_light.svg" class="tipue_navbar_icon hover"></a>
+                </div>
+              
+              <div class="tipue_search_right">
+                <form action="/search/" class="menu-form hover">
+                    <input type="text" name="q" id="tipue_search_input_menu" pattern=".{3,}" title="At least 3 characters" required>
+                </form>
+              </div>
+              
+            </div>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </nav>
+
+
+  <div class="container">
+    <div class="row">
+      <!-- Main column -->
+      <div id="content" class="col-md-12">
+
+        <!-- Content appended here --><div class="franklin-content"><h1 id="math_0520_introductory_linear_algebra"><a href="#math_0520_introductory_linear_algebra" class="header-anchor">Math 0520: Introductory Linear Algebra</a></h1>
+<h2 id="course_documents"><a href="#course_documents" class="header-anchor">Course documents</a></h2>
+<ul>
+<li><p><a href="pdf/cheatsheet.pdf">Summary of learning objectives</a> <a href="pdf/cheatsheet_printable.pdf">&#91;printable&#93;</a></p>
+</li>
+<li><p><a href="coursesuccess">Learning resources for Math 520</a></p>
+</li>
+<li><p><a href="pdf/crash_course_set_theory.pdf">A little set theory</a></p>
+</li>
+<li><p><a href="pdf/howtowriteproofs.pdf">Guide to Writing Proofs</a></p>
+</li>
+<li><p><a href="pdf/math520_syllabus.pdf">Syllabus</a></p>
+</li>
+</ul>
+<h2 id="class_notes_and_videos"><a href="#class_notes_and_videos" class="header-anchor">Class notes and videos</a></h2>
+
+<table class="lined tl1 tl4">
+<tr>
+<th width=28% style="text-align:center">Topic</th>
+<th width=32% colspan="2">Notes</th>
+<th>Videos</th>
+</tr>
+<tr>
+<td>Linear Systems</td>
+<td></td>
+<td><a href="pdf/notes_2017_01_26.pdf">Th 01/26</a></td>
+<td></td>
+</tr>
+<tr>
+<td>Vectors and Matrices</td>	
+<td><a href="pdf/notes_2017_01_31.pdf">Tu 01/31</a> </td>
+<td><a href="pdf/notes_2017_02_02.pdf">Th 02/02</a> </td>
+<td><a
+  href="https://www.youtube.com/watch?v=k7RM-ot2NWY&index=3&list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab&t=363s">[3b1b]</a></td>
+</tr>
+
+<tr>
+<td>Applications, Linear independence</td>
+<td><a href="pdf/notes_2017_02_07.pdf">Tu 02/07</a> </td>
+<td><a href="pdf/notes_2017_02_09.pdf">Th 02/09</a> </td>
+<td></td>
+</tr>
+<tr>
+<td>Linear transformations</td>
+<td><a href="pdf/notes_2017_02_14.pdf">Tu 02/14</a> </td>
+<td><a href="pdf/notes_2017_02_16.pdf">Th 02/16</a> </td>
+<td><a href="https://www.youtube.com/watch?v=kYB8IZa5AuE&index=4&list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab">[3b1b]</a>
+<a href="https://www.youtube.com/watch?v=XkY2DOUCWMU&t=29s&index=5&list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab">[3b1b]</a>
+<a href="https://www.youtube.com/watch?v=rHLEWRxRGiM&index=6&list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab">[3b1b]</a></td>
+</tr>
+<tr>
+<td>Matrix Inverses</td>
+<td>[break]</td>
+<td><a href="pdf/notes_2017_02_23.pdf">Th 02/23</a></td>
+<td><a href="https://www.youtube.com/watch?v=uQhTuRlWMxw&index=8&list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab">[3b1b]</a></td>
+</tr>
+<tr>
+<td>Linear subspaces</td>
+<td><a href="pdf/notes_2017_02_28.pdf">Tu 02/28</a></td>
+<td>[review]</td>
+<td><a href="https://www.youtube.com/watch?v=uQhTuRlWMxw&list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab&index=8">[3b1b]</a></td>
+</tr>
+<tr>
+<td>Determinants</td>
+<td><a href="pdf/notes_2017_03_07.pdf">Tu 03/07</a></td>
+<td><a href="pdf/notes_2017_03_09.pdf">Th 03/09</a></td>
+<td><a href="https://www.youtube.com/watch?v=Ip3X9LOh2dk&t=191s">[3b1b]</a></td>
+</tr>
+<tr>
+<td>Abstract Vector Spaces</td>	
+<td><a href="pdf/notes_2017_03_14.pdf">Tu 03/14</a></td>
+<td><a href="pdf/notes_2017_03_16.pdf">Th 03/16</a></td>
+<td><a href="lecture_videos">[ssw]</a>
+    <a href="https://www.youtube.com/watch?v=hAy0_ncPAj8">[ssw]</a>
+    <a href="https://www.youtube.com/watch?v=2ZKgkdFWNvE">[ssw]</a></td>
+</tr>
+<tr>
+<td>Basis and Dimension</td>
+<td><a href="pdf/notes_2017_03_21.pdf">Tu 03/21</a></td>
+<td><a href="pdf/notes_2017_03_23.pdf">Th 03/23</a></td>
+<td><a href="https://youtu.be/sFiBzViGXzk">[ssw]</a>
+    <a href="https://youtu.be/TWqMosNYfQw">[ssw]</a>
+    <a href="https://youtu.be/geM7CfTTJk4">[ssw]</a>
+    <a href="https://youtu.be/8aVqqTFG43c">[ssw]</a></td>
+</tr>
+<tr>
+<td>Change of basis and eigenvectors</td>
+<td><a href="pdf/notes_2017_04_04.pdf">Tu 04/04</a></td>
+<td><a href="pdf/notes_2017_04_06.pdf">Th 04/06</a></td>
+<td> 
+  <a href="https://www.youtube.com/watch?v=PFDu9oVAE-g">[3b1b]</a>
+    <a href="https://youtu.be/XiPZqjG8zGo">[ssw]</a>
+			  <a href="https://youtu.be/21eSkZzoc9c">[ssw]</a>
+	<a href="https://youtu.be/z3O7F2fSQt0">[ssw]</a>
+<a href="https://youtu.be/hoAk2bDHhfM">[ssw]</a>
+</td>
+</tr>
+<tr>
+<td>Diagonalization</td>
+<td><a href="pdf/notes_2017_04_11.pdf">Tu 04/11</a></td>
+<td><a href="pdf/notes_2017_04_13.pdf">Th 04/13</a></td>
+<td>
+  <a href="https://youtu.be/YHZGj7XkIi0">[ssw]</a>
+			<a href="https://youtu.be/Xnd8CFfThY4">[ssw]</a>
+		<a href="https://youtu.be/qnmx8lBykw4">[ssw]</a>
+	<a href="https://youtu.be/Q88enY3nilo">[ssw]</a>
+</td>
+</tr>
+<tr>
+<td>Complex eigenvalues and Inner products</td>
+	<td><a href="pdf/notes_2017_04_18.pdf">Tu 04/18</a></td>
+	<td><a href="pdf/notes_2017_04_20.pdf">Th 04/20</a></td>
+	<td>
+	  <a href="https://youtu.be/f11vMN1VxIY">[ssw]</a>
+				<a href="https://youtu.be/TokFy3jrN1Y">[ssw]</a>
+			<a href="https://youtu.be/EffLFL8igeM">[ssw]</a>
+		<a href="https://youtu.be/6FmVYwQ1f0Q">[ssw]</a>
+		</td>
+</tr>
+<tr>
+<td>Orthogonal Projection, Gram Schmidt, Least Squares Approximation</td>
+<td><a href="pdf/notes_2017_04_25.pdf">Th 04/25</a></td>
+<td><a href="pdf/notes_2017_04_27.pdf">Th 04/27</a></td>
+<td>
+<a href="https://youtu.be/JzoeuosO3lY">[ssw]</a>
+<a href="https://youtu.be/ShfPcab4SC8">[ssw]</a>
+<a href="https://youtu.be/SFk_BYPGsv0">[ssw]</a>
+<a href="https://youtu.be/gnkTXBzyeEw">[ssw]</a>
+</td>
+</tr>
+<tr>
+<td></td>
+<td>[review]</td>
+<td>[review]</td>
+<td>
+<a href="https://youtu.be/lC6wrpoBPe8">[ssw]</a>
+<a href="https://youtu.be/p9TAIBpU6D4">[ssw]</a>
+<a href="https://youtu.be/PJIZLBwpJFo">[ssw]</a>
+<a href="https://youtu.be/ktGDfJ42H2k">[ssw]</a>
+</td>
+</tr>
+</table>
+
+<h2 id="homework_problems"><a href="#homework_problems" class="header-anchor">Homework problems</a></h2>
+<ul>
+<li><p><a href="pdf/math520_pset1.pdf">Homework 1</a> <a href="pdf/math520_pset1sol.pdf">&#91;solution&#93;</a></p>
+</li>
+<li><p><a href="pdf/math520_pset2.pdf">Homework 2</a> <a href="pdf/math520_pset2sol.pdf">&#91;solution&#93;</a></p>
+</li>
+<li><p><a href="pdf/math520_pset3.pdf">Homework 3</a> <a href="pdf/math520_pset3sol.pdf">&#91;solution&#93;</a></p>
+</li>
+<li><p><a href="pdf/math520_pset4.pdf">Homework 4</a> <a href="pdf/math520_pset4sol.pdf">&#91;solution&#93;</a></p>
+</li>
+<li><p><a href="pdf/math520_pset5.pdf">Homework 5</a> <a href="pdf/math520_pset5sol.pdf">&#91;solution&#93;</a></p>
+</li>
+<li><p><a href="pdf/math520_pset6.pdf">Homework 6</a> <a href="pdf/math520_pset6sol.pdf">&#91;solution&#93;</a></p>
+</li>
+<li><p><a href="pdf/math520_pset7.pdf">Homework 7</a> <a href="pdf/math520_pset7sol.pdf">&#91;solution&#93;</a></p>
+</li>
+<li><p><a href="pdf/math520_pset8.pdf">Homework 8</a> <a href="pdf/math520_pset8sol.pdf">&#91;solution&#93;</a></p>
+</li>
+<li><p><a href="pdf/math520_pset9.pdf">Homework 9</a> <a href="pdf/math520_pset9sol.pdf">&#91;solution&#93;</a></p>
+</li>
+<li><p><a href="pdf/math520_pset10.pdf">Homework 10</a> <a href="pdf/math520_pset10sol.pdf">&#91;solution&#93;</a></p>
+</li>
+<li><p><a href="pdf/math520_nonhomework.pdf">Homework 11</a> <a href="pdf/pset11sol.pdf">&#91;solution&#93;</a></p>
+</li>
+</ul>
+<h2 id="exams"><a href="#exams" class="header-anchor">Exams</a></h2>
+<h3 id="midterm_i"><a href="#midterm_i" class="header-anchor">Midterm I</a></h3>
+<ul>
+<li><p><a href="pdf/math520_practicemidterm1.pdf">Practice Midterm I</a>   <a href="pdf/math520_practicemidterm1sol.pdf">&#91;solution&#93;</a></p>
+</li>
+<li><p><a href="pdf/math520_midterm1.pdf">Midterm I</a>   <a href="pdf/math520_midterm1sol.pdf">&#91;solution&#93;</a></p>
+</li>
+<li><p><a href="pdf/math520_alternatemidterm1.pdf">Midterm I alternate</a>   <a href="pdf/math520_midterm1alternatesol.pdf">&#91;solution&#93;</a></p>
+</li>
+</ul>
+<h3 id="midterm_ii"><a href="#midterm_ii" class="header-anchor">Midterm II</a></h3>
+<ul>
+<li><p><a href="pdf/practiceproblems.pdf">Midterm II Practice Problems</a>   <a href="pdf/practiceproblems_sol.pdf">&#91;solution&#93;</a></p>
+</li>
+<li><p><a href="pdf/math520_practicemidterm2.pdf">Practice Midterm II</a>   <a href="pdf/math520_practicemidterm2sol.pdf">&#91;solution&#93;</a></p>
+</li>
+<li><p>Review Session <a href="https://youtu.be/rL9URpaWMMk">1</a>   <a href="https://youtu.be/AvP7WVAb6fA">2</a></p>
+</li>
+<li><p><a href="pdf/math520_midterm2.pdf">Midterm II</a>   <a href="pdf/math520_midterm2sol.pdf">&#91;solution&#93;</a></p>
+</li>
+<li><p><a href="pdf/math520_midterm2alternate.pdf">Midterm II Alternate</a>   <a href="pdf/math520_midterm2alternatesol.pdf">&#91;solution&#93;</a></p>
+</li>
+</ul>
+<h3 id="final_exam"><a href="#final_exam" class="header-anchor">Final Exam </a></h3>
+<ul>
+<li><p>Final Exam Review Sessions <a href="https://youtu.be/pW0QcsVRTw4">1</a>   <a href="https://youtu.be/z2bQAKn95Nw">2</a>   <a href="https://youtu.be/rE4Cm0aZFBI">3</a></p>
+</li>
+<li><p><a href="pdf/math520_practicefinal.pdf">Practice Final</a>   <a href="pdf/math520_practicefinalsol.pdf">&#91;solution&#93;</a></p>
+</li>
+<li><p><a href="pdf/math520_finalsol.pdf">Final Exam Solutions</a></p>
+</li>
+</ul>
+<h2 id="quizzes"><a href="#quizzes" class="header-anchor">Quizzes</a></h2>
+<ul>
+<li><p><a href="pdf/math520_quiz1.pdf">Quiz 1</a> <a href="pdf/math520_quiz1sol.pdf">&#91;solution&#93;</a></p>
+</li>
+<li><p><a href="pdf/math520_quiz2.pdf">Quiz 2</a> <a href="pdf/math520_quiz2sol.pdf">&#91;solution&#93;</a></p>
+</li>
+</ul>
+<h2 id="computational_resources"><a href="#computational_resources" class="header-anchor">Computational resources</a></h2>
+<ul>
+<li><p><a href="computation">Instructions</a> for the course Julia package &#40;for performing matrix calculations&#41;.</p>
+</li>
+</ul>
+<!--
+<div class="page-foot">
+  <div class="copyright">
+    &copy; {{ fill author }}. Last modified: {{ fill fd_mtime }}. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
+  </div>
+</div>
+--></div><!-- CONTENT ENDS HERE -->
+        </div>
+      </div>
+    </div>
+    
+      <script type="text/javascript" src="/libs/jquery/jquery-3.3.1.min.js"></script>
+    
+    <script type="text/javascript" src="/libs/bootstrap/bootstrap.bundle.min.js"></script>
+    
+    
+    
+    
+      <!--collapsible lists:-->
+<script>
+$('h2').click(function(e) {
+  e.stopPropagation();
+  $(this).children('ul,ol').slideToggle();
+});
+$('li').click(function(e) {
+  e.stopPropagation();
+  $(this).children('ul,ol').slideToggle();
+});
+</script>
+    
+  </body>
+</html>

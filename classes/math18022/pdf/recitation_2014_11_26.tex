@@ -1,0 +1,225 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}  
+\usepackage[pdftex]{graphicx}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{wrapfig}
+\usepackage{sectsty}
+\usepackage{colonequals}
+\usepackage{color}
+\usepackage{calc}
+\usepackage{etoolbox}
+
+% COMMENT OUT THE SECOND LINE TO MAKE A HANDOUT WITHOUT SOLUTIONS
+\newtoggle{solutions}
+%\toggletrue{solutions}
+
+\usepackage{amsthm}
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{defn}{Definition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newtheorem{exercise}{Exercise}
+
+\usepackage{palatino} 
+\usepackage{pxfonts} 
+
+\sectionfont{\large}
+\sectionfont{\normalsize}
+
+\def\Arg{\mathop{\rm Arg}\nolimits}
+\def\Res{\mathop{\rm Res}}
+\renewcommand\Im{\mathop{\rm Im}\nolimits}
+\renewcommand\Re{\mathop{\rm Re}\nolimits}
+\newcommand\Arctan{\mathop{\rm Arctan}\nolimits}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\renewcommand{\P}{\mathbb{P}}
+\newcommand{\Chat}{\hat{\mathbb{C}}}
+\newcommand{\UHP}{\mathbb{H}}
+\DeclareMathOperator{\area}{area}
+\DeclareMathOperator{\dist}{dist}
+\DeclareMathOperator{\interior}{int}
+\DeclareMathOperator{\id}{id}
+
+\pagestyle{empty}
+
+\textwidth = 6.5 in
+\textheight = 9 in
+\oddsidemargin = -0.125 in
+\evensidemargin = 0.0 in
+\topmargin = -0.2 in
+\headheight = 0.0 in
+\headsep = 0.2 in
+\parskip = 0.2 in
+\parindent = 0.0 in
+
+\def\inv{^{-1}}
+
+\newcounter{prob}
+	\setcounter{prob}{1}
+
+\newcounter{subprob}
+	\setcounter{subprob}{1}
+
+\newcommand\itm{\theprob.  \stepcounter{prob}\setcounter{subprob}{1}}
+\newcommand\subitm{(\alph{subprob}) \refstepcounter{subprob}}
+
+\newcommand\sol[2]{\iftoggle{solutions}{\begin{proof}[Solution] #1\end{proof}}{#2}}
+%\newcommand\sol[2]{\iftoggle{solutions}{\textit{Solution}. #1}{#2}}
+%\newcommand\sol[2]{#2}
+
+
+\newcommand{\problem}[1]{
+\makebox[0.2cm]{\textbf{\itm}}  \begin{minipage}[t]{\linewidth-0.75cm}
+#1
+\end{minipage}
+}
+
+\newcommand\twomatrix[4]{
+\left(
+\begin{array}{cc}
+#1 & #2 \\
+#3 & #4
+\end{array}
+\right)
+}
+
+\renewcommand\vec[1]{\mathbf{#1}}
+\newcommand\pd[2]{\frac{\partial #1}{\partial #2}}
+
+\begin{document}
+\thispagestyle{empty}
+
+\begin{center}
+  18.022 Recitation Handout \iftoggle{solutions}{(with solutions)}{} \\
+  26 November 2014 \\
+\end{center}
+
+
+\itm Consider the polygon $P$ whose vertices are listed below, in counterclockwise order. Describe a simple algorithm for approximating the area of $P$. 
+$$ \tiny
+\begin{array}{cc}
+  x & y \\ \hline 
+ 1. & 0. \\
+ 0.990436 & 0.000510364 \\
+ 0.962169 & 0.00404386 \\
+ 0.916455 & 0.0134308 \\
+ 0.855307 & 0.031127 \\
+ 0.781385 & 0.059054 \\
+ 0.697852 & 0.0984698 \\
+ 0.608195 & 0.149879 \\
+ 0.516034 & 0.212985 \\
+ 0.42493 & 0.286693 \\
+ 0.338182 & 0.369151 \\
+ 0.258659 & 0.457849 \\
+ 0.188645 & 0.549739 \\
+ 0.129723 & 0.641405 \\
+ 0.0827009 & 0.729244 \\
+ 0.0475787 & 0.809659 \\
+ 0.0235696 & 0.879262 \\
+ 0.00916064 & 0.935053 \\
+ 0.00221855 & 0.974593 \\
+ 0.000130899 & 0.996135 \\
+ -0.0000248959 & 0.998721 \\
+ -0.00129456 & 0.982236 \\
+ -0.00665282 & 0.947413 \\
+ -0.0188134 & 0.895794 \\
+ -0.0400542 & 0.829645 \\
+ -0.0720676 & 0.751827 \\
+ -0.115845 & 0.665643 \\
+ -0.171601 & 0.574651 \\
+ -0.238745 & 0.482473 \\
+ -0.315899 & 0.392595 \\
+ -0.400957 & 0.30818 \\
+ -0.491197 & 0.231899 \\
+ -0.583415 & 0.165791 \\
+ -0.674106 & 0.111162 \\
+ -0.759645 & 0.0685255 \\
+ -0.836489 & 0.0375914 \\
+ -0.901371 & 0.0172975 \\
+ -0.951479 & 0.00589015 \\
+ -0.984611 & 0.00104315 
+\end{array}
+\begin{array}{cc}
+ -0.999301 & 0.0000100651 \\
+ -0.994893 & -0.000198912 \\
+ -0.971584 & -0.00262612 \\
+ -0.930411 & -0.0101725 \\
+ -0.873191 & -0.0254117 \\
+ -0.802423 & -0.0504237 \\
+  -0.721151 & -0.0866563 \\
+ -0.632792 & -0.134824 \\
+ -0.540951 & -0.194848 \\
+ -0.449221 & -0.265846 \\
+ -0.360994 & -0.346165 \\
+ -0.279269 & -0.433459 \\
+ -0.206502 & -0.524811 \\
+ -0.144474 & -0.616889 \\
+ -0.0942056 & -0.706119 \\
+ -0.0559169 & -0.788884 \\
+ -0.0290287 & -0.86172 \\
+ -0.0122151 & -0.921505 \\
+ -0.00349795 & -0.965635 \\
+ -0.000378337 & -0.992164 \\
+ 0.000000440875 & -0.999913 \\
+ 0.000669899 & -0.988538 \\
+ 0.00464303 & -0.958545 \\
+ 0.0147221 & -0.911264 \\
+ 0.0333185 & -0.848777 \\
+ 0.0622956 & -0.773799 \\
+ 0.102843 & -0.689529 \\
+ 0.15539 & -0.599477 \\
+ 0.219565 & -0.507267 \\
+ 0.294196 & -0.41644 \\
+ 0.377366 & -0.330264 \\
+ 0.466505 & -0.251558 \\
+ 0.558525 & -0.182543 \\
+ 0.649984 & -0.124732 \\
+ 0.73727 & -0.0788538 \\
+ 0.816797 & -0.0448348 \\
+ 0.885207 & -0.0218148 \\
+ 0.939547 & -0.00821674 \\
+ 0.977439 & -0.00185515 \\
+ 0.997206 & -0.0000804643
+\end{array}
+$$
+
+\sol{By Green's theorem, the area of $P$ equals $\oint_{\partial P}x\,dy$. Since the vertices of $P$ are close to one another, not much is lost by approximating $x$ as a constant along each segment. One algorithm works as follows: for each vertex starting with the second, multiply the $x$ coordinate by the difference between the $y$-coordinate and the previous vertex's $y$-coordinate. Add up the total to find an approximation for the area of $P$.}{}
+
+\iftoggle{solutions}{}{\newpage} 
+
+\itm (Fun/Challenge problem) A planimeter is a device used to calculate the area of a two-dimensional region. In this problem, we explore the mathematics behind how the planimeter works. (Thanks to Wikipedia for the figures and the description below).  
+
+\begin{center}
+  \begin{minipage}{8cm}
+    \includegraphics[width=8cm]{figures/planfig}
+  \end{minipage}
+  \begin{minipage}{8cm}
+\includegraphics[width=8cm]{figures/planimeter.jpg}
+\end{minipage} 
+\end{center}
+
+The pointer $M$ at one end of the planimeter follows the contour $C$ of the surface $S$ to be measured. For the linear planimeter the movement of the ``elbow'' $E$ is restricted to the $y$-axis. Connected to the arm $ME$ is the measuring wheel with its axis of rotation parallel to $ME$. A movement of the arm $ME$ can be decomposed into a movement perpendicular to $ME$, causing the measuring wheel to rotate, and a movement parallel to $ME$, causing the measuring wheel to skid, with no contribution to its reading.
+
+Use Green's theorem to explain why the final reading on the measuring wheel is equal to the area of the surface $S$. 
+
+\sol{Let the coordinates of $M$ be $x$ and $y$. Note that for each $(x,y)$ close enough to the $y$-axis, there are two points on the $y$-axis whose distance from $(x,y)$ is equal to the length $|EM|$ of the elbow. Define $b(x,y)$ to be the $y$-coordinate of the lower one. Note that as we move the needle around $C$, the measuring wheel only registers the component of $(dx,dy)$ in the direction perpendicular to $\overrightarrow{EM}=(x,y-b)$. To rotate a vector 90 degrees, we swap the coordinates and negate the first. In other words, the final measurement is 
+\[
+\oint_C -(y-b(x,y))\,dx + x\,dy. 
+\]
+By Green's theorem, this is equal to 
+\[
+\iint_{S} \left(\frac{\partial x}{\partial x} + \frac{\partial(y-b(x,y))}{\partial y}\right)\,dx\,dy.
+\]
+We claim that $\frac{\partial b(x,y)}{\partial y}=1$. Indeed, if $x$ is held constant while $y$ is increased or decreased, $b(x,y)$ will change by the same amount that $y$ changed (this is apparent geometrically; there is no need for a formula for $b$). Thus the partial derivative of $b$ with respect to $y$ is 1. Substituting into the above integral, we get $\iint_S \,dx\,dy = \text{area}(S)$.  
+}{\vfill} 
+
+\end{document}
+

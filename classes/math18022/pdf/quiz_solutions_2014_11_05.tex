@@ -1,0 +1,90 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}  
+\usepackage[pdftex]{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{wrapfig}
+\usepackage{colonequals}
+\usepackage{calc}
+\usepackage{etoolbox}
+\usepackage{amsthm} 
+
+% COMMENT OUT THE SECOND LINE TO MAKE A HANDOUT WITHOUT SOLUTIONS
+\newtoggle{solutions}
+\toggletrue{solutions}
+
+\usepackage{palatino} 
+\usepackage{pxfonts} 
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\renewcommand{\P}{\mathbb{P}}
+
+\renewcommand\vec[1]{\mathbf{#1}}
+\newcommand\pd[2]{\frac{\partial #1}{\partial #2}}
+
+\pagestyle{empty}
+
+\textwidth = 6.5 in
+\textheight = 9 in
+\oddsidemargin = -0.125 in
+\evensidemargin = 0.0 in
+\topmargin = -0.2 in
+\headheight = 0.0 in
+\headsep = 0.2 in
+\parskip = 0.2 in
+\parindent = 0.0 in
+
+\def\inv{^{-1}}
+
+\newcounter{prob}
+	\setcounter{prob}{1}
+
+\newcounter{subprob}
+	\setcounter{subprob}{1}
+
+\newcommand\itm{\theprob.  \stepcounter{prob}\setcounter{subprob}{1}}
+\newcommand\subitm{(\alph{subprob}) \refstepcounter{subprob}}
+
+\newcommand\sol[2]{\iftoggle{solutions}{\begin{proof}[Solution] #1\end{proof}}{#2}}
+
+\newcommand{\problem}[1]{
+\makebox[0.2cm]{\textbf{\itm}}  \begin{minipage}[t]{\linewidth-0.75cm}
+#1
+\end{minipage}
+}
+
+\newcommand\twomatrix[4]{
+\left(
+\begin{array}{cc}
+#1 & #2 \\
+#3 & #4
+\end{array}
+\right)
+}
+
+\begin{document}
+\thispagestyle{empty}
+
+\begin{center}
+  18.022 Recitation Quiz \iftoggle{solutions}{(with solutions)}{} \\
+  5 November 2015 
+\end{center}
+
+\itm (5.5.30 in \textit{Colley}) Find the volume of the solid that is bounded by the paraboloid $z = 9 - x^2 - y^2$, the $xy$-plane, and the boundary of $[-1,1]\times[-1,1]\times \R$. 
+
+\sol{
+  To find the volume of the region, we integrate 1 over the region. We calculate 
+\begin{align*}
+  \text{volume} &= \int_{-1}^{1}\int_{-1}^{1}\int_{0}^{9-x^2-y^2}1\,dz\,dy\,dx \\
+  &= \int_{-1}^{1}\int_{-1}^{1}9-x^2-y^2\,dy\,dx \\
+  &= \int_{-1}^{1}[9y-x^2y-y^3/3]_{-1}^{1}\,dx = \boxed{100/3}. \qedhere
+\end{align*}
+}{\vfill}
+
+\end{document}
+

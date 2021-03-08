@@ -1,0 +1,174 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}  
+\usepackage[pdftex]{graphicx}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{wrapfig}
+\usepackage{sectsty}
+\usepackage{colonequals}
+\usepackage{color}
+\usepackage{calc}
+\usepackage{etoolbox}
+
+% COMMENT OUT THE SECOND LINE TO MAKE A HANDOUT WITHOUT SOLUTIONS
+\newtoggle{solutions}
+\toggletrue{solutions}
+
+\usepackage{amsthm}
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{defn}{Definition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newtheorem{exercise}{Exercise}
+
+\usepackage{palatino} 
+\usepackage{pxfonts} 
+
+\sectionfont{\large}
+\sectionfont{\normalsize}
+
+\def\Arg{\mathop{\rm Arg}\nolimits}
+\def\Res{\mathop{\rm Res}}
+\renewcommand\Im{\mathop{\rm Im}\nolimits}
+\renewcommand\Re{\mathop{\rm Re}\nolimits}
+\newcommand\Arctan{\mathop{\rm Arctan}\nolimits}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\renewcommand{\P}{\mathbb{P}}
+\newcommand{\Chat}{\hat{\mathbb{C}}}
+\newcommand{\UHP}{\mathbb{H}}
+\DeclareMathOperator{\area}{area}
+\DeclareMathOperator{\dist}{dist}
+\DeclareMathOperator{\interior}{int}
+\DeclareMathOperator{\id}{id}
+
+\pagestyle{empty}
+
+\textwidth = 6.5 in
+\textheight = 9 in
+\oddsidemargin = -0.125 in
+\evensidemargin = 0.0 in
+\topmargin = -0.2 in
+\headheight = 0.0 in
+\headsep = 0.2 in
+\parskip = 0.2 in
+\parindent = 0.0 in
+
+\def\inv{^{-1}}
+
+\newcounter{prob}
+	\setcounter{prob}{1}
+
+\newcounter{subprob}
+	\setcounter{subprob}{1}
+
+\newcommand\itm{\theprob.  \stepcounter{prob}\setcounter{subprob}{1}}
+\newcommand\subitm{(\alph{subprob}) \refstepcounter{subprob}}
+
+\newcommand\sol[2]{\iftoggle{solutions}{\begin{proof}[Solution] #1\end{proof}}{#2}}
+%\newcommand\sol[2]{\iftoggle{solutions}{\textit{Solution}. #1}{#2}}
+%\newcommand\sol[2]{#2}
+
+
+\newcommand{\problem}[1]{
+\makebox[0.2cm]{\textbf{\itm}}  \begin{minipage}[t]{\linewidth-0.75cm}
+#1
+\end{minipage}
+}
+
+\newcommand\twomatrix[4]{
+\left(
+\begin{array}{cc}
+#1 & #2 \\
+#3 & #4
+\end{array}
+\right)
+}
+
+\renewcommand\vec[1]{\mathbf{#1}}
+\newcommand\pd[2]{\frac{\partial #1}{\partial #2}}
+
+\begin{document}
+\thispagestyle{empty}
+
+\begin{center}
+  18.022 Recitation Handout \iftoggle{solutions}{(with solutions)}{} \\
+  01 December 2014 \\
+\end{center}
+
+\itm (7.1.30 in \textit{Colley}, 4th edition) Let $S$ be the surface defined by
+\[
+z = \frac{1}{\sqrt{x^2+y^2}} \text{ for } z \geq 1. 
+\]
+(a) Sketch the graph of this surface.  
+
+(b) Show that the volume of the region bounded by $S$ and the plane $z = 1$ is finite. (You will need to use an improper integral.)  
+
+(c) Show that the surface area of S is infinite. 
+
+\sol{(a) See the graph below. 
+\begin{center}
+  \includegraphics[width=4cm]{figures/graph}
+\end{center}
+(b) The volume is given by $\int_0^1\int_0^{2\pi} (r^{-1}-1)r\,d\theta\,dr= \int_0^1\int_0^{2\pi} (1-r)\,d\theta\,dr$, which is finite since the integrand is bounded and the region of integration is compact. (c) The surface area of $S$ is given by 
+\begin{align*}
+  \int_0^1 \int_0^{2\pi} \sqrt{1+f_x^2+f_y^2} \,r\,d\theta\,dr &=   \int_0^1 \int_0^{2\pi} \sqrt{1+x^2/(x^2+y^2)^3+y^2/(x^2+y^2)^3} \,r\,d\theta\,dr \\ 
+  &= \int_0^1 \int_0^{2\pi} \sqrt{1+r^{-4}}\,r\,d\theta\,dr \\
+  &= 2\pi \int_0^1 \sqrt{r^2+r^{-2}} \,dr. 
+\end{align*}
+This integral is infinite because the second term dominates, and $\int_0^1 \frac{dr}{r} = +\infty$. To prove this rigorously, we can drop the first term:
+\[
+2\pi \int_0^1 \sqrt{r^2+r^{-2}} \,dr \geq 2\pi \int_0^1 \sqrt{r^{-2}} \,dr =+\infty.  \qedhere
+\]
+}{\vfill}
+
+\itm (7.2.1 in \textit{Colley}, 4th edition) Let $\vec{X}(s,t)=(s,s+t,t)$, $0\leq s\leq1$, $0\leq t\leq2$. Find $\iint_\textbf{X} (x^2+y^2+z^2)dS$.
+
+\sol{We have 
+\[
+\int_0^1\int_0^2(s^2+(s+t)^2+t^2)\overbrace{\sqrt{\left(\frac{\partial(x,y)}{\partial(s,t)}\right)^2+\left(\frac{\partial(x,z)}{\partial(s,t)}\right)^2+\left(\frac{\partial(y,z)}{\partial(s,t)}\right)^2}}^{\sqrt{3}}\,dt\,ds = \boxed{26\sqrt{3}/3}. \qedhere
+\]
+}{\vfill}
+
+\iftoggle{solutions}{}{\newpage}
+
+\itm (7.2.27 in \textit{Colley}, 4th edition) Let $S$ be the funnel-shaped surface defined by $x^2 + y^2 = z^2$ for $1 \leq  z \leq  9$ and $x^2 + y^2 = 1$ for $0 \leq  z \leq  1$.
+
+(a) Sketch $S$. 
+
+(b) Determine outward-pointing unit normal vectors
+to S.
+
+(c) Evaluate $\iint_S \vec{F}\cdot d\vec{S}$, where $\vec{F}=−y\vec{i}+x\vec{j}+z\vec{k}$
+and $S$ is oriented by outward normals.
+
+\sol{(a) See the graph below.
+  \begin{center}
+    \includegraphics[width=8cm]{figures/funnel}
+  \end{center}
+(b) The outward pointing unit vectors on the cylindrical part of the cylinder are $x\vec{i} + y \vec{j}$. On the lateral face, the unit normal is $\left(\frac{x}{z\sqrt{2}},\frac{y}{z\sqrt{2}},-\frac{1}{\sqrt{2}}\right)$. (c) We calculate over the cylindrical surface $S_1$
+\begin{align*}
+  \iint_{S_1} \vec{F}\cdot d\vec{S} = \iint_{S_1} (-y,x,z) \cdot (x,y,0) \,dS = \iint_{S_1} 0 \,dS = 0.
+\end{align*} 
+Over the conical surface, we calculate 
+\begin{align*}
+  \iint_{S_2} \vec{F}\cdot d\vec{S} &= \iint_{S_1} (-y,x,z) \cdot \left(\frac{x}{z\sqrt{2}},\frac{y}{z\sqrt{2}},-\frac{1}{\sqrt{2}}\right) \,dS  \\
+  &= -\frac{1}{\sqrt{2}} \iint_{S_1} z\,dS. 
+%  &= \boxed{-1456\pi/3}.
+\end{align*} 
+To evaluate this surface integral, we use slices perpendicular to the $z$-axis. The slice at height $z$ is a thin circular strip of radius $z$ and width $z\sqrt{2}$ (the factor of $\sqrt{2}$ arising from the 45$^\circ$ lean). Thus 
+\begin{align*}
+  -\frac{1}{\sqrt{2}} \iint_{S_1} z\,dS &= -\frac{1}{\sqrt{2}}\int_1^9 2\pi z (z\sqrt{2})\,dz \\&= 2\pi\left[ z^3/3 \right]_1^9 \\
+  &= -1456\pi/3.
+\end{align*}
+Adding the contributions from $S_1$ and $S_2$, we get $\boxed{-1456\pi/3}$. 
+}{\vfill}
+
+\end{document}
+

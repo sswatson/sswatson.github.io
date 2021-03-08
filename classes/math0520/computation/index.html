@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  
+  <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="/css/tipuesearch.css">
+  <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="/css/scribble.css">
+  <link rel="stylesheet" type="text/css" href="/css/franklin.css">
+  <link rel="stylesheet" type="text/css" href="/css/custom.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
+  <link rel="icon" href="/assets/favicon/favicon.ico">
+  <link rel="manifest" href="/assets/favicon/manifest.json">
+  
+  
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <title>Computation Resources for Linear Algebra Students</title> 
+  <script type="text/javascript" charset="UTF-8"
+  src="https://cdn.jsdelivr.net/npm/jsxgraph@1.2.1/distrib/jsxgraphcore.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/jsxgraph@1.2.1/distrib/jsxgraph.css" />
+</head>
+
+<body>
+
+  <!-- A standard Twitter Bootstrap nav bar -->
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="container">
+      <div class="navbar-header">
+        <a href="/" class="navbar-brand">
+          <img class="navbar-logo" src="/assets/profile-small.jpg" width="40"></img>
+        </a>
+      </div>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar_collapse" aria-controls="navbar_collapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbar_collapse">
+        <ul class="nav navbar-nav">
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/teaching/">Teaching</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="/technology/">Technology</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="/resume/">Resume</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">About</a>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav ml-auto">
+          <li class="nav-item">
+            <div>
+                <div class="tipue_search_left_menu">
+                <a class="nav-link" href="/search/">
+                  <img src="/assets/glass.svg" class="tipue_navbar_icon default">
+                  <img src="/assets/glass_light.svg" class="tipue_navbar_icon hover"></a>
+                </div>
+              
+              <div class="tipue_search_right">
+                <form action="/search/" class="menu-form hover">
+                    <input type="text" name="q" id="tipue_search_input_menu" pattern=".{3,}" title="At least 3 characters" required>
+                </form>
+              </div>
+              
+            </div>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </nav>
+
+
+  <div class="container">
+    <div class="row">
+      <!-- Main column -->
+      <div id="content" class="col-md-12">
+
+        <!-- Content appended here --><div class="franklin-content"><h1 id="computation_resources_for_linear_algebra_students"><a href="#computation_resources_for_linear_algebra_students" class="header-anchor">Computation Resources for Linear Algebra Students</a></h1>
+<p>I have made a package in <a href="http://julialang.org">Julia</a> to help ease some of the more computationally tedious aspects of the course. Your use of this resource is optional, but I have attempted to make it as convenient as possible.</p>
+<ol>
+<li><p>Go to <a href="http://juliabox.com">JuliaBox</a> and login &#40;you can use Google credentials, such as your Brown login&#41;</p>
+</li>
+<li><p>Select &quot;Julia 0.5.0&quot; from the &quot;New&quot; pulldown menu in the top right</p>
+</li>
+<li><p>Type <code>Pkg.clone&#40;&quot;git://github.com/sswatson/IntroLinearAlgebra.jl.git&quot;&#41;</code> into the first cell and type shift&#43;enter to run it</p>
+</li>
+<li><p>In the second cell type <code>using IntroLinearAlgebra</code> and type shift&#43;enter to run it</p>
+</li>
+<li><p>You&#39;re good to go&#33; You can check out this <a href="IntroLinearAlgebra_Tutorial.html">tutorial notebook</a> for examples you can copy and paste to get started. I have checked that that whole notebook runs smoothly on a fresh JuliaBox session. Since it intermingles installation with calculation; <a href="IntroLinearAlgebra_Example.html">here&#39;s</a> a cleaner one showing a example session after you have everything installed.</p>
+</li>
+</ol>
+<p>If you don&#39;t want to have to visit juliabox.com, Julia is easy to <a href="http://julialang.org/downloads/">install</a> on your own computer. You&#39;ll also want to install the notebook interface <a href="https://github.com/JuliaLang/IJulia.jl">IJulia</a>, which is a bit less trivial but still doable. IJulia will still run in your browser, but it won&#39;t be connecting to the internet &#40;the content is served on your own machine&#41;.</p>
+<p>&lt;center&gt; &lt;img src&#61;&quot;images/julia1.png&quot; style&#61;&quot;width:600px&quot;&gt; &lt;img src&#61;&quot;images/julia2.png&quot; style&#61;&quot;width:600px&quot;&gt; &lt;/center&gt;</p>
+<!--
+<div class="page-foot">
+  <div class="copyright">
+    &copy; {{ fill author }}. Last modified: {{ fill fd_mtime }}. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
+  </div>
+</div>
+--></div><!-- CONTENT ENDS HERE -->
+        </div>
+      </div>
+    </div>
+    
+      <script type="text/javascript" src="/libs/jquery/jquery-3.3.1.min.js"></script>
+    
+    <script type="text/javascript" src="/libs/bootstrap/bootstrap.bundle.min.js"></script>
+    
+    
+    
+    
+      <!--collapsible lists:-->
+<script>
+$('h2').click(function(e) {
+  e.stopPropagation();
+  $(this).children('ul,ol').slideToggle();
+});
+$('li').click(function(e) {
+  e.stopPropagation();
+  $(this).children('ul,ol').slideToggle();
+});
+</script>
+    
+  </body>
+</html>

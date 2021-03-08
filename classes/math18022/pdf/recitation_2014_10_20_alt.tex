@@ -1,0 +1,154 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8x]{inputenc}
+\usepackage[L7x]{fontenc}  
+\usepackage[pdftex]{graphicx}
+%\usepackage{fourier}
+\usepackage{hyperref}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{wrapfig}
+\usepackage{sectsty}
+\usepackage{asymptote}
+\usepackage{colonequals}
+\usepackage{color}
+\usepackage{calc}
+\usepackage{etoolbox}
+
+% COMMENT OUT THE SECOND LINE TO MAKE A HANDOUT WITHOUT SOLUTIONS
+\newtoggle{solutions}
+%\toggletrue{solutions}
+
+\usepackage{amsthm}
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{defn}{Definition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newtheorem{exercise}{Exercise}
+
+\sectionfont{\large}
+\sectionfont{\normalsize}
+
+\def\Arg{\mathop{\rm Arg}\nolimits}
+\def\Res{\mathop{\rm Res}}
+\renewcommand\Im{\mathop{\rm Im}\nolimits}
+\renewcommand\Re{\mathop{\rm Re}\nolimits}
+\newcommand\Arctan{\mathop{\rm Arctan}\nolimits}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\renewcommand{\P}{\mathbb{P}}
+\newcommand{\Chat}{\hat{\mathbb{C}}}
+\newcommand{\UHP}{\mathbb{H}}
+\DeclareMathOperator{\area}{area}
+\DeclareMathOperator{\dist}{dist}
+\DeclareMathOperator{\interior}{int}
+\DeclareMathOperator{\id}{id}
+
+\pagestyle{empty}
+
+\textwidth = 6.5 in
+\textheight = 9 in
+\oddsidemargin = -0.125 in
+\evensidemargin = 0.0 in
+\topmargin = -0.2 in
+\headheight = 0.0 in
+\headsep = 0.2 in
+\parskip = 0.2 in
+\parindent = 0.0 in
+
+\def\inv{^{-1}}
+
+\newcounter{prob}
+	\setcounter{prob}{1}
+
+\newcounter{subprob}
+	\setcounter{subprob}{1}
+
+\newcommand\itm{\theprob.  \stepcounter{prob}\setcounter{subprob}{1}}
+\newcommand\subitm{(\alph{subprob}) \refstepcounter{subprob}}
+
+\newcommand\sol[2]{\iftoggle{solutions}{\textit{Solution}. #1}{#2}}
+%\newcommand\sol[2]{#2}
+
+
+\newcommand{\problem}[1]{
+\makebox[0.2cm]{\textbf{\itm}}  \begin{minipage}[t]{\linewidth-0.75cm}
+#1
+\end{minipage}
+}
+
+\newcommand\twomatrix[4]{
+\left(
+\begin{array}{cc}
+#1 & #2 \\
+#3 & #4
+\end{array}
+\right)
+}
+
+\renewcommand\vec[1]{\mathbf{#1}}
+\newcommand\pd[2]{\frac{\partial #1}{\partial #2}}
+
+\begin{document}
+\thispagestyle{empty}
+
+\begin{center}
+  18.022 Recitation Handout \iftoggle{solutions}{(with solutions)}{} \\
+  20 October 2014 
+\end{center}
+
+\itm (3.2.17 in \textit{Colley}) Use the formula 
+\[
+\kappa = \frac{\|\vec{v}\times\vec{a}\|}{\|\vec{v}\|^3}
+\]
+to show that if $f$ is $C^2$ on an interval $[a,b]$ then the curvature of the graph $y=f(x)$ is 
+\[
+\kappa  = \frac{|f''(x)|}{\left(1+(f'(x))^2\right)^{3/2}}. 
+\]
+
+\sol{We parametrize the graph as usual by $\vec{x}(t)=(t,f(t))$ for $t\in [a,b]$. Then $\vec{v}(t)=(1,f'(t))$ and $\vec{a}(t) = (0,f''(t))$. Taking the norm of $\vec{v}\times \vec{a}$ gives $|f''(t)|$, and $\|v\|^{3/2}=(1+f'(t)^2)^{3/2}$. Substituting into the given formula gives the desired expression for $\kappa$. 
+}{\vfill}
+
+\itm Sketch the vector field $\vec{F} = \left(\frac{2x}{x^2+y^2},-\frac{2y}{x^2+y^2}\right)$. 
+
+
+\sol{See the figure at \href{http://math.mit.edu/~sswatson/sleanimation.html}{http://math.mit.edu/$\sim$sswatson/sleanimation.html.}}{\vfill}
+
+\iftoggle{solutions}{}{\newpage} 
+
+
+\itm Find the divergence and curl of $\vec{F} = (2x^2, xe^z, -4y)$. 
+
+\sol{The divergence of $\vec{F}$ is $\pd{}{x}(2x^2) + \pd{}{y}(xe^z) + \pd{}{z}(-4y)  =\boxed{4x}. $ The curl is 
+\[
+\nabla \times \vec{F} = 
+\left|
+\begin{array}{ccc}
+  \vec{i} & \vec{j} & \vec{k} \\
+  \pd{}{x} & \pd{}{y} & \pd{}{z} \\
+  2x^2 & xe^z & -4y
+\end{array} 
+\right| = \boxed{(-4-xe^z) \vec{i}  + e^z \vec{k}}.
+\]
+}{\vfill}
+
+
+\itm Let $f(x,y) = \log(x^2 + y^2)$ for $(x,y)\in \R^2 \setminus \{(0,0)\}$. Show that $\nabla \cdot (\nabla f) = 0$. 
+
+\sol{The gradient of $f$ is
+\[
+\nabla f = \left(\frac{x}{x^2+y^2},\frac{y}{x^2+y^2}\right). 
+\]
+The divergence of this vector field is 
+\[
+\nabla \cdot (\nabla f) = \frac{\partial}{\partial x}\left[\frac{x}{x^2+y^2}\right]+\frac{\partial}{\partial y}\left[\frac{y}{x^2+y^2}\right]
+ = \frac{y^2 - x^2}{(x^2 + y^2)^2}+\frac{x^2-y^2}{(x^2 + y^2)^2}=0.\]
+}{\vfill}
+
+
+
+\end{document}
+

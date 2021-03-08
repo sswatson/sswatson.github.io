@@ -1,0 +1,215 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8x]{inputenc}
+\usepackage[L7x]{fontenc}  
+\usepackage[pdftex]{graphicx}
+\usepackage{fourier}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{wrapfig}
+\usepackage{sectsty}
+\usepackage{asymptote}
+\usepackage{colonequals}
+\usepackage{color}
+\usepackage{calc}
+\usepackage{etoolbox}
+
+% COMMENT OUT THE SECOND LINE TO MAKE A HANDOUT WITHOUT SOLUTIONS
+\newtoggle{solutions}
+\toggletrue{solutions}
+
+\usepackage{amsthm}
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{defn}{Definition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newtheorem{exercise}{Exercise}
+
+\sectionfont{\large}
+\sectionfont{\normalsize}
+
+\def\Arg{\mathop{\rm Arg}\nolimits}
+\def\Res{\mathop{\rm Res}}
+\renewcommand\Im{\mathop{\rm Im}\nolimits}
+\renewcommand\Re{\mathop{\rm Re}\nolimits}
+\newcommand\Arctan{\mathop{\rm Arctan}\nolimits}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\renewcommand{\P}{\mathbb{P}}
+\newcommand{\Chat}{\hat{\mathbb{C}}}
+\newcommand{\UHP}{\mathbb{H}}
+\DeclareMathOperator{\area}{area}
+\DeclareMathOperator{\dist}{dist}
+\DeclareMathOperator{\interior}{int}
+\DeclareMathOperator{\id}{id}
+
+\pagestyle{empty}
+
+\textwidth = 6.5 in
+\textheight = 9 in
+\oddsidemargin = -0.125 in
+\evensidemargin = 0.0 in
+\topmargin = -0.2 in
+\headheight = 0.0 in
+\headsep = 0.2 in
+\parskip = 0.2 in
+\parindent = 0.0 in
+
+\def\inv{^{-1}}
+
+\newcounter{prob}
+	\setcounter{prob}{1}
+
+\newcounter{subprob}
+	\setcounter{subprob}{1}
+
+\newcommand\itm{\theprob.  \stepcounter{prob}\setcounter{subprob}{1}}
+\newcommand\subitm{(\alph{subprob}) \refstepcounter{subprob}}
+
+\newcommand\sol[2]{\iftoggle{solutions}{\textit{Solution}. #1}{#2}}
+%\newcommand\sol[2]{#2}
+
+
+\newcommand{\problem}[1]{
+\makebox[0.2cm]{\textbf{\itm}}  \begin{minipage}[t]{\linewidth-0.75cm}
+#1
+\end{minipage}
+}
+
+\newcommand\twomatrix[4]{
+\left(
+\begin{array}{cc}
+#1 & #2 \\
+#3 & #4
+\end{array}
+\right)
+}
+
+\renewcommand\vec[1]{\mathbf{#1}}
+\newcommand\pd[2]{\frac{\partial #1}{\partial #2}}
+
+\begin{document}
+\thispagestyle{empty}
+
+\begin{center}
+  18.022 Recitation Handout \iftoggle{solutions}{(with solutions)}{} \\
+  15 October 2014 
+\end{center}
+
+
+\itm Sketch the image of the path $\vec{x}(t)=(\cos t, \sin 2t)$.
+
+\sol{
+As $t$ goes from $0$ to $\pi/2$, the $x$-coordinate of $\vec{x}$ varies
+from 1 to 0, while the $y$-coordinate varies from 0 to 1 and back to
+0. Superimposing these two ``pen'' movements (like an etch-a-sketch), we get a
+bump going from $(1,0)$ to $(0,0)$, as shown in the first quadrant
+below. Letting $t$ continue to increase produces the three more copies of this
+shape in the other three quadrants. 
+\begin{center}
+  \includegraphics{figures/parametric4} 
+\end{center}
+}{
+
+\vfill
+}
+
+\itm Find the arclength of the graph of $f(x)=\frac23(x-1)^{3/2}$ between the points $(1,0)$ and $(4,2\sqrt{3})$. 
+
+\sol{
+We calculate $\int_{1}^4 \sqrt{1+f'(x)^2}=\int_{1}^4
+\sqrt{1+(\sqrt{x-1})^2}\,dx=\boxed{14/3}$. 
+}
+{
+\vfill
+}
+
+\iftoggle{solutions}{}{\newpage}
+
+\itm Consider the function $\mathbf{F}:\R^3\to\R^2$ defined by $\mathbf{F}(x,y,z)=(3x/y,2x+e^z)$.
+
+(a) Find $D\mathbf{F}$.
+
+\sol{ The total derivative is the matrix of partial derivatives:
+\[
+\left(
+  \begin{array}{ccc}
+    3/y & -3x/y^2 & 0 \\
+    2 & 0 & e^z
+  \end{array}
+\right)
+\]
+}
+{\vfill}
+
+(b) Show that there exists an open set $U\subset \R$ containing $1$ and a function $\mathbf{f}:U\to \R^2$ such that for all $x\in U$, the equations 
+$\mathbf{F}(x,y,z)=\mathbf{F}(1,-2,0)$
+have a unique solution $(y,z)=\mathbf{f}(x)$. Show that $\mathbf{f}$ is $C^1$. 
+
+\sol{ The implicit function theorem ensures that we can solve (abstractly)
+  for $(y,z)$ in terms of $x$ if the matrix of partial derivatives
+  corresponding to the $y$ and $z$ columns has nonvanishing determinant. In
+  this case, that means 
+\[
+\det \left(
+  \begin{array}{ccc}
+    -3x/y^2 & 0 \\
+    0 & e^z
+  \end{array}
+\right) = \det \left(
+  \begin{array}{cc}
+    -3/4 & 0 \\
+    0 & 1
+  \end{array}
+\right) = -3/4 \neq 0,
+\]
+so the implicit function theorem does apply and gives us the desired
+function $\vec{f}$. The theorem also tells us that $\vec{f}$ is $C^1$. 
+} {\vfill }
+
+(c) Find $D\mathbf{f}(1)$. 
+
+\sol{
+  Since $\vec{F}(x,\vec{f}(x))=\vec{c}$ for some constant $\vec{c}$, we can
+  differentiate both sides to get $D\mathbf{f}=-A^{-1}B$, where the matrix
+  $A$ is the one obtained by taking the $y$ and $z$ columns of
+  $D\vec{F}$ and $B$ is the matrix obtained by considering the remaining
+  columns. We get 
+\[
+D\mathbf{f}(1) = \left(
+  \begin{array}{cc}
+    -3/4 & 0 \\
+    0 & 1
+  \end{array}
+\right)^{-1}\left(
+  \begin{array}{c}
+    -3/2 \\
+    0 
+  \end{array}
+\right) = \boxed{\left(\begin{array}{c}-2 \\-2\end{array}\right)}
+\]
+}{
+\vfill
+}
+
+
+\itm (from 3.2.15 in \textit{Colley}) Determine the moving frame $\{\vec{T},\vec{N},\vec{B}\}$, the curvature, the torsion, and the arc length parameter $s(t)$ for the curve 
+\[ 
+\vec{x} = \left(5, \frac13(t+1)^{3/2}, \frac13(1-t)^{3/2}\right), \qquad -1 < t < 1.  
+\]
+
+
+\sol{We have 
+\begin{align*}
+\vec{T} &= \vec{x}'(t)/\|\vec{x}'(t)\| = \left(1,\frac12\sqrt{t+1},-\frac12\sqrt{1-t}\right)/\sqrt{3/2}, \\
+\vec{N} &= \frac{d\vec{T}/dt}{\|d\vec{T}/dt\|} = 2\sqrt{2}\left(0,\frac12 \sqrt{1-t},\frac14\sqrt{t+1}\right), \\
+\vec{B} &=\vec{T}\times \vec{N} = (1,-\sqrt{t+1},\sqrt{1-t})/\sqrt{3}.
+\end{align*}
+The curvature and torsion are $\dfrac{\sqrt{2}}{6(1-t^2)}$ and $\dfrac{1}{3\sqrt{1-t^2}}$, respectively. The arclength parameter is $s(t) = \int_{0}^{t} \|\vec{x}'(\tau)\|\,d\tau = t/\sqrt{2}$. 
+}{\vfill}
+
+
+\end{document}

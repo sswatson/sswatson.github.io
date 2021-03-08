@@ -1,0 +1,140 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8x]{inputenc}
+\usepackage[L7x]{fontenc}  
+\usepackage[pdftex]{graphicx}
+\usepackage{fourier}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{wrapfig}
+\usepackage{sectsty}
+\usepackage{asymptote}
+\usepackage{colonequals}
+\usepackage{color}
+\usepackage{calc}
+\usepackage{etoolbox}
+
+% COMMENT OUT THE SECOND LINE TO MAKE A HANDOUT WITHOUT SOLUTIONS
+\newtoggle{solutions}
+\toggletrue{solutions}
+
+\usepackage{amsthm}
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{defn}{Definition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newtheorem{exercise}{Exercise}
+
+\sectionfont{\large}
+\sectionfont{\normalsize}
+
+\def\Arg{\mathop{\rm Arg}\nolimits}
+\def\Res{\mathop{\rm Res}}
+\renewcommand\Im{\mathop{\rm Im}\nolimits}
+\renewcommand\Re{\mathop{\rm Re}\nolimits}
+\newcommand\Arctan{\mathop{\rm Arctan}\nolimits}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\renewcommand{\P}{\mathbb{P}}
+\newcommand{\Chat}{\hat{\mathbb{C}}}
+\newcommand{\UHP}{\mathbb{H}}
+\DeclareMathOperator{\area}{area}
+\DeclareMathOperator{\dist}{dist}
+\DeclareMathOperator{\interior}{int}
+\DeclareMathOperator{\id}{id}
+
+\pagestyle{empty}
+
+\textwidth = 6.5 in
+\textheight = 9 in
+\oddsidemargin = -0.125 in
+\evensidemargin = 0.0 in
+\topmargin = -0.2 in
+\headheight = 0.0 in
+\headsep = 0.2 in
+\parskip = 0.2 in
+\parindent = 0.0 in
+
+\def\inv{^{-1}}
+
+\newcounter{prob}
+	\setcounter{prob}{1}
+
+\newcounter{subprob}
+	\setcounter{subprob}{1}
+
+\newcommand\itm{\theprob.  \stepcounter{prob}\setcounter{subprob}{1}}
+\newcommand\subitm{(\alph{subprob}) \refstepcounter{subprob}}
+
+\newcommand\sol[2]{\iftoggle{solutions}{\textit{Solution}. #1}{#2}}
+%\newcommand\sol[2]{#2}
+
+
+\newcommand{\problem}[1]{
+\makebox[0.2cm]{\textbf{\itm}}  \begin{minipage}[t]{\linewidth-0.75cm}
+#1
+\end{minipage}
+}
+
+\newcommand\twomatrix[4]{
+\left(
+\begin{array}{cc}
+#1 & #2 \\
+#3 & #4
+\end{array}
+\right)
+}
+
+\renewcommand\vec[1]{\mathbf{#1}}
+
+\begin{document}
+\thispagestyle{empty}
+
+\begin{center}
+  18.022 Recitation Quiz \iftoggle{solutions}{(with solutions)}{} \\
+  6 October 2014 
+\end{center}
+
+
+\itm Give a rough sketch of the image of the path $\vec{x}(t)=(e^t,\sqrt{t})$. 
+
+\sol{ The implied domain is $t\in [0,\infty)$, because the square root
+  function is undefined for negative inputs. The graph starts at
+  $\vec{x}(0)=(1,0)$ and moves up and to the right since both $e^t$ and
+  $\sqrt{t}$ increase as $t$ increases. Moreover, $e^t$ increases faster
+  than $\sqrt{t}$, so the graph is concave, as shown below. 
+\begin{center}
+  \includegraphics{figures/parametric6} 
+\end{center}
+}
+
+
+\vfill
+
+\itm Consider the unit circle centered at $(0,1)$ and the parabola $y=5x^2$. Find the arclength of the portion of the parabola which is contained inside the circle. Feel free to leave your answer as an unevaluated definite integral (but no variables allowed, except dummy variables). 
+
+\iftoggle{solutions}{\begin{wrapfigure}{r}{4cm}
+      \includegraphics{figures/parabola}
+    \end{wrapfigure}}{}
+\sol{
+    The graph of the circle is $x^2 + (y-1)^2 = 1$, so we can solve the
+    system $x^2 + (y-1)^2 = 1$ and $y=5x^2$ to find  the intersection points
+    between the parabola and circle. The $x$-coordinates of the two points of
+    interest are $\pm 3/5$, so the arc length is 
+    \[
+    \int_{-3/5}^{3/5}\sqrt{1+[(5x^2)']^2}\,dx =   \int_{-3/5}^{3/5}\sqrt{1+100x^2}\,dx.
+    \]
+}{
+\begin{flushright}
+  \includegraphics{figures/parabola}
+\end{flushright}
+\vfill}
+
+\vspace{0.5cm} 
+
+
+\end{document}
+

@@ -1,0 +1,179 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8x]{inputenc}
+\usepackage[L7x]{fontenc}  
+\usepackage[pdftex]{graphicx}
+\usepackage{fourier}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{wrapfig}
+\usepackage{sectsty}
+\usepackage{asymptote}
+\usepackage{colonequals}
+\usepackage{color}
+\usepackage{calc}
+\usepackage{etoolbox}
+
+% COMMENT OUT THE SECOND LINE TO MAKE A HANDOUT WITHOUT SOLUTIONS
+\newtoggle{solutions}
+%\toggletrue{solutions}
+
+\usepackage{amsthm}
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{defn}{Definition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newtheorem{exercise}{Exercise}
+
+\sectionfont{\large}
+\sectionfont{\normalsize}
+
+\def\Arg{\mathop{\rm Arg}\nolimits}
+\def\Res{\mathop{\rm Res}}
+\renewcommand\Im{\mathop{\rm Im}\nolimits}
+\renewcommand\Re{\mathop{\rm Re}\nolimits}
+\newcommand\Arctan{\mathop{\rm Arctan}\nolimits}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\renewcommand{\P}{\mathbb{P}}
+\newcommand{\Chat}{\hat{\mathbb{C}}}
+\newcommand{\UHP}{\mathbb{H}}
+\DeclareMathOperator{\area}{area}
+\DeclareMathOperator{\dist}{dist}
+\DeclareMathOperator{\interior}{int}
+\DeclareMathOperator{\id}{id}
+
+\pagestyle{empty}
+
+\textwidth = 6.5 in
+\textheight = 9 in
+\oddsidemargin = -0.125 in
+\evensidemargin = 0.0 in
+\topmargin = -0.2 in
+\headheight = 0.0 in
+\headsep = 0.2 in
+\parskip = 0.2 in
+\parindent = 0.0 in
+
+\def\inv{^{-1}}
+
+\newcounter{prob}
+	\setcounter{prob}{1}
+
+\newcommand\itm{\theprob.  \stepcounter{prob}}
+
+\iftoggle{solutions}{
+\newcommand\sol[2]{\textit{Solution}. #1}
+}
+{
+\newcommand\sol[2]{#2}
+}
+
+
+\newcommand{\problem}[1]{
+\makebox[0.2cm]{\textbf{\itm}}  \begin{minipage}[t]{\linewidth-0.75cm}
+#1
+\end{minipage}
+}
+
+\begin{document}
+\thispagestyle{empty}
+
+\begin{center}
+  18.022 Recitation Handout \iftoggle{solutions}{(with solutions)}{} \\
+  10 September 2014 
+\end{center}
+
+\itm For each of the following pairs of vectors $\mathbf{a}$ and $\mathbf{b}$, calculate $ \mathbf{a}\cdot \mathbf{b} $ and $\|\mathbf{a}\|\|\mathbf{b}\|$. 
+
+(a) $\mathbf{a}=(1,5)$ and $\mathbf{b}=(-2,3)$ 
+
+\sol{$\mathbf{a}\cdot\mathbf{b} = 1\cdot-2 + 5\cdot 3 = 13$, and $\|\mathbf{a}\|\|\mathbf{b}\|=\sqrt{1^2+5^2}\sqrt{(-2)^2+3^2}=\sqrt{26\cdot 13}=13\sqrt{2}$}{}
+
+(b) $\mathbf{a}=(3,-5)$ and $\mathbf{b}=(2,0)$ 
+
+\sol{$\mathbf{a}\cdot\mathbf{b} = 3\cdot2 + -5\cdot 0 = 6$, and $\|\mathbf{a}\|\|\mathbf{b}\|=2\sqrt{17}$}{}
+
+(c) $\mathbf{a}=(-2,4,1)$ and $\mathbf{b}=(4,1,2)$ 
+
+\sol{$\mathbf{a}\cdot\mathbf{b} = -2\cdot4 + 4\cdot 1+1\cdot2 = -2$, and $\|\mathbf{a}\|\|\mathbf{b}\|=21.$}{}
+
+(d) Conjecture an inequality relating $|\mathbf{a}\cdot \mathbf{b}|$ and $\|\mathbf{a}\|\|\mathbf{b}\|$ for $\mathbf{a},\mathbf{b}\in \R^n$.
+
+\sol{In all three cases above, we see that $|\mathbf{a}\cdot \mathbf{b}|\leq \|\mathbf{a}\|\|\mathbf{b}\|$.}{}
+
+(e) (Fun/Challenge problem) To prove the inequality conjectured in (d) (called the \textit{Cauchy-Schwarz inequality}), expand the left-hand side of the inequality $\|\mathbf{a}+\lambda\mathbf{b}\|^2\geq 0$, where $\lambda$ is any real number. 
+
+\sol{Expanding $\|\mathbf{a}+\lambda\mathbf{b}\|^2\geq 0$ gives $\|\mathbf{a}\|^2+2\lambda \mathbf{a}\cdot \mathbf{b} + \lambda^2 \|\mathbf{b}\|^2 \geq 0$. Since we want to get the strongest possible inequality, we choose $\lambda$ to minimize the quadratic expression on the left-hand side. Substituting $\lambda = -\mathbf{a}\cdot\mathbf{b}/\|\mathbf{b}\|^2$, the resulting inequality simplifies to $|\mathbf{a}\cdot \mathbf{b}|\leq \|\mathbf{a}\|\|\mathbf{b}\|$.}
+{
+\vfill
+}
+
+\itm (1.3.20 in \textit{Colley}) Suppose that a force $\mathbf{F}=(1,-2)$ is acting on an object moving parallel to the vector $(4,1)$. Decompose $\mathbf{F}$ into a sum of vectors $\mathbf{F}_1$ and $\mathbf{F}_2$, where $\mathbf{F}_1$ points along the direction of motion and $\mathbf{F}_2$ is perpendicular to the direction of motion.
+
+\sol{
+  We project $(1,-2)$ onto $(4,1)$ using the formula $\text{proj}_\mathbf{b}\mathbf{a}=\left(\frac{\mathbf{a}\cdot \mathbf{b}}{\mathbf{b}\cdot \mathbf{b}}\right)\mathbf{b}$. We obtain $F_1=\frac{2}{17}(4,1)=(\frac{8}{17},\frac{2}{17})$ and $F_2=F_-F_2=(1,-2)-\left(\frac{8}{17},\frac{2}{17}\right)=\left(\frac{9}{17},-\frac{36}{17}\right)$. 
+}{
+\vfill
+}
+
+\itm (1.3.17 in \textit{Colley}) Is it ever the case that the projection of $\mathbf{a}$ onto $\mathbf{b}$ and the projection of $\mathbf{b}$ onto $\mathbf{a}$ are the same vector? If so, under what conditions? 
+
+\sol{Suppose $\text{proj}_\mathbf{b}\mathbf{a}=\text{proj}_\mathbf{a}\mathbf{b}$. Since a projection onto $\mathbf{a}$ is either 0 or parallel to $\mathbf{a}$, we see that either both projections are zero (which happens if and only if $\mathbf{a}$ and $\mathbf{b}$ are orthogonal), or they are parallel. Moreover, if they are parallel, then in order to be equal they have to have the same length and direction. So $\text{proj}_\mathbf{b}\mathbf{a}=\text{proj}_\mathbf{a}\mathbf{b}$ if and only if $\mathbf{a}\cdot \mathbf{b} = 0$ or $\mathbf{a}=\mathbf{b}$.} { \vfill }
+
+\newpage 
+
+\itm (1.3.25 in \textit{Colley}) Use vectors to show that the diagonals of a parallelogram have the same length if and only if the parallelogram is a rectangle. (Hint: let $\mathbf{a}$ and $\mathbf{b}$ be vectors along two sides of the parallelogram, and express vectors running along the diagonals in terms of $\mathbf{a}$ and $\mathbf{b}$.) 
+
+\sol{
+  The diagonal vectors are $\mathbf{a}+\mathbf{b}$ and $\mathbf{a}-\mathbf{b}$. The lengths of these vectors are equal if and only if $\|\mathbf{a}+\mathbf{b}\|^2=\|\mathbf{a}-\mathbf{b}\|^2$. The left-hand side simplifies to $(\mathbf{a}+\mathbf{b})\cdot (\mathbf{a}+\mathbf{b})=\mathbf{a}\cdot \mathbf{a} + 2 \mathbf{a}\cdot \mathbf{b}+\mathbf{b}\cdot \mathbf{b}$. Simplifying the right-hand side similarly and canceling terms, we are left with $\mathbf{a}\cdot \mathbf{b}=0$, which says that the two sides of the parallelogram are perpendicular. 
+}{
+\vfill
+}
+
+\itm (1.3.23 in \textit{Colley}) Let $A$, $B$, and $C$ denote the vertices of a triangle. Let $0<r<1$. If $P_1$ is the point on $\overline{AB}$ located $r$ times the distance from $A$ to $B$ and $P_2$ is the point on $\overline{AC}$ located $r$ times the distance from $A$ to $C$, use vectors to show that $\overline{P_1P_2}$ is parallel to $\overline{BC}$ and has $r$ times the length of $\overline{BC}$. 
+
+\sol{
+This is an application of the distributive property of scalar multiplication across vector addition. Let $\mathbf{u}$ be the vector from $A$ to $B$, and let $\mathbf{v}$ be the vector from $A$ to $C$. Then the vector from $B$ to $C$ is $\mathbf{u}-\mathbf{v}$, and the vector from $P_1$ to $P_2$ is $r \mathbf{u}-r \mathbf{v}$. Reverse distributing, we write this as $r(\mathbf{u}-\mathbf{v})$, which says that $\overline{P_1P_2}$ is parallel to $\overline{BC}$ and has $r$ times the length of $\overline{BC}$. 
+}{
+\vfill
+}
+
+\itm (1975 USAMO) Let $A$, $B$, $C$, and $D$ be four points in $\mathbb{R}^3$. Use vectors to show that 
+\[
+AB^2 +BC^2 + CD^2 + DA^2 \geq AC^2 + BD^2. 
+\]
+(This generalizes the fact that the sum of the squares of the sides of a quadrilateral is at least the sum of the squares of its diagonals.) Make a statement about when equality holds. 
+
+\sol{
+Let $\mathbf{u}$ be the vector from $A$ to $B$, let $\mathbf{v}$ be the vector from $A$ to $D$, and Let $\mathbf{w}$ be the vector from $B$ to $C$. Then we have been asked to prove 
+\[
+\mathbf{u}\cdot \mathbf{u} + \mathbf{v}\cdot \mathbf{v} + \mathbf{w}\cdot \mathbf{w} + (\mathbf{u}+\mathbf{w}-\mathbf{v})\cdot (\mathbf{u}+\mathbf{w}-\mathbf{v}) \geq (\mathbf{u}+\mathbf{w})\cdot (\mathbf{u}+\mathbf{w}) + (\mathbf{u}-\mathbf{v})\cdot (\mathbf{u}-\mathbf{v})
+\]
+Distributing and simplifying, we see that this inequality is equivalent to $\|\mathbf{w}-\mathbf{v}\|^2 \geq 0$. This holds with equality if and only if $\mathbf{w}=\mathbf{v}$, i.e., if and only if the four points form a parallelogram. 
+}{
+\vfill
+}
+
+% \itm Consider a triangle $T$ with vertices $A=(1,0)$, $B=(0,1)$, and $C$ on the line $y=-x$. Use a cross product to find the area of $T$, and show that it does not depend on the location of $C$. 
+
+% \sol{
+% Let $C=(t,-t)$, where $t$ is any real number. Then the area is 1/2 times the absolute value of the cross product $\overrightarrow{AB}\times\overrightarrow{AC}$. Thus 
+% \[
+% \text{area}(\bigtriangleup ABC) = \frac{1}{2} \left|
+% \begin{array}{ccc}
+% \mathbf{i} & \mathbf{j} & \mathbf{k} \\
+% 1 & -1 & 0 \\
+% t & -t-1 & 0
+% \end{array}
+% \right|
+% = \frac{1}{2} |-\mathbf{k}| = 1/2. 
+% \]
+% }{
+% \vfill
+% }
+
+\end{document}

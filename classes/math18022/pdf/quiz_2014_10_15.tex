@@ -1,0 +1,165 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8x]{inputenc}
+\usepackage[L7x]{fontenc}  
+\usepackage[pdftex]{graphicx}
+%\usepackage{fourier}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{wrapfig}
+\usepackage{sectsty}
+\usepackage{asymptote}
+\usepackage{colonequals}
+\usepackage{color}
+\usepackage{calc}
+\usepackage{etoolbox}
+
+% COMMENT OUT THE SECOND LINE TO MAKE A HANDOUT WITHOUT SOLUTIONS
+\newtoggle{solutions}
+%\toggletrue{solutions}
+
+\usepackage{amsthm}
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{defn}{Definition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newtheorem{exercise}{Exercise}
+
+\sectionfont{\large}
+\sectionfont{\normalsize}
+
+\def\Arg{\mathop{\rm Arg}\nolimits}
+\def\Res{\mathop{\rm Res}}
+\renewcommand\Im{\mathop{\rm Im}\nolimits}
+\renewcommand\Re{\mathop{\rm Re}\nolimits}
+\newcommand\Arctan{\mathop{\rm Arctan}\nolimits}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\renewcommand{\P}{\mathbb{P}}
+\newcommand{\Chat}{\hat{\mathbb{C}}}
+\newcommand{\UHP}{\mathbb{H}}
+\DeclareMathOperator{\area}{area}
+\DeclareMathOperator{\dist}{dist}
+\DeclareMathOperator{\interior}{int}
+\DeclareMathOperator{\id}{id}
+
+\pagestyle{empty}
+
+\textwidth = 6.5 in
+\textheight = 9 in
+\oddsidemargin = -0.125 in
+\evensidemargin = 0.0 in
+\topmargin = -0.2 in
+\headheight = 0.0 in
+\headsep = 0.2 in
+\parskip = 0.2 in
+\parindent = 0.0 in
+
+\def\inv{^{-1}}
+
+\newcounter{prob}
+	\setcounter{prob}{1}
+
+\newcounter{subprob}
+	\setcounter{subprob}{1}
+
+\newcommand\itm{\theprob.  \stepcounter{prob}\setcounter{subprob}{1}}
+\newcommand\subitm{(\alph{subprob}) \refstepcounter{subprob}}
+
+\newcommand\sol[2]{\iftoggle{solutions}{\textit{Solution}. #1}{#2}}
+%\newcommand\sol[2]{#2}
+
+
+\newcommand{\problem}[1]{
+\makebox[0.2cm]{\textbf{\itm}}  \begin{minipage}[t]{\linewidth-0.75cm}
+#1
+\end{minipage}
+}
+
+\newcommand\twomatrix[4]{
+\left(
+\begin{array}{cc}
+#1 & #2 \\
+#3 & #4
+\end{array}
+\right)
+}
+
+\renewcommand\vec[1]{\mathbf{#1}}
+
+\begin{document}
+\thispagestyle{empty}
+
+\begin{center}
+  18.022 Recitation Quiz \iftoggle{solutions}{(with solutions)}{} \\
+  15 October 2014 
+\end{center}
+
+\itm Consider the function $f(x)=\sqrt{1-x^2}$ over the interval $[0,1]$. Write down a definite integral whose value is equal to the arclength of the graph of $f$.
+
+\sol{
+We calculate an arclength of
+\[
+\int_{0}^{1}\sqrt{1+f'(x)^2}\,dx = \int_{0}^{1}\sqrt{1+\left(\frac{-2x}{2\sqrt{1-x^2}}\right)^2}\,dx = \int_{0}^{1}\frac{1}{\sqrt{1-x^2}}\,dx.
+\]
+\textit{Remark}: Since this arclength is $\pi/2$ by the definition of
+$\pi$, this exercise proves that
+$\int_{0}^{1}\frac{1}{\sqrt{1-x^2}}\,dx=\pi/2$. Moreover, it can be
+generalized to give a way of calculating the indefinite integral of
+$1/\sqrt{1-x^2}$.  
+} {\vfill}
+
+\itm Consider the function $\mathbf{F}:\R^4\to\R^2$ defined by $\mathbf{F}(w,x,y,z)=(2/w^2-y,3x+\cos z)$.
+
+(a) Find $D\mathbf{F}$.
+
+\sol{The total derivative is the matrix of partial derivatives:
+\[
+\left(
+  \begin{array}{cccc}
+    -2/w^3 & 0 & -1 & 0 \\
+    0 & 3 & 0 & -\sin z
+  \end{array}
+\right)
+\]
+}
+{\vfill}
+
+(b) Show that there exists an open set $U\subset \R^2$ containing $(1,2)$ and a function $\mathbf{f}:U\to \R^2$ such that for all $x\in U$, the equations 
+$\mathbf{F}(w,x,y,z)=\mathbf{F}(1,2,3,\pi/2)$
+have a unique solution $(y,z)=\mathbf{f}(w,x)$. Show that $\mathbf{f}$ is $C^1$. 
+
+\sol{
+The implicit function theorem ensures that we can solve (abstractly)
+  for $(y,z)$ in terms of $x$ and $w$ if the matrix of partial derivatives
+  corresponding to the $y$ and $z$ columns has nonvanishing determinant. In
+  this case, that means 
+\[
+\det
+\left(
+  \begin{array}{cc}
+    -1 & 0 \\
+    0 & -\sin z
+  \end{array}
+\right)
+= \det \left(
+  \begin{array}{cc}
+    -1 & 0 \\
+    0 & -1
+  \end{array}
+\right)
+= 1 \neq 0,
+\]
+so the implicit function theorem does apply. It ensures the existence of
+such an $\vec{f}$ and the fact that $\vec{f}$ is $C^1$. 
+}
+{\vfill }
+
+\vspace{0.5cm} 
+
+
+\end{document}
+

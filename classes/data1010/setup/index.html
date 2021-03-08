@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+   <link rel="stylesheet" href="/libs/highlight/github.min.css">
+ 
+  <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="/css/tipuesearch.css">
+  <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="/css/scribble.css">
+  <link rel="stylesheet" type="text/css" href="/css/franklin.css">
+  <link rel="stylesheet" type="text/css" href="/css/custom.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
+  <link rel="icon" href="/assets/favicon/favicon.ico">
+  <link rel="manifest" href="/assets/favicon/manifest.json">
+  
+  
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <title>Julia setup</title> 
+  <script type="text/javascript" charset="UTF-8"
+  src="https://cdn.jsdelivr.net/npm/jsxgraph@1.2.1/distrib/jsxgraphcore.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/jsxgraph@1.2.1/distrib/jsxgraph.css" />
+</head>
+
+<body>
+
+  <!-- A standard Twitter Bootstrap nav bar -->
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="container">
+      <div class="navbar-header">
+        <a href="/" class="navbar-brand">
+          <img class="navbar-logo" src="/assets/profile-small.jpg" width="40"></img>
+        </a>
+      </div>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar_collapse" aria-controls="navbar_collapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbar_collapse">
+        <ul class="nav navbar-nav">
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/teaching/">Teaching</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="/technology/">Technology</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="/resume/">Resume</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">About</a>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav ml-auto">
+          <li class="nav-item">
+            <div>
+                <div class="tipue_search_left_menu">
+                <a class="nav-link" href="/search/">
+                  <img src="/assets/glass.svg" class="tipue_navbar_icon default">
+                  <img src="/assets/glass_light.svg" class="tipue_navbar_icon hover"></a>
+                </div>
+              
+              <div class="tipue_search_right">
+                <form action="/search/" class="menu-form hover">
+                    <input type="text" name="q" id="tipue_search_input_menu" pattern=".{3,}" title="At least 3 characters" required>
+                </form>
+              </div>
+              
+            </div>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </nav>
+
+
+  <div class="container">
+    <div class="row">
+      <!-- Main column -->
+      <div id="content" class="col-md-12">
+
+        <!-- Content appended here --><div class="franklin-content"><h1 id="julia_setup"><a href="#julia_setup" class="header-anchor">Julia setup</a></h1>
+<h2 id="download"><a href="#download" class="header-anchor">Download</a></h2>
+<p>You can download Julia from http://julialang.org/downloads. I recommend Julia 1.0.1 for this class. Also, use the standard download link you see on that page, rather than JuliaPro or any other distribution.</p>
+<h2 id="julia_and_python"><a href="#julia_and_python" class="header-anchor">Julia and Python</a></h2>
+<p>If you have Anaconda installed on your machine, you will want to point the IJulia and PyCall packages to your Anaconda executables so that it doesn&#39;t install its own versions &#40;replace <code>sswatson</code> with your own username on your machine–-also, you will want to check that you have Anaconda installed in the same place I do&#41;. You have to re-build the packages after updating the <code>ENV</code> dictionary.</p>
+<p><strong>Step 1.</strong> <em>Find your Anaconda Python executable.</em> Launch an Anaconda Python session and from within that session run </p>
+<pre><code class="language-python">import sys
+sys.executable</code></pre>
+<p>Make note of this path. </p>
+<p><strong>Step 2.</strong> <em>Find your Jupyter executable</em>. On a Mac, run <code>which
+jupyter</code> from a Terminal session get the path of your Jupyter executable. It&#39;s probably somewhere like <code>/Users/sswatson/anaconda3/bin/jupyter</code>. On Windows, it&#39;s probably somewhere like <code>C:/Users/sswatson/Anaconda3/Scripts/jupyter</code>. You can check this by starting Command Prompt, typing <code>cd Ana</code> and pressing tab to see if it autocompletes to <code>cd Anaconda3</code>. Then start typing <code>Scripts</code> and hit tab again to see that it completes to <code>Scripts</code>. </p>
+<p><strong>Step 3.</strong> <em><a href="https://julialang.org/downloads/">Download Julia</a> and run the following from a Julia session.</em> Replace the Jupyter and Python paths below with what you found in Steps 1 and 2. </p>
+<pre><code class="language-julia">using Pkg
+ENV&#91;&quot;JUPYTER&quot;&#93; &#61; &quot;/Users/sswatson/anaconda3/bin/jupyter&quot;
+Pkg.build&#40;&quot;IJulia&quot;&#41;
+ENV&#91;&quot;PYTHON&quot;&#93; &#61; &quot;/Users/sswatson/anaconda3/bin/python&quot;
+Pkg.build&#40;&quot;PyCall&quot;&#41;</code></pre>
+<p><strong>Step 4.</strong> We will also be using the <code>Plots</code> package and a few others, so you can go ahead and run </p>
+<pre><code class="language-julia">Pkg.add&#40;&quot;Plots&quot;&#41;
+Pkg.add&#40;&quot;Images&quot;&#41;
+Pkg.add&#40;&quot;Colors&quot;&#41;</code></pre>
+<p>If you don&#39;t install these now, you can install them later. </p>
+<h2 id="troubleshooting"><a href="#troubleshooting" class="header-anchor">Troubleshooting</a></h2>
+<p>If you have any trouble with the above installation, here are some tips: </p>
+<ol>
+<li><p>If you&#39;re having trouble with a package, you can try rebuilding it by doing <code>Pkg.build&#40;&quot;PackageName&quot;&#41;</code>, and you can also <code>Pkg.rm&#40;&quot;PackageName&quot;&#41;; Pkg.add&#40;&quot;PackageName&quot;&#41;</code> to remove it and add it back. </p>
+</li>
+<li><p>Do <code>using PyCall; PyCall.python</code> to see which Python executable your installation is using. You want it to be in a directory with <code>Anaconda3</code> or <code>anaconda3</code> in the path string. </p>
+</li>
+<li><p>If your error message includes something about GR, you might need to rebuild your GR package or use PyPlot instead &#40;these are both <em>backends</em> for Plots, meaning that they are used to generate the figures corresponding to your Plots commands&#41;. To rebuild GR, try <code>Pkg.update&#40;&#41;; ENV&#91;&quot;GRDIR&quot;&#93; &#61; &quot;&quot;; Pkg.build&#40;&quot;GR&quot;&#41;</code>. To switch to PyPlot, try <code>Pkg.add&#40;&quot;PyPlot&quot;&#41;; Pkg.add&#40;&quot;LaTeXStrings&quot;&#41;; using
+   Plots; pyplot&#40;&#41;</code>.</p>
+</li>
+<li><p>Try googling the error message. Other folks have probably had  similar issues, and sometimes the fix is pretty easy. </p>
+</li>
+<li><p>If you have Windows 7, there are instructions on the downloads page for stuff you have to do for Julia to work. One of these is the Windows Management Framework, which is necessary for Julia to be able to download binaries for its packages. </p>
+</li>
+</ol>
+<h2 id="getting_started"><a href="#getting_started" class="header-anchor">Getting started</a></h2>
+<p>You should complete the <em>Programming in Julia</em> edX module to get oriented.</p>
+<h2 id="startupjl"><a href="#startupjl" class="header-anchor">startup.jl</a></h2>
+<p>If you don&#39;t want to have to run <code>using Statistics, LinearAlgebra</code> in every session, you can put these lines in your <code>startup.jl</code> file. The code in this file is loaded every time you run Julia. </p>
+<p>The instructions below are for macOS/Linux. The same idea applies if you&#39;re using Windows, but the navigation commands are different. The basic idea is to put a <code>startup.jl</code> file in <code>~/.julia/config/</code>, where <code>~</code> represents whatever the home directory is on your system. </p>
+<ol>
+<li><p>Open a Terminal session </p>
+</li>
+<li><p>Run <code>cd ~/.julia/</code></p>
+</li>
+<li><p>Run <code>ls</code> to see if there is a <code>config</code> folder already there. If not, make one with <code>mkdir config</code>. </p>
+</li>
+<li><p>Run <code>cd config</code></p>
+</li>
+<li><p>Run <code>emacs startup.jl</code> to create a <code>startup.jl</code> file and open an editor to put content into it. </p>
+</li>
+<li><p>Type <code>using Statistics, LinearAlgebra</code> and then save the file with <code>Ctrl-x Ctrl-s</code> &#40;hold control and press <code>x</code>, then release and press <code>s</code>&#41;</p>
+</li>
+<li><p>Close the editor with <code>Ctrl-x Ctrl-c</code></p>
+</li>
+</ol>
+<!--
+<div class="page-foot">
+  <div class="copyright">
+    &copy; {{ fill author }}. Last modified: {{ fill fd_mtime }}. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
+  </div>
+</div>
+--></div><!-- CONTENT ENDS HERE -->
+        </div>
+      </div>
+    </div>
+    
+      <script type="text/javascript" src="/libs/jquery/jquery-3.3.1.min.js"></script>
+    
+    <script type="text/javascript" src="/libs/bootstrap/bootstrap.bundle.min.js"></script>
+    
+    
+        <script src="/libs/highlight/highlight.pack.js"></script>
+<script>hljs.highlightAll();hljs.configure({tabReplace: '    '});</script>
+    
+    
+    
+      <!--collapsible lists:-->
+<script>
+$('h2').click(function(e) {
+  e.stopPropagation();
+  $(this).children('ul,ol').slideToggle();
+});
+$('li').click(function(e) {
+  e.stopPropagation();
+  $(this).children('ul,ol').slideToggle();
+});
+</script>
+    
+  </body>
+</html>
