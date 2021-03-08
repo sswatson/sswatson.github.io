@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  
+  <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="/css/tipuesearch.css">
+  <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="/css/scribble.css">
+  <link rel="stylesheet" type="text/css" href="/css/franklin.css">
+  <link rel="stylesheet" type="text/css" href="/css/custom.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
+  <link rel="icon" href="/assets/favicon/favicon.ico">
+  <link rel="manifest" href="/assets/favicon/manifest.json">
+  
+  
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <title>Math 0350: Multivariable Calculus</title> 
+  <script type="text/javascript" charset="UTF-8"
+  src="https://cdn.jsdelivr.net/npm/jsxgraph@1.2.1/distrib/jsxgraphcore.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/jsxgraph@1.2.1/distrib/jsxgraph.css" />
+</head>
+
+<body>
+
+  <!-- A standard Twitter Bootstrap nav bar -->
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="container">
+      <div class="navbar-header">
+        <a href="/" class="navbar-brand">
+          <img class="navbar-logo" src="/assets/profile-small.jpg" width="40"></img>
+        </a>
+      </div>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar_collapse" aria-controls="navbar_collapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbar_collapse">
+        <ul class="nav navbar-nav">
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/teaching/">Teaching</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="/technology/">Technology</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="/resume/">Resume</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">About</a>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav ml-auto">
+          <li class="nav-item">
+            <div>
+                <div class="tipue_search_left_menu">
+                <a class="nav-link" href="/search/">
+                  <img src="/assets/glass.svg" class="tipue_navbar_icon default">
+                  <img src="/assets/glass_light.svg" class="tipue_navbar_icon hover"></a>
+                </div>
+              
+              <div class="tipue_search_right">
+                <form action="/search/" class="menu-form hover">
+                    <input type="text" name="q" id="tipue_search_input_menu" pattern=".{3,}" title="At least 3 characters" required>
+                </form>
+              </div>
+              
+            </div>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </nav>
+
+
+  <div class="container">
+    <div class="row">
+      <!-- Main column -->
+      <div id="content" class="col-md-12">
+
+        <!-- Content appended here --><div class="franklin-content"><h1 id="math_0350_multivariable_calculus"><a href="#math_0350_multivariable_calculus" class="header-anchor">Math 0350: Multivariable Calculus</a></h1>
+<h2 id="course_documents"><a href="#course_documents" class="header-anchor">Course documents</a></h2>
+<ul>
+<li><p><a href="pdf/math0350_syllabus.pdf">Syllabus</a></p>
+</li>
+<li><p><a href="pdf/math0350_calendar.pdf">Calendar</a></p>
+</li>
+<li><p><a href="coursesuccess">Learning resources</a></p>
+</li>
+</ul>
+<h2 id="course_text"><a href="#course_text" class="header-anchor">Course text</a></h2>
+<ul>
+<li><p><em>Multivariable Calculus for Brown Honors Calculus students</em></p>
+<ul>
+<li><p><a href="https://github.com/sswatson/MultivariableCalculus.tex/raw/master/MultivariableCalculus.pdf">&#91;light version &#40;~8 MB&#41;&#93;</a>  </p>
+</li>
+<li><p><a href="https://github.com/sswatson/MultivariableCalculus.tex/raw/master/MultivariableCalculus_3D.pdf">&#91;with interactive 3D graphics &#40;~40 MB&#41;&#93;</a></p>
+</li>
+</ul>
+</li>
+<li><p><em>Concepts list</em> <a href="pdf/math0350_concepts_list.pdf">&#91;142 KB&#93;</a></p>
+</li>
+</ul>
+<h2 id="exams"><a href="#exams" class="header-anchor">Exams</a></h2>
+<h3 id="midterm"><a href="#midterm" class="header-anchor">Midterm</a></h3>
+<ul>
+<li><p><a href="pdf/math0200_exam1.pdf">2015 Brown Math 0200 Exam I</a> <a href="pdf/math0200_exam1sol.pdf">&#91;solution&#93;</a></p>
+</li>
+<li><p><a href="pdf/interphase_2015_exam1.pdf">2015 MIT Interphase Exam I</a> <a href="pdf/interphase_2015_exam1sol.pdf">&#91;solution&#93;</a> </p>
+</li>
+<li><p><a href="pdf/math0350_practicemidterm.pdf">Practice midterm</a> <a href="pdf/math0350_practicemidterm1sol.pdf">&#91;solution&#93;</a></p>
+</li>
+<li><p><a href="pdf/math0350_midterm.pdf">Midterm</a> <a href="pdf/math0350_midtermsol.pdf">&#91;solution&#93;</a></p>
+</li>
+</ul>
+<h3 id="final"><a href="#final" class="header-anchor">Final</a></h3>
+<ul>
+<li><p><a href="pdf/math0350_practicefinal.pdf">Practice Final</a>   <a href="pdf/math0350_practicefinalsol.pdf">&#91;solution&#93;</a></p>
+</li>
+<li><p><a href="pdf/math0350_finalsol.pdf">Final Exam solutions</a></p>
+</li>
+</ul>
+<h2 id="problem_sets"><a href="#problem_sets" class="header-anchor">Problem Sets</a></h2>
+<ul>
+<li><p><a href="pdf/math0350_pset1.pdf">Gradescope 1</a> <a href="pdf/math0350_pset1sol.pdf">&#91;solution&#93;</a></p>
+</li>
+<li><p><a href="pdf/math0350_pset2.pdf">Gradescope 2</a> <a href="pdf/math0350_pset2sol.pdf">&#91;solution&#93;</a></p>
+</li>
+<li><p><a href="pdf/math0350_pset3.pdf">Gradescope 3</a> <a href="pdf/math0350_pset3sol.pdf">&#91;solution&#93;</a></p>
+</li>
+<li><p><a href="pdf/math0350_pset4.pdf">Gradescope 4</a> <a href="pdf/math0350_pset4sol.pdf">&#91;solution&#93;</a></p>
+</li>
+<li><p><a href="pdf/math0350_pset5.pdf">Gradescope 5</a> <a href="pdf/math0350_pset5sol.pdf">&#91;solution&#93;</a></p>
+</li>
+<li><p><a href="pdf/math0350_pset6.pdf">Gradescope 6</a> <a href="pdf/math0350_pset6sol.pdf">&#91;solution&#93;</a></p>
+</li>
+<li><p><a href="pdf/math0350_pset7.pdf">Gradescope 7</a> <a href="pdf/math0350_pset7sol.pdf">&#91;solution&#93;</a></p>
+</li>
+<li><p><a href="pdf/math0350_pset8.pdf">Gradescope 8</a> <a href="pdf/math0350_pset8sol.pdf">&#91;solution&#93;</a></p>
+</li>
+<li><p><a href="pdf/math0350_pset9.pdf">Gradescope 9</a> <a href="pdf/math0350_pset9sol.pdf">&#91;solution&#93;</a></p>
+</li>
+<li><p><a href="pdf/math0350_pset10.pdf">Gradescope 10</a> <a href="pdf/math0350_pset10sol.pdf">&#91;solution&#93;</a></p>
+</li>
+<li><p><a href="pdf/math0350_pset11.pdf">Gradescope 11</a> <a href="pdf/math0350_pset11sol.pdf">&#91;solution&#93;</a></p>
+</li>
+</ul>
+<h2 id="lecture_videos"><a href="#lecture_videos" class="header-anchor">Lecture videos</a></h2>
+<ul>
+<li><p>Thursday, 07 September 2017 <a href="https://youtu.be/RjyVbLqBntc">&#91;1&#93;</a></p>
+</li>
+<li><p>Tuesday, 12 September 2017 <a href="https://youtu.be/-71aJyDkJZU">&#91;1&#93;</a> <a href="https://youtu.be/5EIWoQsNvt8">&#91;2&#93;</a></p>
+</li>
+<li><p>Thursday, 14 September 2017 <a href="https://youtu.be/E26fpiANFrI">&#91;1&#93;</a> <a href="https://youtu.be/Oa0IM0SNdmQ">&#91;2&#93;</a></p>
+</li>
+<li><p>Tuesday, 19 September 2017 <a href="https://youtu.be/HbsFWVcvfrY">&#91;1&#93;</a> <a href="missing">&#91;2&#93;</a></p>
+</li>
+<li><p>Thursday, 21 September 2017 <a href="https://youtu.be/a5uxIde-z3c">&#91;1&#93;</a> <a href="https://youtu.be/HHoFrdDYJC0">&#91;2&#93;</a></p>
+</li>
+<li><p>Tuesday, 26 September 2017 <a href="https://youtu.be/NsOmW75TTf8">&#91;1&#93;</a></p>
+</li>
+<li><p>Thursday, 28 September 2017 <a href="https://youtu.be/mN_VHEVMFMU">&#91;1&#93;</a></p>
+</li>
+<li><p>Tuesday, 03 October 2017 <a href="https://youtu.be/sD_kDVbkveU">&#91;1&#93;</a></p>
+</li>
+<li><p>Thursday, 05 October 2017 <a href="https://youtu.be/GyV55MTx5Og">&#91;1&#93;</a></p>
+</li>
+<li><p>Tuesday, 10 October 2017 <a href="https://youtu.be/6mmOV_fzS8o">&#91;1&#93;</a></p>
+</li>
+<li><p>Thursday, 12 October 2017 <a href="https://youtu.be/kXHmsBEj8tM">&#91;1&#93;</a></p>
+</li>
+<li><p>Tuesday, 17 October 2017 <a href="https://youtu.be/YFGzNgJEnt8">&#91;1&#93;</a></p>
+</li>
+<li><p>Review Session <a href="https://youtu.be/gf48mfHDHOA">&#91;1&#93;</a></p>
+</li>
+<li><p>Tuesday, 24 October 2017 <a href="https://youtu.be/0UpbNTkr4WE">&#91;1&#93;</a></p>
+</li>
+<li><p>Thursday, 26 October 2017 <a href="https://youtu.be/YwSd9VG6w-s">&#91;1&#93;</a></p>
+</li>
+<li><p>Tuesday, 31 October 2017 <a href="https://youtu.be/BkrlKSjU2LY">&#91;1&#93;</a></p>
+</li>
+<li><p>Thursday, 2 November 2017 <a href="https://youtu.be/ofRh209U-ZE">&#91;1&#93;</a></p>
+</li>
+<li><p>Tuesday, 7 November 2017 <a href="missing">&#91;1&#93;</a> <a href="https://youtu.be/p7H40DKdPfE">&#91;2&#93;</a></p>
+</li>
+<li><p>Thursday, 9 November 2017 <a href="https://youtu.be/hnB52kox-mo">&#91;1&#93;</a></p>
+</li>
+<li><p>Tuesday, 14 November 2017 <a href="https://youtu.be/3JzLekRZZJc">&#91;1&#93;</a></p>
+</li>
+<li><p>Thursday, 16 November 2017 <a href="https://youtu.be/_69PVa63uLU">&#91;1&#93;</a></p>
+</li>
+<li><p>Tuesday, 21 November 2017 <a href="https://youtu.be/KTtdSoG4QHo">&#91;1&#93;</a></p>
+</li>
+<li><p>Tuesday, 28 November 2017 <a href="https://youtu.be/qDMXLjHwsVc">&#91;1&#93;</a></p>
+</li>
+<li><p>Thursday, 30 November 2017 <a href="https://youtu.be/24ZgjWA078s">&#91;1&#93;</a></p>
+</li>
+<li><p>Tuesday, 5 December 2017 <a href="https://youtu.be/0BzSJlWygd0">&#91;1&#93;</a></p>
+</li>
+<li><p>Thursday, 7 December 2017 <a href="https://youtu.be/L5HuYa5rS-A">&#91;1&#93;</a></p>
+</li>
+<li><p>Review Session I <a href="https://youtu.be/Mi3i4TgJYwY">&#91;1&#93;</a></p>
+</li>
+<li><p>Review Session II <a href="https://youtu.be/Eoqta2nKp2A">&#91;1&#93;</a></p>
+</li>
+</ul>
+<h2 id="getting_started"><a href="#getting_started" class="header-anchor">Getting Started</a></h2>
+<ul>
+<li><p>Take the <a href="https://docs.google.com/forms/d/e/1FAIpQLSc5THTBEWHNiiZOXlTFjOLy_y9sS-BOjmvqOhJlSjB2xRs8_w/viewform?usp&#61;sf_link">syllabus quiz</a></p>
+</li>
+<li><p><a href="iclicker">iClicker Cloud</a></p>
+</li>
+<li><p><a href="webwork">WeBWork</a></p>
+</li>
+<li><p><a href="gradescope">Gradescope</a></p>
+</li>
+</ul>
+<!--
+<div class="page-foot">
+  <div class="copyright">
+    &copy; {{ fill author }}. Last modified: {{ fill fd_mtime }}. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
+  </div>
+</div>
+--></div><!-- CONTENT ENDS HERE -->
+        </div>
+      </div>
+    </div>
+    
+      <script type="text/javascript" src="/libs/jquery/jquery-3.3.1.min.js"></script>
+    
+    <script type="text/javascript" src="/libs/bootstrap/bootstrap.bundle.min.js"></script>
+    
+    
+    
+    
+      <!--collapsible lists:-->
+<script>
+$('h2').click(function(e) {
+  e.stopPropagation();
+  $(this).children('ul,ol').slideToggle();
+});
+$('li').click(function(e) {
+  e.stopPropagation();
+  $(this).children('ul,ol').slideToggle();
+});
+</script>
+    
+  </body>
+</html>

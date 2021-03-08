@@ -1,0 +1,142 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8x]{inputenc}
+\usepackage[L7x]{fontenc}  
+\usepackage[pdftex]{graphicx}
+\usepackage{fourier}
+\usepackage{hyperref}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{wrapfig}
+\usepackage{sectsty}
+\usepackage{asymptote}
+\usepackage{colonequals}
+\usepackage{color}
+\usepackage{calc}
+\usepackage{etoolbox}
+
+% COMMENT OUT THE SECOND LINE TO MAKE A HANDOUT WITHOUT SOLUTIONS
+\newtoggle{solutions}
+\toggletrue{solutions}
+
+\usepackage{amsthm}
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{defn}{Definition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newtheorem{exercise}{Exercise}
+
+\sectionfont{\large}
+\sectionfont{\normalsize}
+
+\def\Arg{\mathop{\rm Arg}\nolimits}
+\def\Res{\mathop{\rm Res}}
+\renewcommand\Im{\mathop{\rm Im}\nolimits}
+\renewcommand\Re{\mathop{\rm Re}\nolimits}
+\newcommand\Arctan{\mathop{\rm Arctan}\nolimits}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\renewcommand{\P}{\mathbb{P}}
+\newcommand{\Chat}{\hat{\mathbb{C}}}
+\newcommand{\UHP}{\mathbb{H}}
+\DeclareMathOperator{\area}{area}
+\DeclareMathOperator{\dist}{dist}
+\DeclareMathOperator{\interior}{int}
+\DeclareMathOperator{\id}{id}
+
+\pagestyle{empty}
+
+\textwidth = 6.5 in
+\textheight = 9 in
+\oddsidemargin = -0.125 in
+\evensidemargin = 0.0 in
+\topmargin = -0.2 in
+\headheight = 0.0 in
+\headsep = 0.2 in
+\parskip = 0.2 in
+\parindent = 0.0 in
+
+\def\inv{^{-1}}
+
+\newcounter{prob}
+	\setcounter{prob}{1}
+
+\newcounter{subprob}
+	\setcounter{subprob}{1}
+
+\newcommand\itm{\theprob.  \stepcounter{prob}\setcounter{subprob}{1}}
+\newcommand\subitm{(\alph{subprob}) \refstepcounter{subprob}}
+
+\newcommand\sol[2]{\iftoggle{solutions}{\textit{Solution}. #1}{#2}}
+%\newcommand\sol[2]{#2}
+
+
+\newcommand{\problem}[1]{
+\makebox[0.2cm]{\textbf{\itm}}  \begin{minipage}[t]{\linewidth-0.75cm}
+#1
+\end{minipage}
+}
+
+\newcommand\twomatrix[4]{
+\left(
+\begin{array}{cc}
+#1 & #2 \\
+#3 & #4
+\end{array}
+\right)
+}
+
+\renewcommand\vec[1]{\mathbf{#1}}
+\newcommand\pd[2]{\frac{\partial #1}{\partial #2}}
+
+\begin{document}
+\thispagestyle{empty}
+
+\begin{center}
+  18.022 Recitation Handout \iftoggle{solutions}{(with solutions)}{} \\
+  5 November 2014 
+\end{center}
+
+\itm Rewrite $\int_{0}^1\int_{\sqrt{x}}^{1}\int_{0}^{1-y}
+    f(x,y,z)\,dz\,dy\,dx$ using the order $dx\,dy\,dz$.
+    
+\sol{$\int_{0}^1\int_{0}^{1-z}\int_{0}^{y^2}
+    f(x,y,z)\,dx\,dy\,dz$.}{\vfill}
+
+\itm (5.4.15 in \textit{Colley}) Integrate $f(x,y,z) = 1-z^2$ over the tetrahedron $W$ with vertices at the origin, $(1,0,0)$, $(0,2,0)$, and $(0,0,3)$. 
+
+\sol{Since the function depends only on $z$, it is convenient to set up the iterated integral with $z$ varying first. We can solve for the equation of the plane passing through the points $(1,0,0)$, $(0,2,0)$, and $(0,0,3)$ by substituting into $Ax + By + Cz = 1$ and solving for $A$, $B$, and $C$. The integral becomes 
+  \begin{align*}
+    \int_{0}^3\int_{0}^{\frac{2}{3}(3-z)}\int_{0}^{1-y/2-z/3}
+    (1-z^2)\,dx\,dy\,dz  = \int_{0}^3 (1-z^2)\left(\left(\frac{3-z}{3}\right) \left(\frac{2(3-z)}{3}\right) -\frac{1}{4}\left[\frac{2}{3}(3-z)\right]^2 \right)\,dz
+    &= \boxed{1/10}. 
+  \end{align*}
+  
+
+}{\vfill}
+
+\iftoggle{solutions}{}{\newpage} 
+
+\itm (5.8.19 in \textit{Colley}) Set up a quadruple integral that computes the volume of the sphere $\{w^2 + x^2 + y^2 + z^2 \leq 1\}$ in $\R^4$. 
+
+\sol{
+By analogy with integrals for spheres in $\R^2$ and $\R^3$, we write 
+\[
+\boxed{\int_{-1}^{1}\int_{-\sqrt{1-x^2}}^{\sqrt{1-x^2}}\int_{-\sqrt{1-x^2-y^2}}^{\sqrt{1-x^2-y^2}}\int_{-\sqrt{1-x^2-y^2-z^2}}^{\sqrt{1-x^2-y^2-z^2}} 1 dw \,dz \, dy \,dx.} \qedhere
+\]
+}{\vfill} 
+
+\itm (Fun/Challenge problem) For $(x,y) \neq (0,0)$, we define
+\[
+f(x,y) = \frac{xy(x^2-y^2)}{(x^2+y^2)^3}. 
+\]
+Calculate the iterated integrals of $f$ over $[0,2]\times[0,1]$. 
+
+\sol{See  
+\href{http://www.math.jhu.edu/\~jmb/note/nofub.pdf}{http://www.math.jhu.edu/$\sim$jmb/note/nofub.pdf}}{\vfill}
+
+\end{document}
+

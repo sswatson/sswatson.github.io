@@ -1,0 +1,22 @@
+<!-- CONTENT ENDS HERE -->
+        </div>
+      </div>
+    </div>
+    {{ isnotpage search/* }}
+      <script type="text/javascript" src="/libs/jquery/jquery-3.3.1.min.js"></script>
+    {{ end }}
+    <script type="text/javascript" src="/libs/bootstrap/bootstrap.bundle.min.js"></script>
+    {{ if hasmath }}
+        {{ insert foot_katex.html }}
+    {{ end }}
+    {{ if hascode }}
+        {{ insert foot_highlight.html }}
+    {{ end }}
+    {{ ispage search/* }}
+      {{ insert foot_tipuesearch.html }}
+    {{ end }}
+    {{ if nestedlists }}
+      {{ insert foot_nestedlists.html }}
+    {{ end }}
+  </body>
+</html>

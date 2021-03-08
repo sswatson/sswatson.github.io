@@ -1,0 +1,168 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}  
+\usepackage[pdftex]{graphicx}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{wrapfig}
+\usepackage{sectsty}
+\usepackage{colonequals}
+\usepackage{color}
+\usepackage{calc}
+\usepackage{etoolbox}
+
+% COMMENT OUT THE SECOND LINE TO MAKE A HANDOUT WITHOUT SOLUTIONS
+\newtoggle{solutions}
+%\toggletrue{solutions}
+
+\usepackage{amsthm}
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{defn}{Definition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newtheorem{exercise}{Exercise}
+
+\usepackage{palatino}
+\usepackage{pxfonts}
+
+\sectionfont{\large}
+\sectionfont{\normalsize}
+
+\def\Arg{\mathop{\rm Arg}\nolimits}
+\def\Res{\mathop{\rm Res}}
+\renewcommand\Im{\mathop{\rm Im}\nolimits}
+\renewcommand\Re{\mathop{\rm Re}\nolimits}
+\newcommand\Arctan{\mathop{\rm Arctan}\nolimits}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\renewcommand{\P}{\mathbb{P}}
+\newcommand{\Chat}{\hat{\mathbb{C}}}
+\newcommand{\UHP}{\mathbb{H}}
+\DeclareMathOperator{\area}{area}
+\DeclareMathOperator{\dist}{dist}
+\DeclareMathOperator{\interior}{int}
+\DeclareMathOperator{\id}{id}
+
+\pagestyle{empty}
+
+\textwidth = 6.5 in
+\textheight = 9 in
+\oddsidemargin = -0.125 in
+\evensidemargin = 0.0 in
+\topmargin = -0.2 in
+\headheight = 0.0 in
+\headsep = 0.2 in
+\parskip = 0.2 in
+\parindent = 0.0 in
+
+\def\inv{^{-1}}
+
+\newcounter{prob}
+	\setcounter{prob}{1}
+
+\newcounter{subprob}
+	\setcounter{subprob}{1}
+
+\newcommand\itm{\theprob.  \stepcounter{prob}\setcounter{subprob}{1}}
+\newcommand\subitm{(\alph{subprob}) \refstepcounter{subprob}}
+
+\newcommand\sol[2]{\iftoggle{solutions}{\begin{proof}[Solution] #1\end{proof}}{#2}}
+%\newcommand\sol[2]{\iftoggle{solutions}{\textit{Solution}. #1}{#2}}
+%\newcommand\sol[2]{#2}
+
+
+\newcommand{\problem}[1]{
+\makebox[0.2cm]{\textbf{\itm}}  \begin{minipage}[t]{\linewidth-0.75cm}
+#1
+\end{minipage}
+}
+
+\newcommand\twomatrix[4]{
+\left(
+\begin{array}{cc}
+#1 & #2 \\
+#3 & #4
+\end{array}
+\right)
+}
+
+\renewcommand\vec[1]{\mathbf{#1}}
+\newcommand\pd[2]{\frac{\partial #1}{\partial #2}}
+
+\begin{document}
+\thispagestyle{empty}
+
+\begin{center}
+  18.022 Recitation Handout \iftoggle{solutions}{(with solutions)}{} \\
+  03 December 2014 \\
+\end{center}
+
+\itm Find the flux of the vector field $\vec{F} = x^2\vec{i} + xy\vec{j}$ across the surface 
+\[
+z = 1-x^2-y^2, \quad z \geq 0. 
+\]
+
+\sol{A normal to the graph of $f(x,y)$ is $(-f_x,-f_y,1)$, which is
+  $(2x,2y,1)$. Normalizing this vector gives
+  $\frac{1}{\sqrt{1+4x^2+4y^2}}(2x,2y,1)$. So the flux across the surface $X$ is
+\[
+\iint_{X} (x^2,xy,0)\cdot (2x,2y,1)/\sqrt{1+4x^2+4y^2} \,dS = \iint_{X}
+\frac{2x(x^2+y^2)}{\sqrt{1+4x^2+4y^2}}\,dS=0,
+\]
+since the integrand is an odd function of $x$ and $X$ is symmetric about
+the $y$-$z$ plane.  }{\vfill}
+
+\itm Write the surface $\left(s+t,s^2+t^2,3st(s+t)\right)$ (for $(s,t)\in \R^2$) as the graph of a function $f(x,y)$. 
+
+\sol{
+Squaring the $x$-coordinate and subtracting the $y$-coordinate from the result gives $2st$. Therefore $3st(s+t)=3\left(\frac{x^2-y}{2}\right)x=\boxed{\frac{3x(x^2-y)}{2}}$.
+}{\vfill}
+
+\iftoggle{solutions}{}{\newpage}
+
+\itm Calculate $\int_{\partial D}xy\,dS$, where $D=[0,1]^3$. 
+
+\sol{We integrate over each of the six faces. The bottom face $[0,1]\times[0,1]\times\{0\}$ has integral 
+\[
+\int_0^1\int_0^1 xy \,dx\,dy = 1/4. 
+\]
+The top face is the same. The faces $[0,1]\times\{0\}\times[0,1]$ and $\{0\}\times[0,1]\times[0,1]$ have zero contribution since the integrand vanishes on them. The faces $[0,1]\times\{1\}\times[0,1]$ and $\{1\}\times[0,1]\times[0,1]$ each have contribution 
+\[
+\int_0^1 \int_0^1 (y)(1) \,dx\,dy = \int_0^1 \int_0^1 (x)(1) \,dx\,dy = 1/2.
+\]
+The sum of these contributions is $1/4+1/4+1/2+1/2=\boxed{3/2}$. 
+}{\vfill}
+
+\itm (Fun/Challenge problem, 7.2.25 in \textit{Colley}) Let $a$ be some positive constant. Consider the surface defined by $\vec{X}(s,t)=(x(s,t),y(x,t),z(s,t))$, where 
+\begin{align*}
+x(s,t) &= \left(a+\cos\frac{s}{2}\sin t- \sin \frac{s}{2}\sin 2t\right)\cos s, \\
+y(s,t) &= \left(a+\cos\frac{s}{2}\sin t- \sin \frac{s}{2}\sin 2t\right)\sin s, \\
+z(s,t) &= \sin\frac{s}{2}\sin t + \cos\frac{s}{2}\sin 2t,
+\end{align*}
+and $s$ and $t$ each vary over $[0,2\pi]$. 
+
+(a) Describe the $s$-coordinate curve at $t=0$. 
+
+(b) Calculate the standard normal vector $\vec{N}$ along the $s$-coordinate curve at $t=0$. In other words, find $\vec{N}(s,0)$. 
+
+(c) Note that $\vec{X}(0,0)=\vec{X}(2\pi,0)$.  Compare $\vec{N}(0,0)$ and $\vec{N}(2\pi,0)$. What can you conclude about the surface? 
+
+\sol{Below is a picture of the surface (left figure), which incidentally is called the \textit{Klein bagel} and is a variant of the \textit{Klein bottle}. It's the surface swept out by a figure 8 being moved around a circle in the $x$-$y$ plane and twisted once along the way (see the figure to the right for what this process looks like halfway through). Thanks to Wikipedia for the pictures. 
+  \begin{center}
+    \includegraphics[width=6cm]{figures/kleinbagel}     \includegraphics[width=4cm]{figures/figure8}
+  \end{center}
+
+(a) The parametrization is $(a\cos s, a \sin s,0)$, which is a circle of radius $a$ centered at the origin. (b) The normal vector is $\vec{T}_s\times \vec{T}_t$, which when $t=0$ simplifies to
+\[
+\vec{N}(s,0) = (a\cos s(2\cos(s/2)+\sin(s/2)),a\sin s(2\cos(s/2)+\sin(s/2)),a(2\sin(s/2)-\cos(s/2))).
+\]
+(c) We calculate $\vec{N}(0,0)=(2a,0,-a)$ and $\vec{N}(2\pi,0)=(-2a,0,a)$. Since these normal vectors are not the same, the surface is not orientable. See Section 7.2 in \textit{Colley} for more discussion of this point. 
+}{\vfill}
+
+\end{document}
+

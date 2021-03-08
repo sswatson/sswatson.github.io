@@ -1,0 +1,194 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8x]{inputenc}
+\usepackage[L7x]{fontenc}  
+\usepackage[pdftex]{graphicx}
+\usepackage{fourier}
+\usepackage{hyperref}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{wrapfig}
+\usepackage{sectsty}
+\usepackage{asymptote}
+\usepackage{colonequals}
+\usepackage{color}
+\usepackage{calc}
+\usepackage{etoolbox}
+
+% COMMENT OUT THE SECOND LINE TO MAKE A HANDOUT WITHOUT SOLUTIONS
+\newtoggle{solutions}
+%\toggletrue{solutions}
+
+\usepackage{amsthm}
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{defn}{Definition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newtheorem{exercise}{Exercise}
+
+\sectionfont{\large}
+\sectionfont{\normalsize}
+
+\def\Arg{\mathop{\rm Arg}\nolimits}
+\def\Res{\mathop{\rm Res}}
+\renewcommand\Im{\mathop{\rm Im}\nolimits}
+\renewcommand\Re{\mathop{\rm Re}\nolimits}
+\newcommand\Arctan{\mathop{\rm Arctan}\nolimits}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\renewcommand{\P}{\mathbb{P}}
+\newcommand{\Chat}{\hat{\mathbb{C}}}
+\newcommand{\UHP}{\mathbb{H}}
+\DeclareMathOperator{\area}{area}
+\DeclareMathOperator{\dist}{dist}
+\DeclareMathOperator{\interior}{int}
+\DeclareMathOperator{\id}{id}
+
+\pagestyle{empty}
+
+\textwidth = 6.5 in
+\textheight = 9 in
+\oddsidemargin = -0.125 in
+\evensidemargin = 0.0 in
+\topmargin = -0.2 in
+\headheight = 0.0 in
+\headsep = 0.2 in
+\parskip = 0.2 in
+\parindent = 0.0 in
+
+\def\inv{^{-1}}
+
+\newcounter{prob}
+	\setcounter{prob}{1}
+
+\newcounter{subprob}
+	\setcounter{subprob}{1}
+
+\newcommand\itm{\theprob.  \stepcounter{prob}\setcounter{subprob}{1}}
+\newcommand\subitm{(\alph{subprob}) \refstepcounter{subprob}}
+
+\newcommand\sol[2]{\iftoggle{solutions}{\textit{Solution}. #1}{#2}}
+%\newcommand\sol[2]{#2}
+
+
+\newcommand{\problem}[1]{
+\makebox[0.2cm]{\textbf{\itm}}  \begin{minipage}[t]{\linewidth-0.75cm}
+#1
+\end{minipage}
+}
+
+\newcommand\twomatrix[4]{
+\left(
+\begin{array}{cc}
+#1 & #2 \\
+#3 & #4
+\end{array}
+\right)
+}
+
+\renewcommand\vec[1]{\mathbf{#1}}
+\newcommand\pd[2]{\frac{\partial #1}{\partial #2}}
+
+\begin{document}
+\thispagestyle{empty}
+
+\begin{center}
+  18.022 Recitation Handout \iftoggle{solutions}{(with solutions)}{} \\
+  27 October 2014 
+\end{center}
+
+
+\itm Find the second order Taylor polynomial for $f(x,y) = \cos(x+2y)$ at the origin. What is the second order Taylor polynomial for $g(\theta) = \cos \theta$ at $\theta=0$? 
+
+\sol{ The second order Taylor polynomial is 
+\[
+f(0,0) + f_x(0,0)x + f_y(0,0)y + f_{xy}(0,0)xy + \frac{1}{2}f_{xx}(0,0)x^2+\frac{1}{2}f_{yy}(0,0)y^2,
+\]
+which equals 
+\[
+1 -2xy - \frac{1}{2}x^2 + 2 y^2.
+\]
+This can also be obtained by substituting $x+2y$ into the Taylor polynomial $1-\frac12\theta^2$ for $\cos\theta$ at $\theta = 0$. 
+}{\vfill}
+
+
+
+\itm (a) Find the critical points of $f(x,y) = x^2 + 4xy + y^2$. Use the second derivative test for local extrema to determine whether the point is a local maximum, a local minimum, or a saddle point. 
+
+\iftoggle{solutions}{}{\vfill} 
+
+(b) Find the critical points of $g(x,y) = x^2 + xy + y^2$. Use the second derivative test for local extrema to determine whether the point is a local maximum, a local minimum, or a saddle point. 
+
+\sol{(a) The gradient of $f$ is $(2x+4y,4x+2y)$, which equals $\vec{0}$ if and only if $(x,y) = (0,0)$. Therefore, the origin is the only critical point of $f$. The Hessian evaluated at $(0,0)$ is 
+\[
+\left|
+\begin{array}{{cc}}
+  f_{xx} & f_{xy} \\
+  f_{xy} & f_{yy}
+\end{array}
+\right| = 
+\left|
+\begin{array}{{cc}}
+  2 & 4 \\
+  4 & 2
+\end{array}
+\right| = 2\cdot 2 - 4 \cdot 4 < 0,
+\]
+so the origin is a saddle point. 
+
+(b) The gradient of $g$ is $(2x+y,x+2y)$, which equals $\vec{0}$ if and only if $(x,y) = (0,0)$. Therefore, the origin is the only critical point of $g$. The Hessian evaluated at $(0,0)$ is 
+\[
+\left|
+\begin{array}{{cc}}
+  f_{xx} & f_{xy} \\
+  f_{xy} & f_{yy}
+\end{array}
+\right| = 
+\left|
+\begin{array}{{cc}}
+  2 & 1 \\
+  1 & 2
+\end{array}
+\right| = 2\cdot 2 - 1 \cdot 1 > 0,
+\]
+so the critical point is a local extremum. Since $f_{xx} > 0$, the Hessian is positive definite and the critical point is a local minimum. 
+}{\vfill} 
+
+\iftoggle{solutions}{}{\newpage} 
+
+\itm (a) What theorem ensures that the function $f(x,y)=x\sin(x+y)$ defined on the rectangle $\{(x,y)\,:0\leq x \leq \pi, 0 \leq y \leq 7 \}$ has an absolute maximum and an absolute minimum? Verify the hypotheses of that theorem. 
+
+\iftoggle{solutions}{}{\vspace{3cm}}
+
+(b) Find the absolute extrema of $f$. You are given that there are no absolute extrema on the top or bottom of the rectangle; see the surface plot below to guide your intuition.
+
+\sol{
+(a) The extreme value theorem ensures that the function achieves absolute extrema, because it is continuous function defined on a compact (that is, closed and bounded) set. 
+
+\begin{center}
+  \includegraphics[width=6cm]{figures/maximize3.png}
+\end{center} 
+
+(b) If $f$ has an extremum in the interior of the rectangle, then $Df=\vec{0}$ there. Since $Df = (\sin(x+y)+x\cos(x+y),x\cos(x+y))$, there are no critical points in the interior of the rectangle. To see this, note that the second coordinate is zero if and only if $\cos(x+y) = 0$. If $\cos(x+y) = 0$, then the first coordinate is zero if and only if $\sin(x+y) = 0$. But sine and cosine never vanish simultaneously, so there are no critical points. 
+
+It follows that $f$ has its absolute extremum on the edges or at one of the vertices of the rectangle. We look at each side one at a time. 
+\begin{itemize} 
+\item On the bottom side of the rectangle, $f(x,y)=f(x,0)=x \sin x$, which has a minimum of 0 at $(0,0)$ and $(\pi,0)$ and a maximum of about 1.81 at about $(2.02,0)$. 
+\item On the top side of the rectangle, $f(x,y) = f(x,7) = x\sin (x+7)$, which has a minimum of $\pi \sin (\pi + 7)$ at $(\pi,7)$ and a maximum of about 1.2 at about $(1.46,7)$. 
+\item On the right side, $f(x,y)= f(\pi,y)=\pi \sin(\pi + y)$, which has minimum of $-\pi$ at $(\pi,\pi/2)$ and a maximum of $\pi$ at $(\pi,3\pi/2)$. 
+\item On the left side, $f(x,y) = f(0,y) = 0$.  
+\end{itemize} 
+
+Putting all this together, we see that the absolute maximum of $\boxed{\pi}$ is achieved at $\boxed{(\pi, 3/\pi/2)}$, while the minimum of $\boxed{-\pi}$ is achieved at $\boxed{(\pi,\pi/2)}$. 
+}{
+\begin{flushright}
+  \includegraphics[width=6cm]{figures/maximize3.png}
+\end{flushright}
+\vfill}
+
+
+\end{document}
+

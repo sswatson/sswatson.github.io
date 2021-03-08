@@ -1,0 +1,102 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8x]{inputenc}
+\usepackage[L7x]{fontenc}  
+\usepackage[pdftex]{graphicx}
+\usepackage{fourier}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{wrapfig}
+\usepackage{sectsty}
+\usepackage{asymptote}
+\usepackage{colonequals}
+\usepackage{color}
+\usepackage{calc}
+\usepackage{etoolbox}
+
+% COMMENT OUT THE SECOND LINE TO MAKE A HANDOUT WITHOUT SOLUTIONS
+\newtoggle{solutions}
+%\toggletrue{solutions}
+
+\usepackage{amsthm}
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{defn}{Definition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newtheorem{exercise}{Exercise}
+
+\sectionfont{\large}
+\sectionfont{\normalsize}
+
+\def\Arg{\mathop{\rm Arg}\nolimits}
+\def\Res{\mathop{\rm Res}}
+\renewcommand\Im{\mathop{\rm Im}\nolimits}
+\renewcommand\Re{\mathop{\rm Re}\nolimits}
+\newcommand\Arctan{\mathop{\rm Arctan}\nolimits}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\renewcommand{\P}{\mathbb{P}}
+\newcommand{\Chat}{\hat{\mathbb{C}}}
+\newcommand{\UHP}{\mathbb{H}}
+\DeclareMathOperator{\area}{area}
+\DeclareMathOperator{\dist}{dist}
+\DeclareMathOperator{\interior}{int}
+\DeclareMathOperator{\id}{id}
+
+\pagestyle{empty}
+
+\textwidth = 6.5 in
+\textheight = 9 in
+\oddsidemargin = -0.125 in
+\evensidemargin = 0.0 in
+\topmargin = -0.2 in
+\headheight = 0.0 in
+\headsep = 0.2 in
+\parskip = 0.2 in
+\parindent = 0.0 in
+
+\def\inv{^{-1}}
+
+\newcounter{prob}
+	\setcounter{prob}{1}
+
+\newcommand\itm{\theprob.  \stepcounter{prob}}
+
+\iftoggle{solutions}{
+\newcommand\sol[2]{\textit{Solution}. #1}
+}
+{
+\newcommand\sol[2]{#2}
+}
+
+
+\newcommand{\problem}[1]{
+\makebox[0.2cm]{\textbf{\itm}}  \begin{minipage}[t]{\linewidth-0.75cm}
+#1
+\end{minipage}
+}
+
+\begin{document}
+\thispagestyle{empty}
+
+\begin{center}
+  18.022 Recitation Quiz \iftoggle{solutions}{(with solutions)}{} \\
+  10 September 2014 
+\end{center}
+
+\itm Find a vector in $\R^2$ which is orthogonal to $(3,-4)$
+
+\sol{One vector which has a zero dot product with $(3,-4)$ is $\boxed{(4,3)}$.}{\vfill}
+
+\itm Find the point on the line $4x + 3y = 7$ which is closest to the
+origin. 
+
+\sol{The vector from the origin to the nearest point on the given line is
+  orthogonal to the line, and is therefore parallel to $(4,3)$. The
+  intersection point between $4x + 3y = 7$ and $y = \frac{3}{4}x$ is
+  $\boxed{(28/25,21/25)}$.}{\vfill}
+
+\end{document}

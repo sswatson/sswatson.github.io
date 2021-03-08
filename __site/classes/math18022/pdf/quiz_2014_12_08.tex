@@ -1,0 +1,108 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}  
+\usepackage[pdftex]{graphicx}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{wrapfig}
+\usepackage{sectsty}
+\usepackage{colonequals}
+\usepackage{color}
+\usepackage{calc}
+\usepackage{etoolbox}
+
+% COMMENT OUT THE SECOND LINE TO MAKE A HANDOUT WITHOUT SOLUTIONS
+\newtoggle{solutions}
+%\toggletrue{solutions}
+
+\usepackage{amsthm}
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{defn}{Definition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newtheorem{exercise}{Exercise}
+
+\usepackage{palatino} 
+\usepackage{pxfonts} 
+
+\sectionfont{\large}
+\sectionfont{\normalsize}
+
+\def\Arg{\mathop{\rm Arg}\nolimits}
+\def\Res{\mathop{\rm Res}}
+\renewcommand\Im{\mathop{\rm Im}\nolimits}
+\renewcommand\Re{\mathop{\rm Re}\nolimits}
+\newcommand\Arctan{\mathop{\rm Arctan}\nolimits}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\renewcommand{\P}{\mathbb{P}}
+\newcommand{\Chat}{\hat{\mathbb{C}}}
+\newcommand{\UHP}{\mathbb{H}}
+\DeclareMathOperator{\area}{area}
+\DeclareMathOperator{\dist}{dist}
+\DeclareMathOperator{\interior}{int}
+\DeclareMathOperator{\id}{id}
+
+\pagestyle{empty}
+
+\textwidth = 6.5 in
+\textheight = 9 in
+\oddsidemargin = -0.125 in
+\evensidemargin = 0.0 in
+\topmargin = -0.2 in
+\headheight = 0.0 in
+\headsep = 0.2 in
+\parskip = 0.2 in
+\parindent = 0.0 in
+
+\def\inv{^{-1}}
+
+\newcounter{prob}
+	\setcounter{prob}{1}
+
+\newcounter{subprob}
+	\setcounter{subprob}{1}
+
+\newcommand\itm{\theprob.  \stepcounter{prob}\setcounter{subprob}{1}}
+\newcommand\subitm{(\alph{subprob}) \refstepcounter{subprob}}
+
+\newcommand\sol[2]{\iftoggle{solutions}{\begin{proof}[Solution] #1\end{proof}}{#2}}
+%\newcommand\sol[2]{\iftoggle{solutions}{\textit{Solution}. #1}{#2}}
+%\newcommand\sol[2]{#2}
+
+
+\newcommand{\problem}[1]{
+\makebox[0.2cm]{\textbf{\itm}}  \begin{minipage}[t]{\linewidth-0.75cm}
+#1
+\end{minipage}
+}
+
+\newcommand\twomatrix[4]{
+\left(
+\begin{array}{cc}
+#1 & #2 \\
+#3 & #4
+\end{array}
+\right)
+}
+
+\renewcommand\vec[1]{\mathbf{#1}}
+\newcommand\pd[2]{\frac{\partial #1}{\partial #2}}
+
+\begin{document}
+\thispagestyle{empty}
+
+\begin{center}
+  18.022 Recitation Quiz \iftoggle{solutions}{(with solutions)}{} \\
+  8 December 2014 \\
+\end{center}
+
+No quiz today! 
+
+\end{document}
+

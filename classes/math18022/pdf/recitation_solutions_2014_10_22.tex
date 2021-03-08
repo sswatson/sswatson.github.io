@@ -1,0 +1,160 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8x]{inputenc}
+\usepackage[L7x]{fontenc}  
+\usepackage[pdftex]{graphicx}
+\usepackage{fourier}
+\usepackage{hyperref}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{wrapfig}
+\usepackage{sectsty}
+\usepackage{asymptote}
+\usepackage{colonequals}
+\usepackage{color}
+\usepackage{calc}
+\usepackage{etoolbox}
+
+% COMMENT OUT THE SECOND LINE TO MAKE A HANDOUT WITHOUT SOLUTIONS
+\newtoggle{solutions}
+\toggletrue{solutions}
+
+\usepackage{amsthm}
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{defn}{Definition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newtheorem{exercise}{Exercise}
+
+\sectionfont{\large}
+\sectionfont{\normalsize}
+
+\def\Arg{\mathop{\rm Arg}\nolimits}
+\def\Res{\mathop{\rm Res}}
+\renewcommand\Im{\mathop{\rm Im}\nolimits}
+\renewcommand\Re{\mathop{\rm Re}\nolimits}
+\newcommand\Arctan{\mathop{\rm Arctan}\nolimits}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\renewcommand{\P}{\mathbb{P}}
+\newcommand{\Chat}{\hat{\mathbb{C}}}
+\newcommand{\UHP}{\mathbb{H}}
+\DeclareMathOperator{\area}{area}
+\DeclareMathOperator{\dist}{dist}
+\DeclareMathOperator{\interior}{int}
+\DeclareMathOperator{\id}{id}
+
+\pagestyle{empty}
+
+\textwidth = 6.5 in
+\textheight = 9 in
+\oddsidemargin = -0.125 in
+\evensidemargin = 0.0 in
+\topmargin = -0.2 in
+\headheight = 0.0 in
+\headsep = 0.2 in
+\parskip = 0.2 in
+\parindent = 0.0 in
+
+\def\inv{^{-1}}
+
+\newcounter{prob}
+	\setcounter{prob}{1}
+
+\newcounter{subprob}
+	\setcounter{subprob}{1}
+
+\newcommand\itm{\theprob.  \stepcounter{prob}\setcounter{subprob}{1}}
+\newcommand\subitm{(\alph{subprob}) \refstepcounter{subprob}}
+
+\newcommand\sol[2]{\iftoggle{solutions}{\textit{Solution}. #1}{#2}}
+%\newcommand\sol[2]{#2}
+
+
+\newcommand{\problem}[1]{
+\makebox[0.2cm]{\textbf{\itm}}  \begin{minipage}[t]{\linewidth-0.75cm}
+#1
+\end{minipage}
+}
+
+\newcommand\twomatrix[4]{
+\left(
+\begin{array}{cc}
+#1 & #2 \\
+#3 & #4
+\end{array}
+\right)
+}
+
+\renewcommand\vec[1]{\mathbf{#1}}
+\newcommand\pd[2]{\frac{\partial #1}{\partial #2}}
+
+\begin{document}
+\thispagestyle{empty}
+
+\begin{center}
+  18.022 Recitation Handout \iftoggle{solutions}{(with solutions)}{} \\
+  22 October 2014 
+\end{center}
+
+
+\itm Verify that divergence, curl, and gradient are linear operators. 
+
+\sol{For divergence, we want to show that for all vector fields $\vec{F}$ and $\vec{G}$ and scalars $\alpha$ and $\beta$, we have 
+\[
+\nabla \cdot (\alpha \vec{F} + \beta \vec{G}) = \alpha \nabla \cdot \vec{F} + \beta \nabla \cdot \vec{G}. 
+\]
+The left-hand side is
+ \[
+\pd{}{x}(\alpha F_1 + \beta G_1) +\pd{}{y}(\alpha F_2 + \beta G_2) + \pd{}{z}(\alpha F_3 + \beta G_3)
+ = 
+\alpha \pd{F_1}{x}+ \beta \pd{G_1}{x} + \alpha \pd{F_2}{y}+ \beta \pd{G_2}{y} + \alpha \pd{F_3}{z}+ \beta \pd{G_3}{z},
+\]
+which equals the right-hand side. Calculations for gradient and curl are similar. 
+}{\vfill}
+
+
+\itm Let $\vec{F}(x,y,z)=(3x^2+\frac{1}{2}y^2+e^z, xy + z, f(x,y,z))$. Find all $f$ such that $\vec{F}$ is curl-free.
+
+\sol{The third component of $\nabla \times \vec{F}$ is $y - (1/2)(2y) = 0$,
+  as desired. For the first component to be zero, we must have $f_y = 1$,
+  and for the second component to be zero we must have
+  $f_x=e^z$. Integrating these two equations tells us that $f(x,y,z) = y +
+  C_1(x,z)$ and $f(x,y,z) = xe^z + C_2(y,z)$ for functions $C_1$ and $C_2$
+  which do not depend on $y$ or $x$ respectively. Putting these two
+  together, we see that $f(x,y,z) = xe^z + y + C(z)$ for any differentiable
+  function $C$. }{\vfill}
+
+\iftoggle{solutions}{}{\newpage} 
+
+\itm Confirm that for a vector field $\vec{F}:\R^3 \to \R^3$, we have 
+\[
+\nabla \times (\nabla \times \vec{F}) = \nabla(\nabla\cdot \vec{F}) - \nabla^2 \vec{F},
+\]
+where $\nabla^2 \vec{F}$ is defined to mean ``take the Laplacian of each component of $\vec{F}$.'' Is it possible to derive this identity from 
+$
+\vec{a}\times(\vec{b}\times\vec{c}) = (\vec{a}\cdot\vec{c})\vec{b} - (\vec{a}\cdot\vec{b})\vec{c}?
+$
+% $\left(\frac{\partial^2F_1}{\partial x^2}+\frac{\partial^2F_1}{\partial y^2}+\frac{\partial^2F_1}{\partial z^2}\right)\vec{i}$
+
+\sol{[Omitted]}{\vfill}
+
+\itm Let $\vec{F}$ be a $C^2$ vector field on $\R^3$. Show that $\nabla \times \vec{F}$ is incompressible. 
+
+\sol{
+We calculate 
+\[
+\nabla \cdot (\nabla \times \vec{F}) 
+=
+\frac{\partial^2 F_3}{\partial x \partial y} - \frac{\partial^2 F_2}{\partial x \partial z}
++ \frac{\partial^2 F_1}{\partial y \partial z} - \frac{\partial^2 F_3}{\partial y \partial x} 
++ \frac{\partial^2 F_2}{\partial z \partial x} - \frac{\partial^2 F_1}{\partial z \partial y} = 0,
+\]
+since the mixed partials don't depend on the order of differentiation, as $\vec{F}$ is $C^2$. 
+}{\vfill}
+
+\end{document}
+

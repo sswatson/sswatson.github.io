@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  
+  <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="/css/tipuesearch.css">
+  <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="/css/scribble.css">
+  <link rel="stylesheet" type="text/css" href="/css/franklin.css">
+  <link rel="stylesheet" type="text/css" href="/css/custom.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
+  <link rel="icon" href="/assets/favicon/favicon.ico">
+  <link rel="manifest" href="/assets/favicon/manifest.json">
+  
+  
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <title>Cool Stuff</title> 
+  <script type="text/javascript" charset="UTF-8"
+  src="https://cdn.jsdelivr.net/npm/jsxgraph@1.2.1/distrib/jsxgraphcore.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/jsxgraph@1.2.1/distrib/jsxgraph.css" />
+</head>
+
+<body>
+
+  <!-- A standard Twitter Bootstrap nav bar -->
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="container">
+      <div class="navbar-header">
+        <a href="/" class="navbar-brand">
+          <img class="navbar-logo" src="/assets/profile-small.jpg" width="40"></img>
+        </a>
+      </div>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar_collapse" aria-controls="navbar_collapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbar_collapse">
+        <ul class="nav navbar-nav">
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/teaching/">Teaching</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="/technology/">Technology</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="/resume/">Resume</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">About</a>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav ml-auto">
+          <li class="nav-item">
+            <div>
+                <div class="tipue_search_left_menu">
+                <a class="nav-link" href="/search/">
+                  <img src="/assets/glass.svg" class="tipue_navbar_icon default">
+                  <img src="/assets/glass_light.svg" class="tipue_navbar_icon hover"></a>
+                </div>
+              
+              <div class="tipue_search_right">
+                <form action="/search/" class="menu-form hover">
+                    <input type="text" name="q" id="tipue_search_input_menu" pattern=".{3,}" title="At least 3 characters" required>
+                </form>
+              </div>
+              
+            </div>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </nav>
+
+
+  <div class="container">
+    <div class="row">
+      <!-- Main column -->
+      <div id="content" class="col-md-12">
+
+        <!-- Content appended here --><div class="franklin-content"><h1 id="cool_stuff"><a href="#cool_stuff" class="header-anchor">Cool Stuff</a></h1>
+<ul>
+<li><p>Data Science</p>
+<ul>
+<li><p>Software</p>
+<ul>
+<li><p>Languages</p>
+<ul>
+<li><p><strong>Python</strong>. Most popular language for data science in industry. Also well-suited to application building.</p>
+</li>
+<li><p><strong>R</strong>. Most popular language among statisticians. Excellent focus on user experience, and lots of amazing tooling.</p>
+</li>
+<li><p><strong>Julia</strong>. A beautifully designed, fast, and increasingly popular language for data science and other scientific computing applications. My personal favorite.</p>
+</li>
+</ul>
+</li>
+<li><p>Packages</p>
+<ul>
+<li><p><strong>Plotly</strong>. Beautiful, easy-to-make graphs for the web &#40;both 2D and 3D&#41;. Very well integrated with Python, R, and Julia.</p>
+</li>
+<li><p><strong>Tidyverse</strong>. An opinionated but powerful collection of packages for doing data science in R.</p>
+</li>
+<li><p><strong>Esquisse</strong>. An R package for creating data visualizations quickly and beautifully, without code.</p>
+</li>
+<li><p><strong>Spark</strong>. Distributed computing framework, commonly used in industry.</p>
+</li>
+</ul>
+</li>
+<li><p>Applications</p>
+<ul>
+<li><p><strong>Jupyter</strong>. Very popular notebook computing environment which supports many languages, including Julia, Python, and R. </p>
+</li>
+<li><p><strong>Pluto</strong>. Julia-specific alternative to Jupyter which is <em>reactive</em> &#40;changing anything causes everything downstream of it to change too&#41;.</p>
+</li>
+<li><p><strong>ObservableHQ</strong>. Reactive notebooks specifically for Javascript.</p>
+</li>
+<li><p><strong>RStudio</strong>. Premier development environment for R. Can also be used for both Python and Julia.</p>
+</li>
+<li><p><strong>Superset</strong>. Open source data visualization dashboards. </p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Websites</p>
+<ul>
+<li><p>Applications</p>
+<ul>
+<li><p><strong>CoCalc</strong>. Cloud environment with excellent collaboration tools which supports practically every piece of open source scientific computing software.</p>
+</li>
+<li><p><strong>Colab</strong>. A Google-managed cloud Jupyter environment; Python-only and with slightly hackish support for collaboration, but it <em>does</em> include free GPU, which is important for deep learning and some other applications.</p>
+</li>
+<li><p><strong>NextJournal</strong>. Another free-GPU cloud Jupyter service.</p>
+</li>
+</ul>
+</li>
+<li><p>Books</p>
+<ul>
+<li><p><strong>Introduction to Data Science in R</strong>. Superb online book written by Rafael Irizarry at Harvard.</p>
+</li>
+</ul>
+</li>
+<li><p>Community</p>
+<ul>
+<li><p><strong>Kaggle</strong>. Datasets, problems, and contests.</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Content creation tools and utilities</p>
+<ul>
+<li><p><strong>Prismia</strong>. Create and deploy interactive lessons.</p>
+</li>
+<li><p><strong>Desmos</strong>. A mathlet creation environment for everyone.</p>
+</li>
+<li><p><strong>math3d.org</strong>. Desmos, but in 3D. Really beautiful.</p>
+</li>
+<li><p><strong>JSXGraph</strong>. Create reactive mathlets &#40;with code&#41;. What Prismia uses for its 2D mathlet system.</p>
+</li>
+<li><p><strong>Ipe</strong>. Desktop application for making precise 2D mathematical figures quickly &#40;using a graphical user interface&#41;.</p>
+</li>
+<li><p><strong>TinyTeX</strong>. An easy-to-use distribution of LaTeX that does not take up a ton of hard drive space.</p>
+</li>
+<li><p><strong>MathPix</strong>. Snapshot math expressions or tables on your screen and convert them automatically to LaTeX &#40;using optical character recognition&#41;.</p>
+</li>
+<li><p><strong>TextSniper</strong>. Like MathPix, but with plain text. For macOS.</p>
+</li>
+<li><p><strong>Keyboard Maestro</strong>. Automate tasks at the operating system level &#40;e.g., scroll down 60 pixels and click, then repeat 100 times&#41;. Hopefully you don&#39;t need it often, but it&#39;s a lifesaver when you do.</p>
+</li>
+<li><p><strong>Copier</strong>. Templating system for quickly creating new files or projects on your computer &#40;a Python package&#41;. Especially useful for software projects with boilerplate, stock letters, etc.</p>
+</li>
+<li><p><strong>ungit</strong>. A visual approach to version control. Solves a lot of Git&#39;s UX problems.</p>
+</li>
+</ul>
+</li>
+<li><p>Web development</p>
+<ul>
+<li><p><strong>React</strong>. One of the most popular Javascript frameworks for creating web applications. It&#39;s the only one I know, but I do like it.</p>
+</li>
+<li><p><strong>Visual Studio Code</strong>. The development environment that all the cool kids are using these days.</p>
+</li>
+<li><p><strong>Firebase</strong>. An easy way to create a low-cost, scalable web application. Hosting, database, and cloud functions are all integrated and well documented.</p>
+</li>
+<li><p><strong>AG Grid</strong>. Possibly the best open source data table package for the web. Highly recommended over plain HTML for large tables.</p>
+</li>
+</ul>
+</li>
+<li><p>Learning</p>
+<ul>
+<li><p>Websites</p>
+<ul>
+<li><p><strong>Art of Problem Solving</strong>. Premier math learning community for middle school and high school.</p>
+</li>
+<li><p><strong>Mathigon</strong>. Most polished, beautiful math lessons on the internet.</p>
+</li>
+<li><p><strong>Data Gymnasia</strong>. Data science content built on Mathigon technology.</p>
+</li>
+<li><p><strong>3Blue1Brown</strong>. The best math videos on YouTube. Beautiful visualizations, original exposition, and excellent storytelling. </p>
+</li>
+<li><p><strong>Distill.pub</strong>. Visually stunning interactive articles on data science topics.</p>
+</li>
+</ul>
+</li>
+<li><p>Books</p>
+<ul>
+<li><p><strong>Concrete Mathematics</strong> by Knuth, Graham, and Patashnik. Original, expertly crafted book on a variety of discrete math topics.</p>
+</li>
+<li><p><strong>Probability with Martingales</strong> by David Williams. Succinct probability textbook from the University of Cambridge &#40;the one I learned basic probability from&#41;.</p>
+</li>
+<li><p><strong>Linear Algebra Done Right</strong> by Sheldon Axler. An expository masterpiece with an original and elegant take on basic linear algebra.</p>
+</li>
+<li><p><strong>Visual Complex Analysis</strong> by Tristan Needham. The title says it all.</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Personal</p>
+<ul>
+<li><p>Transportation</p>
+<ul>
+<li><p><strong>Bike Friday</strong>. Really cool folding bicycles &#40;better ride&#41;.</p>
+</li>
+<li><p><strong>Brompton</strong>. Really cool folding bicycles &#40;more compact&#41;.</p>
+</li>
+</ul>
+</li>
+<li><p>Food</p>
+<ul>
+<li><p><strong>Taza Chocolate.</strong> Amazing chocolate made locally in Somerville. Unique, slightly gritty texture &#40;and dairy free&#41;.</p>
+</li>
+</ul>
+</li>
+<li><p>Entertainment</p>
+<ul>
+<li><p><strong>xckd</strong>. Premier nerd comic on the web.</p>
+</li>
+<li><p><strong>Quora</strong>. Social media site built around the question-and-answer concept. Lots of excellent writers and a good algorithm for surfacing quality content.</p>
+</li>
+<li><p><strong>Meetup.com</strong>. Find folks in your area with common interests.</p>
+</li>
+<li><p><strong>Pocket</strong>. Browser extension and app for stashing articles you find and want to read later.</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<!--
+<div class="page-foot">
+  <div class="copyright">
+    &copy; {{ fill author }}. Last modified: {{ fill fd_mtime }}. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
+  </div>
+</div>
+--></div><!-- CONTENT ENDS HERE -->
+        </div>
+      </div>
+    </div>
+    
+      <script type="text/javascript" src="/libs/jquery/jquery-3.3.1.min.js"></script>
+    
+    <script type="text/javascript" src="/libs/bootstrap/bootstrap.bundle.min.js"></script>
+    
+    
+    
+    
+      <!--collapsible lists:-->
+<script>
+$('h2').click(function(e) {
+  e.stopPropagation();
+  $(this).children('ul,ol').slideToggle();
+});
+$('li').click(function(e) {
+  e.stopPropagation();
+  $(this).children('ul,ol').slideToggle();
+});
+</script>
+    
+  </body>
+</html>

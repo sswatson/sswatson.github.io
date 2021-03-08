@@ -1,0 +1,142 @@
+\documentclass[11pt]{article}
+
+% \usepackage[utf8x]{inputenc}
+% \usepackage[L7x]{fontenc}  
+
+\usepackage{mathpazo_modified} 
+
+\usepackage[pdftex]{graphicx}
+%\usepackage{fourier}
+\usepackage{hyperref}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{wrapfig}
+\usepackage{sectsty}
+\usepackage{asymptote}
+\usepackage{colonequals}
+\usepackage{color}
+\usepackage{calc}
+\usepackage{etoolbox}
+
+% COMMENT OUT THE SECOND LINE TO MAKE A HANDOUT WITHOUT SOLUTIONS
+\newtoggle{solutions}
+\toggletrue{solutions}
+
+\usepackage{amsthm}
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{defn}{Definition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newtheorem{exercise}{Exercise}
+
+\sectionfont{\large}
+\sectionfont{\normalsize}
+
+\def\Arg{\mathop{\rm Arg}\nolimits}
+\def\Res{\mathop{\rm Res}}
+\renewcommand\Im{\mathop{\rm Im}\nolimits}
+\renewcommand\Re{\mathop{\rm Re}\nolimits}
+\newcommand\Arctan{\mathop{\rm Arctan}\nolimits}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\renewcommand{\P}{\mathbb{P}}
+\newcommand{\Chat}{\hat{\mathbb{C}}}
+\newcommand{\UHP}{\mathbb{H}}
+\DeclareMathOperator{\area}{area}
+\DeclareMathOperator{\dist}{dist}
+\DeclareMathOperator{\interior}{int}
+\DeclareMathOperator{\id}{id}
+
+\pagestyle{empty}
+
+\textwidth = 6.5 in
+\textheight = 9 in
+\oddsidemargin = -0.125 in
+\evensidemargin = 0.0 in
+\topmargin = -0.2 in
+\headheight = 0.0 in
+\headsep = 0.2 in
+\parskip = 0.2 in
+\parindent = 0.0 in
+
+\def\inv{^{-1}}
+
+\newcounter{prob}
+	\setcounter{prob}{1}
+
+\newcounter{subprob}
+	\setcounter{subprob}{1}
+
+\newcommand\itm{\theprob.  \stepcounter{prob}\setcounter{subprob}{1}}
+\newcommand\subitm{(\alph{subprob}) \refstepcounter{subprob}}
+
+\newcommand\sol[2]{\iftoggle{solutions}{\textit{Solution}. #1}{#2}}
+%\newcommand\sol[2]{#2}
+
+
+\newcommand{\problem}[1]{
+\makebox[0.2cm]{\textbf{\itm}}  \begin{minipage}[t]{\linewidth-0.75cm}
+#1
+\end{minipage}
+}
+
+\newcommand\twomatrix[4]{
+\left(
+\begin{array}{cc}
+#1 & #2 \\
+#3 & #4
+\end{array}
+\right)
+}
+
+\renewcommand\vec[1]{\mathbf{#1}}
+\newcommand\pd[2]{\frac{\partial #1}{\partial #2}}
+
+\begin{document}
+\thispagestyle{empty}
+
+\begin{center}
+  18.022 Recitation Quiz \iftoggle{solutions}{(with solutions)}{} \\
+  20 October 2014 
+\end{center}
+
+\itm Suppose that $f:\R^2 \to \R^2$ and $g:R^2 \to R^2$ are
+differentiable. Find the total derivative $D(f\circ g)$. (Note: you may
+write $f$ as $(f_1,f_2)$, where $f_i: \R^2 \to \R$ for $i\in \{1,2\}$, and
+similarly for $g$.) 
+
+\sol{Let's use the variables $s$ and $t$ for the arguments of $g$, and
+  let's use the variables $x$ and $y$ for the arguments of $f$. The
+  composition $f\circ g$ is given by
+\[
+(f\circ g)(s,t) = (f_1(g_1(s,t),g_2(s,t)), f_2(g_1(s,t),g_2(s,t))).
+\]
+By the chain rule, the partial derivative of $f_1(g_1(s,t),g_2(s,t))$ with
+respect to $s$ is
+\[
+\frac{\partial f_1}{\partial x}\frac{\partial g_1}{\partial s}
++ \frac{\partial f_1}{\partial y}\frac{\partial g_2}{\partial s}. 
+\]
+Doing similar calculations for the other terms, we end up with 
+\[
+(D(f\circ g))(s,t) =
+\left(
+\begin{array}{cc}
+\frac{\partial f_1}{\partial x}\frac{\partial g_1}{\partial s}
++ \frac{\partial f_1}{\partial y}\frac{\partial g_2}{\partial s} & 
+\frac{\partial f_1}{\partial x}\frac{\partial g_1}{\partial t}
++ \frac{\partial f_1}{\partial y}\frac{\partial g_2}{\partial t} \\
+\frac{\partial f_2}{\partial x}\frac{\partial g_1}{\partial s}
++ \frac{\partial f_2}{\partial y}\frac{\partial g_2}{\partial s} & 
+\frac{\partial f_2}{\partial x}\frac{\partial g_1}{\partial t}
++ \frac{\partial f_2}{\partial y}\frac{\partial g_2}{\partial t} 
+\end{array} 
+\right).
+\]
+}{}
+
+\end{document}
+

@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  
+  <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="/css/tipuesearch.css">
+  <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="/css/scribble.css">
+  <link rel="stylesheet" type="text/css" href="/css/franklin.css">
+  <link rel="stylesheet" type="text/css" href="/css/custom.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
+  <link rel="icon" href="/assets/favicon/favicon.ico">
+  <link rel="manifest" href="/assets/favicon/manifest.json">
+  
+  
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <title>DATA 1010: Introduction to Probability, Statistics, and Machine Learning</title> 
+  <script type="text/javascript" charset="UTF-8"
+  src="https://cdn.jsdelivr.net/npm/jsxgraph@1.2.1/distrib/jsxgraphcore.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/jsxgraph@1.2.1/distrib/jsxgraph.css" />
+</head>
+
+<body>
+
+  <!-- A standard Twitter Bootstrap nav bar -->
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="container">
+      <div class="navbar-header">
+        <a href="/" class="navbar-brand">
+          <img class="navbar-logo" src="/assets/profile-small.jpg" width="40"></img>
+        </a>
+      </div>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar_collapse" aria-controls="navbar_collapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbar_collapse">
+        <ul class="nav navbar-nav">
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/teaching/">Teaching</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="/technology/">Technology</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="/resume/">Resume</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">About</a>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav ml-auto">
+          <li class="nav-item">
+            <div>
+                <div class="tipue_search_left_menu">
+                <a class="nav-link" href="/search/">
+                  <img src="/assets/glass.svg" class="tipue_navbar_icon default">
+                  <img src="/assets/glass_light.svg" class="tipue_navbar_icon hover"></a>
+                </div>
+              
+              <div class="tipue_search_right">
+                <form action="/search/" class="menu-form hover">
+                    <input type="text" name="q" id="tipue_search_input_menu" pattern=".{3,}" title="At least 3 characters" required>
+                </form>
+              </div>
+              
+            </div>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </nav>
+
+
+  <div class="container">
+    <div class="row">
+      <!-- Main column -->
+      <div id="content" class="col-md-12">
+
+        <!-- Content appended here --><div class="franklin-content"><h1 id="data_1010_introduction_to_probability_statistics_and_machine_learning"><a href="#data_1010_introduction_to_probability_statistics_and_machine_learning" class="header-anchor">DATA 1010: Introduction to Probability, Statistics, and Machine Learning</a></h1>
+<h2 id="resources"><a href="#resources" class="header-anchor">Resources</a></h2>
+<ul>
+<li><p><a href="pdf/data1010syllabus.pdf">Syllabus</a></p>
+</li>
+<li><p><a href="coursesuccess">Learning resources</a></p>
+</li>
+<li><p><a href="http://www.math.brown.edu/~sswatson/classes/data1010/pdf/data1010.pdf">Course text volume I</a></p>
+</li>
+<li><p><a href="pdf/data1010-learning.pdf">Course text volume II</a> <a href="pdf/data1010-learning.html">&#91;code&#93;</a></p>
+</li>
+<li><p><a href="pdf/data1010-cheatsheet.pdf">Cheatsheet of course concepts</a></p>
+</li>
+<li><p><a href="pdf/jpr-cheatsheet.pdf">A Julia-Python-R cheatsheet</a></p>
+</li>
+<li><p><a href="pdf/data1010standards.pdf">Learning standards</a></p>
+</li>
+<li><p><a href="calendar">Calendar</a></p>
+</li>
+<li><p><a href="https://airtable.com/shrx1QcO0LDzAOmEw">Additional reading list</a></p>
+</li>
+</ul>
+<h2 id="class"><a href="#class" class="header-anchor">Class</a></h2>
+<ul>
+<li><p><a href="pdf/data1010-09-05.pdf">September 5</a> &#40;linear algebra and programming&#41; <a href="https://www.youtube.com/watch?v&#61;AePqpIblPH0">&#91;solutions video&#93;</a></p>
+</li>
+<li><p><a href="pdf/data1010-09-07.pdf">September 7</a> &#40;more linear algebra and programming&#41; <a href="https://www.youtube.com/watch?v&#61;0APfojjc5MI">&#91;solutions video&#93;</a></p>
+</li>
+<li><p><a href="pdf/data1010-09-10.pdf">September 10</a> &#40;linear algebra and SVD&#41; <a href="https://www.youtube.com/watch?v&#61;sGCmtHK98Vs">&#91;solutions video&#93;</a></p>
+</li>
+<li><p><a href="pdf/data1010-09-12.pdf">September 12</a> &#40;determinants and matrix differentiation&#41; <a href="https://www.youtube.com/watch?v&#61;hNWP2HgqKZc">&#91;solutions video&#93;</a>   <a href="jupyter/eigenfaces.zip">&#91;jupyter&#93;</a></p>
+</li>
+<li><p><a href="pdf/data1010-09-14.pdf">September 14</a> &#40;machine arithmetic&#41; <a href="pdf/data1010-09-14-sol.pdf">&#91;solution&#93;</a></p>
+</li>
+<li><p><a href="pdf/data1010-09-17.pdf">September 17</a> &#40;numerical error&#41; <a href="pdf/data1010-09-17-sol.pdf">&#91;solution&#93;</a></p>
+</li>
+<li><p><a href="pdf/data1010-09-19.pdf">September 19</a> &#40;pseudorandom number generators, automatic differentiation&#41; <a href="pdf/data1010-09-19-sol.pdf">&#91;solution&#93;</a></p>
+</li>
+<li><p><a href="pdf/data1010-09-21.pdf">September 21</a> &#40;gradient descent, review&#41; <a href="pdf/data1010-09-21-sol.pdf">&#91;solution&#93;</a></p>
+</li>
+<li><p><a href="pdf/data1010-09-24.pdf">September 24</a> &#40;probability spaces&#41; <a href="pdf/data1010-09-24-sol.pdf">&#91;solution&#93;</a></p>
+</li>
+<li><p><a href="pdf/data1010-09-26.pdf">September 26</a> &#40;counting and random variables&#41; <a href="pdf/data1010-09-26-sol.pdf">&#91;solution&#93;</a></p>
+</li>
+<li><p><a href="pdf/data1010-09-28.pdf">September 28</a> &#40;conditional probability and independence&#41; <a href="pdf/data1010-09-28-sol.pdf">&#91;solution&#93;</a></p>
+</li>
+<li><p><a href="pdf/data1010-10-01.pdf">October 1</a> &#40;conditional probability&#41; <a href="pdf/data1010-10-01-sol.pdf">&#91;solution&#93;</a></p>
+</li>
+<li><p><a href="pdf/data1010-10-03.pdf">October 3</a> &#40;review&#41; <a href="pdf/data1010-10-03-sol.pdf">&#91;solution&#93;</a></p>
+</li>
+<li><p><a href="pdf/data1010-10-05.pdf">October 5</a> &#40;expectation&#41; <a href="pdf/data1010-10-05-sol.pdf">&#91;solution&#93;</a></p>
+</li>
+<li><p><a href="pdf/data1010-10-10.pdf">October 10</a> &#40;linearity of expectation&#41; <a href="pdf/data1010-10-10-sol.pdf">&#91;solution&#93;</a></p>
+</li>
+<li><p><a href="pdf/data1010-10-12.pdf">October 12</a> &#40;continuous distributions&#41; <a href="pdf/data1010-10-12-sol.pdf">&#91;solution&#93;</a></p>
+</li>
+<li><p><a href="pdf/data1010-10-15.pdf">October 15</a> &#40;conditional expectation&#41; <a href="pdf/data1010-10-15-sol.pdf">&#91;solution&#93;</a></p>
+</li>
+<li><p><a href="pdf/data1010-10-17.pdf">October 17</a> &#40;more continuous distributions, Bernoulli and binomial distributions&#41; <a href="pdf/data1010-10-17-sol.pdf">&#91;solution&#93;</a></p>
+</li>
+<li><p><a href="pdf/data1010-10-19.pdf">October 19</a> &#40;geometric, Poisson, exponential distributions&#41; <a href="pdf/data1010-10-19-sol.pdf">&#91;solution&#93;</a></p>
+</li>
+<li><p><a href="pdf/data1010-10-22.pdf">October 22</a> &#40;multivariate normal distribution&#41; <a href="pdf/data1010-10-22-sol.pdf">&#91;solution&#93;</a></p>
+</li>
+<li><p><a href="pdf/data1010-10-24.pdf">October 24</a> &#40;law of large numbers and CLT&#41; <a href="pdf/data1010-10-24-sol.pdf">&#91;solution&#93;</a></p>
+</li>
+<li><p><a href="pdf/data1010-10-26.pdf">October 26</a> &#40;CLT and multivariate CLT&#41; <a href="pdf/data1010-10-26-sol.pdf">&#91;solution&#93;</a></p>
+</li>
+<li><p><a href="pdf/data1010-10-29.pdf">October 29</a> &#40;Kernel density estimation&#41; <a href="pdf/data1010-10-29-sol.pdf">&#91;solution&#93;</a></p>
+</li>
+<li><p><a href="pdf/data1010-10-31.pdf">October 31</a> &#40;Kernel density estimation, review&#41; <a href="pdf/data1010-10-31-sol.pdf">&#91;solution&#93;</a></p>
+</li>
+<li><p><a href="pdf/data1010-11-02.pdf">November 2</a> &#40;Nonparametric regression&#41; <a href="pdf/data1010-11-02-sol.pdf">&#91;solution&#93;</a></p>
+</li>
+<li><p><a href="pdf/data1010-11-05.pdf">November 5</a> &#40;intro to classification, QDA&#41; <a href="pdf/data1010-11-05-sol.pdf">&#91;solution&#93;</a></p>
+</li>
+<li><p><a href="pdf/data1010-11-07.pdf">November 7</a> &#40;classification, LDA, Naive Bayes&#41; <a href="pdf/data1010-11-07-sol.pdf">&#91;solution&#93;</a></p>
+</li>
+<li><p><a href="pdf/data1010-11-09.pdf">November 9</a> &#40;logistic regression&#41; <a href="pdf/data1010-11-09-sol.pdf">&#91;solution&#93;</a></p>
+</li>
+<li><p><a href="pdf/data1010-11-12.pdf">November 12</a> &#40;support vector classification&#41; <a href="pdf/data1010-11-12-sol.pdf">&#91;solution&#93;</a></p>
+</li>
+<li><p><a href="pdf/data1010-11-14.pdf">November 14</a> &#40;kernelization for SVM, neural nets&#41;</p>
+</li>
+<li><p><a href="pdf/late-november.pdf">&#91;November 17 – December 10&#93;</a> &#40;neural nets, dimension reduction, likelihood ratio classification, intro to R, <code>ggplot2</code>, <code>dplyr</code>, point estimation, confidence intervals, empirical CDF convergence, maximum likelihood estimation, hypothesis testing&#41;</p>
+</li>
+<li><p><a href="pdf/data1010-12-12.pdf">December 12</a> &#40;geographic maps in <code>ggplot2</code>, and logistic regression using <code>caret</code>&#41;</p>
+</li>
+</ul>
+<h2 id="homework"><a href="#homework" class="header-anchor">Homework</a></h2>
+<ul>
+<li><p><a href="pdf/data1010-pset-1.pdf">PSet 1 - September 14</a> &#40;linear algebra, SVD&#41;</p>
+</li>
+<li><p><a href="pdf/data1010-pset-2.pdf">PSet 2 - September 21</a> &#40;matrix differentiation, machine arithmetic, PRNGs&#41;</p>
+</li>
+<li><p><a href="pdf/data1010-pset-3.pdf">PSet 3 - September 28</a> &#40;automatic differentiation, gradient descent, probability, review problems&#41;</p>
+</li>
+<li><p><a href="pdf/data1010-pset-4.pdf">PSet 4 - October 5</a> &#40;review problems, probability&#41;</p>
+</li>
+<li><p><a href="pdf/data1010-pset-5.pdf">PSet 5 - October 12</a> &#40;expectation&#41;</p>
+</li>
+<li><p><a href="pdf/data1010-pset-6.pdf">PSet 6 - October 19</a> &#40;continuous distributions, conditional expectation&#41;</p>
+</li>
+<li><p><a href="pdf/data1010-pset-7.pdf">PSet 7 - October 26</a> <a href="pdf/pset7.zip">&#91;files&#93;</a> &#40;common distributions, central limit theorem&#41;</p>
+</li>
+<li><p><a href="pdf/data1010-pset-8.pdf">PSet 8 - November 02</a> &#40;probability review&#41;</p>
+</li>
+<li><p><a href="pdf/data1010-pset-9.pdf">PSet 9 - November 09</a> &#40;kernel density estimation, nonparametric regression, classification&#41;</p>
+</li>
+<li><p><a href="pdf/data1010-pset-10.pdf">PSet 10 - November 16</a> &#40;logistic regression, support vector machines, neural nets&#41;</p>
+</li>
+<li><p><a href="pdf/data1010-pset-11.pdf">PSet 11 - November 30</a> &#40;dimension reduction, likelihood ratio classification, data visualization and manipulation&#41;</p>
+</li>
+<li><p><a href="pdf/data1010-pset-12.pdf">PSet 12 - December 17</a> &#40;point estimation, confidence intervals, bootstrap, and maximum likelihood estimation&#41;</p>
+</li>
+</ul>
+<h2 id="videos"><a href="#videos" class="header-anchor">Videos</a></h2>
+<ul>
+<li><p><a href="https://www.youtube.com/watch?v&#61;pz0WmaOU9Xg">Linear algebra overview</a></p>
+</li>
+<li><p><a href="https://www.youtube.com/watch?v&#61;EMpJ_8hM94c">Eigenvectors and SVD</a></p>
+</li>
+<li><p><a href="https://www.youtube.com/watch?v&#61;E9xBvB0wxWI">Determinants and matrix differentiation</a></p>
+</li>
+<li><p><a href="https://www.youtube.com/watch?v&#61;OLSASJ3b24c">Machine arithmetic</a></p>
+</li>
+<li><p><a href="https://www.youtube.com/watch?v&#61;BJZrpi4vZWg">Numerical error</a></p>
+</li>
+<li><p><a href="https://www.youtube.com/watch?v&#61;qM9EmmUtX_c">PRNGs, autodiff, and gradient descent</a></p>
+</li>
+<li><p><a href="https://www.youtube.com/watch?v&#61;zEwXXE4fWRc">Probability models</a></p>
+</li>
+<li><p><a href="https://www.youtube.com/watch?v&#61;JGeTcRfKgBo">Conditional probability</a></p>
+</li>
+</ul>
+<h2 id="exams"><a href="#exams" class="header-anchor">Exams</a></h2>
+<ul>
+<li><p><a href="pdf/data1010-practice-midterm-1.pdf">Practice Midterm I</a></p>
+</li>
+<li><p><a href="pdf/data1010-practice-midterm-2.pdf">Practice Midterm II</a></p>
+</li>
+<li><p><a href="pdf/data1010-practice-midterm-3.pdf">Practice Midterm III</a></p>
+</li>
+<li><p><a href="pdf/data1010-practice-final.pdf">Practice Final</a></p>
+</li>
+</ul>
+<h2 id="animations"><a href="#animations" class="header-anchor">Animations</a></h2>
+<ul>
+<li><p><a href="pdf/NN.mp4">Neural net forward propagation</a></p>
+</li>
+<li><p><a href="pdf/nn-animation.gif">Neural net convergence</a></p>
+</li>
+<li><p><a href="pdf/SVD.mp4">Singular value decomposition</a></p>
+</li>
+<li><p><a href="pdf/SVM.mp4">Hard-margin SVM</a></p>
+</li>
+<li><p><a href="pdf/logistic-convergence.mp4">Logistic regression convergence</a></p>
+</li>
+</ul>
+<h2 id="links"><a href="#links" class="header-anchor">Links</a></h2>
+<ul>
+<li><p><a href="https://piazza.com/class/jlr2gqthstw45m">Piazza page</a></p>
+</li>
+<li><p><a href="https://www.gradescope.com/courses/24887">Gradescope page</a></p>
+</li>
+<li><p><a href="setup">Julia setup instructions</a></p>
+</li>
+<li><p><a href="jupyter-setup">Jupyter setup tips</a></p>
+</li>
+</ul>
+<!--
+<div class="page-foot">
+  <div class="copyright">
+    &copy; {{ fill author }}. Last modified: {{ fill fd_mtime }}. Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
+  </div>
+</div>
+--></div><!-- CONTENT ENDS HERE -->
+        </div>
+      </div>
+    </div>
+    
+      <script type="text/javascript" src="/libs/jquery/jquery-3.3.1.min.js"></script>
+    
+    <script type="text/javascript" src="/libs/bootstrap/bootstrap.bundle.min.js"></script>
+    
+    
+    
+    
+      <!--collapsible lists:-->
+<script>
+$('h2').click(function(e) {
+  e.stopPropagation();
+  $(this).children('ul,ol').slideToggle();
+});
+$('li').click(function(e) {
+  e.stopPropagation();
+  $(this).children('ul,ol').slideToggle();
+});
+</script>
+    
+  </body>
+</html>

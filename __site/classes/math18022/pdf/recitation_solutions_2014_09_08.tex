@@ -1,0 +1,141 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8x]{inputenc}
+\usepackage[L7x]{fontenc}  
+\usepackage[pdftex]{graphicx}
+\usepackage{fourier}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{wrapfig}
+\usepackage{sectsty}
+\usepackage{asymptote}
+\usepackage{colonequals}
+\usepackage{color}
+\usepackage{calc}
+
+\usepackage{etoolbox}
+
+% COMMENT OUT THE SECOND LINE TO MAKE A HANDOUT WITHOUT SOLUTIONS
+\newtoggle{solutions}
+\toggletrue{solutions}
+
+\usepackage{amsthm}
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{defn}{Definition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newtheorem{exercise}{Exercise}
+
+\sectionfont{\large}
+\sectionfont{\normalsize}
+
+\def\Arg{\mathop{\rm Arg}\nolimits}
+\def\Res{\mathop{\rm Res}}
+\renewcommand\Im{\mathop{\rm Im}\nolimits}
+\renewcommand\Re{\mathop{\rm Re}\nolimits}
+\newcommand\Arctan{\mathop{\rm Arctan}\nolimits}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\renewcommand{\P}{\mathbb{P}}
+\newcommand{\Chat}{\hat{\mathbb{C}}}
+\newcommand{\UHP}{\mathbb{H}}
+\DeclareMathOperator{\area}{area}
+\DeclareMathOperator{\dist}{dist}
+\DeclareMathOperator{\interior}{int}
+\DeclareMathOperator{\id}{id}
+
+\pagestyle{empty}
+
+\textwidth = 6.5 in
+\textheight = 9 in
+\oddsidemargin = -0.125 in
+\evensidemargin = 0.0 in
+\topmargin = -0.2 in
+\headheight = 0.0 in
+\headsep = 0.2 in
+\parskip = 0.2 in
+\parindent = 0.0 in
+
+\def\inv{^{-1}}
+
+\newcounter{prob}
+	\setcounter{prob}{1}
+
+\newcommand\itm{\theprob.  \stepcounter{prob}}
+
+\iftoggle{solutions}{
+\newcommand\sol[2]{\textit{Solution}. #1}
+}
+{
+\newcommand\sol[2]{#2}
+}
+
+\newcommand{\problem}[1]{
+\makebox[0.2cm]{\textbf{\itm}}  \begin{minipage}[t]{\linewidth-0.75cm}
+#1
+\end{minipage}
+}
+
+\begin{document}
+\thispagestyle{empty}
+
+\begin{center}
+  18.022 Recitation Handout \iftoggle{solutions}{(with solutions)}{} \\
+  8 September 2014 \\
+\end{center}
+
+\itm (1.1.25 in \textit{Colley}) Physical forces are quantities possessing both magnitude and direction and therefore can be represented by vectors. If an object has more than one force acting on it, then the resulting force can be represented by the sum of the individual force vectors. Suppose that two forces $\mathbf{F}_1=(2,7,-1)$ and $\mathbf{F}_2 = (3,-2,5)$ are acting on an object. 
+
+(a) What is the resultant force of $\mathbf{F}_1$ and $\mathbf{F}_2$? 
+
+\sol{The resultant force is the vector sum of $\mathbf{F}_1$ and $\mathbf{F}_2$, which is obtained by adding the components of the two vectors: $\mathbf{F}_1+\mathbf{F}_2=(2+3,7-1,-1+5)=\boxed{(5,5,4)}$}{}
+
+(b) What force $\mathbf{F}_3$ is needed to counteract these forces, so that no net force results and the object remains at rest? 
+
+\sol{If $\mathbf{F}_1+\mathbf{F}_2+\mathbf{F}_3=0$, then $\mathbf{F}_3=-(\mathbf{F}_1+\mathbf{F}_2)=\boxed{(-5,-5,-4)}$. }{\vspace{1cm}}
+
+\itm (a) Consider the vectors $u_1=(1,1,0)$, $u_2=(-1,1,0)$, and $u_3=(0,1,1)$. Write $(3,-6,4)$ as a linear combination of $u_1$, $u_2$, and $u_3$. In other words, find real numbers $c_1, c_2,$ and $c_3$ such that $(3,-6,4)$ is equal to $c_1u_1+c_2u_2+c_3u_3$. 
+
+\sol{Writing out $c_1u_1+c_2u_2+c_3u_3=(3,-6,4)$ coordinate-by-coordinate, we obtain the equations $c_1-c_2=3$, $c_1+c_2=-6$, and $c_3=4$. Solving this system, we find $c_1 = -3/2, c_2= 9/2,$ and $c_3=4$. }{\vspace{2cm}}
+
+(b) Consider the vectors $v_1=(1,1,0)$, $v_2=(-1,1,0)$, and $v_3=(0,-2,0)$. Can you write $(3,-6,4)$ as a linear combination of $v_1$, $v_2$, and $v_3$ ? 
+
+\sol{No, because it is not possible to obtain anything other than 0 in the third coordinate of a linear combination of $v_1$, $v_2$, and $v_3$.}{\vspace{2cm}}
+
+(c) Sketch $u_1, u_2, u_3$ and  $v_1, v_2$, $v_3$ on the axes below. What is the key difference between the two sets of vectors? 
+
+\sol{The key difference is that $v_1, v_2$, and $v_3$ all lie in the same plane, while $u_1, u_2, u_3$ do not.}
+
+\enlargethispage{2cm} 
+
+\begin{center}
+  \includegraphics{figures/3daxes} \hspace{3cm}  \includegraphics{figures/3daxes} 
+\end{center}
+
+
+\newpage 
+
+\itm A chickadee starts at the point $(2,-4,1)$ and flies in the direction of the vector $\left(\frac{3}{\sqrt{10}},0,\frac{1}{\sqrt{10}}\right)$ at a rate of $\sqrt{10}$ units per second. A hummingbird starts at the point $(8,20,7)$ and flies in the direction of the vector $\left(\frac{1}{\sqrt{5}},-\frac{2}{\sqrt{5}},0\right)$ at a rate of $3\sqrt{5}$ units per second.
+
+(a) Do the paths of the chickadee and the hummingbird intersect? 
+
+\sol{Since the chickadee starts at $(2,-4,1)$ and moves at a rate $\sqrt{10}$ times the vector $(\frac{3}{\sqrt{10}},0,\frac{1}{\sqrt{10}})$, the parametric equations describing the line on which it moves are 
+$(x,y,z)=(2+3t,-4,1+t)$. Similarly, the humming bird moves on the line $(x,y,z)=(8+s,20-2s,7)$. Setting these ordered triples equal, we obtain a solution with $s=4$ and $t=6$. Therefore, the paths do intersect. 
+}{\vspace{3cm}}
+
+(b) Do the hummingbird and the chickadee collide? 
+
+\sol{The birds collide if they reach the intersection point at the same time. Since the chickadee takes 6 seconds while the hummingbird takes 4 seconds, they do not collide.}{\vspace{3cm}}
+
+(c) Suppose that the velocity of the hummingbird is $k$ units per second. For what value of $k$ do the hummingbird and the chickadee collide? 
+
+\sol{The hummingbird collides with the chickadee if it takes 6 seconds to reach their intersection point. By part (a) above, it actually takes 4 seconds. Therefore, it needs to slow down by a factor of 2/3, which makes its speed equal to $\boxed{2\sqrt{5}}$. }{\vspace{3cm}}
+
+\itm Suppose that a particle is revolving clockwise around the point $(4,2)$ at a rate of 3 revolutions per second. Write parametric equations describing the location of the particle at time $t$, assuming that it starts at the point $(6,2)$. 
+
+\sol{We begin with the parametric equations $(\cos t,\sin t)$ for the unit circle. To scale by a factor of 2, we multiply the $x$-coordinate and the $y$-coordinate by a factor of 2. We then translate 4 units right and 2 units up by adding 4 to the $x$-coordinate and 2 to the $y$-coordinate. Finally, we replace $t$ with $-6\pi t$ to account for the reversal of direction as well as the increase in speed. We choose the factor $6\pi$ since we want to make 3 revolutions by time $t=1$. Altogether, we get $(4+2\cos(-6\pi t),2+2\sin(-6\pi t)) = \boxed{(4+2\cos(6\pi t),2-2\sin(6\pi t))}$}{}
+
+\end{document}

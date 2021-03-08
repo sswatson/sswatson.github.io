@@ -1,0 +1,204 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8x]{inputenc}
+\usepackage[L7x]{fontenc}  
+\usepackage[pdftex]{graphicx}
+\usepackage{fourier}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{wrapfig}
+\usepackage{sectsty}
+\usepackage{asymptote}
+\usepackage{colonequals}
+\usepackage{color}
+\usepackage{calc}
+\usepackage{etoolbox}
+
+% COMMENT OUT THE SECOND LINE TO MAKE A HANDOUT WITHOUT SOLUTIONS
+\newtoggle{solutions}
+%\toggletrue{solutions}
+
+\usepackage{amsthm}
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{defn}{Definition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newtheorem{exercise}{Exercise}
+
+\sectionfont{\large}
+\sectionfont{\normalsize}
+
+\def\Arg{\mathop{\rm Arg}\nolimits}
+\def\Res{\mathop{\rm Res}}
+\renewcommand\Im{\mathop{\rm Im}\nolimits}
+\renewcommand\Re{\mathop{\rm Re}\nolimits}
+\newcommand\Arctan{\mathop{\rm Arctan}\nolimits}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\renewcommand{\P}{\mathbb{P}}
+\newcommand{\Chat}{\hat{\mathbb{C}}}
+\newcommand{\UHP}{\mathbb{H}}
+\DeclareMathOperator{\area}{area}
+\DeclareMathOperator{\dist}{dist}
+\DeclareMathOperator{\interior}{int}
+\DeclareMathOperator{\id}{id}
+
+\pagestyle{empty}
+
+\textwidth = 6.5 in
+\textheight = 9 in
+\oddsidemargin = -0.125 in
+\evensidemargin = 0.0 in
+\topmargin = -0.2 in
+\headheight = 0.0 in
+\headsep = 0.2 in
+\parskip = 0.2 in
+\parindent = 0.0 in
+
+\def\inv{^{-1}}
+
+\newcounter{prob}
+	\setcounter{prob}{1}
+
+\newcounter{subprob}
+	\setcounter{subprob}{1}
+
+\newcommand\itm{\theprob.  \stepcounter{prob}\setcounter{subprob}{1}}
+\newcommand\subitm{(\alph{subprob}) \refstepcounter{subprob}}
+
+\newcommand\sol[2]{\iftoggle{solutions}{\textit{Solution}. #1}{#2}}
+%\newcommand\sol[2]{#2}
+
+
+\newcommand{\problem}[1]{
+\makebox[0.2cm]{\textbf{\itm}}  \begin{minipage}[t]{\linewidth-0.75cm}
+#1
+\end{minipage}
+}
+
+\newcommand\twomatrix[4]{
+\left(
+\begin{array}{cc}
+#1 & #2 \\
+#3 & #4
+\end{array}
+\right)
+}
+
+\renewcommand\vec[1]{\mathbf{#1}}
+
+\begin{document}
+\thispagestyle{empty}
+
+\begin{center}
+  18.022 Recitation Handout \iftoggle{solutions}{(with solutions)}{} \\
+  17 September 2014 
+\end{center}
+
+\itm Determine whether $(3,1,2)$, $(-1,0,1)$, $(4,1,-2)$ is a right-handed system of vectors. 
+
+\sol{Since $((3,1,2)\times (-1,0,1))\cdot  (4,1,-2) = -3$, the system is not right-handed. To remember which way it goes, remember that $\mathbf{i}$, $\mathbf{j}$, $\mathbf{k}$ is the canonical right-handed system. Whatever triple scalar product you form, check whether its sign matches with the corresponding sign for this system. }{\vfill}
+
+\itm (1.5.32 in \textit{Colley}) Suppose that $\ell_1(t)=t\mathbf{a}+\mathbf{b}_1$ and $\ell_2(t)=t\mathbf{a}+\mathbf{b}_2$ are parallel lines in $\mathbb{R}^2$ or $\R^3$. Show that the distance $D$ between them is given by 
+\[
+D = \frac{|\mathbf{a}\times(\mathbf{b}_2-\mathbf{b_1})|}{|\mathbf{a}|}. 
+\]
+
+\sol{The area of the parallelogram spanned by $ \vec{a}$ and $\vec{b}_1-\vec{b}_2$ has area $|(\vec{b}_1-\vec{b}_2)\times  \vec{a}|$. It also has area $ \|a|D$, by the area formula (base)(height) for a parallelogram. Setting this quantities equal and dividing by $|\vec{a}|$ gives the desired formula. }{\vfill}
+
+\itm (1.9.15 in \textit{Colley}) Suppose that the four vectors $\vec{a}$, $\vec{b}$, $\vec{c}$, and $\vec{d}$ in $\R^3$ are coplanar. Show that \\ $(\vec{a}\times\vec{b})\times(\vec{c}\times\vec{d})=\vec{0}$. 
+
+\sol{Both $\vec{a}\times\vec{b}$ and $\vec{c}\times\vec{d}$ are perpendicular to the plane in which all four original vectors lie. It follows that these two vectors are parallel, which in turn means that their cross product is the zero vector.}{\vfill}
+
+\itm Show that the distance $d$ between two parallel planes determined by the equations $Ax+By+Cz=D_1$ and $Ax+By+Cz=D_2$ is
+\[
+d=\frac{|D_1-D_2|}{\sqrt{A^2+B^2+C^2}}.
+\]
+
+\sol{We may assume the vector $\vec{n}=(A,B,C)$ is normalized, in which
+  case we want to prove $d=|D_1-D_2|$. Then the equations for the two
+  planes are $\vec{n}\cdot ((x,y,z) - \vec{P}_1) = 0$ and $\vec{n}\cdot
+  ((x,y,z) - \vec{P}_2) = 0$ for any two vectors $\vec{P}_1$ and
+  $\vec{P}_2$ satisfying $n\cdot \vec{P}_i=D_i$ for $i\in\{1,2\}$. The
+  distance between the planes is
+  $\text{proj}_{\vec{n}}\overrightarrow{P_1P_2}=|\vec{n}\cdot
+  (\vec{P}_2-\vec{P_1})|=|D_1-D_2|$. }{\vfill\newpage}
+
+\itm (1.9.8 in \textit{Colley}) Let $\mathbf{a}$ and $\vec{b}$ be unit vectors in $\R^3$. Show that 
+\[
+|\vec{a}\times\vec{b}|^2 + (\vec{a}\cdot\vec{b})^2 = 1.
+\]
+
+\sol{This follows from the trigonometric identity $\sin^2\theta +\cos^2\theta = 1$, where $\theta$ is the angle between the vectors}{\vfill}
+
+\itm (1.9.9 in \textit{Colley}) (a) Does $\mathbf{a}\cdot\mathbf{b} = \mathbf{a}\cdot\mathbf{c}$ imply $\mathbf{b}=\mathbf{c}$? 
+
+(b) Does $\mathbf{a}\times\mathbf{b} = \mathbf{a}\times\mathbf{c}$ imply $\mathbf{b}=\mathbf{c}$? 
+
+\sol{There are many ways to see that the answer is no for both questions. For example, if both sides are zero, then $\mathbf{c}$ can be scaled at will. }{}
+
+\iftoggle{solutions}{}{\vspace{1cm}}
+
+\itm Consider the (filled) cylinder of radius 2 and height 6 with axis of symmetry along the $z$-axis. Cut the cylinder in half along the $y$-$z$ plane and keep one of the two resulting parts. Describe your region in cylindrical and spherical coordinates. (You have some flexibility in interpreting this question). 
+
+\sol{The two regions are given by $\{(r,\theta,z)\,:0\leq r \leq 2,\, 0\leq \theta\leq \pi/2 \text{ or } 3\pi/2 \leq \theta\leq 2\pi \text{ and }|z|\leq 3\}$ and $\{(r,\theta,z)\,:0\leq r \leq 2,\, \pi/2\leq \theta\leq 3\pi/2, \text{ and }|z|\leq 3\}$ in cylindrical coordinates. It would be OK to replace some of the non-strict inequalities with strict ones, depending on how you interpret the meaning of ``cut.'' 
+
+In spherical coordinates, it's a bit trickier, because we have to deal with the top of the cylinder separately from the sides. In the end, the first region above is described by the equations $0\leq \varphi \leq \pi$,  $0\leq \theta\leq \pi/2 \text{ or } 3\pi/2 \leq \theta\leq 2\pi$, and $0\leq \rho\leq f(\theta,\varphi),$ where 
+\[
+f(\theta,\varphi)=\left\{
+\begin{array}{cl}
+3\sec\varphi & \text{if }\varphi\leq \arctan(2/3) \\
+3\csc\varphi & \text{if } \arctan(2/3) \leq \varphi \leq \pi - \arctan(2/3) \\
+-3\sec\varphi & \text{if } \pi - \arctan(2/3)\leq \varphi. 
+\end{array}
+\right.
+\]
+}{\vfill}
+
+\itm (1.9.13 in \textit{Colley}) Mark each of the following statements with 1 if you agree, $-1$ if you disagree. (a) Red is my favorite color, (b) I consider myself to be a good athlete. (c) I like cats more than dogs, (d) I enjoy spicy foods, (e) Mathematics is my favorite subject. Your responses may be considered as a vector in $\R^5$. Suppose that you and a friend calculate your respective response vectors for this questionnaire. Explain the significance of the dot product of your two vectors. 
+
+\sol{The dot product indicates the extent to which you and your friend have
+  similar preferences regarding the questions asked. A large and positive
+  dot product indicates alignment of preferences, a large negative dot
+  product indicates opposite preferences, and a dot product closer to 0
+  indicates a mix of agreement and disagreement. }{\vspace{3cm}\newpage}
+
+\itm (Fun/Challenge problem) The cross product on $\mathbb{R}^n$ is an anti-commutative bilinear map $\times:\R^n \times \R^n \to \R^n$ with the property that for all $\mathbf{x}$ and $\mathbf{y}$ in $\mathbb{R}^n$, 
+\begin{align}
+\label{eq::orth} \mathbf{x} \cdot (\mathbf{x} \times \mathbf{y}) &= (\mathbf{x} \times \mathbf{y}) \cdot \mathbf{y}=0, \text{ and} \\
+\label{eq::mag}|\mathbf{x} \times \mathbf{y}|^2 &= |\mathbf{x}|^2 |\mathbf{y}|^2 - (\mathbf{x} \cdot \mathbf{y})^2.
+\end{align}
+
+\subitm In words, what does \eqref{eq::orth} say? 
+
+\subitm In words, what does \eqref{eq::mag} say?
+
+\subitm Prove that there is no cross product in $\mathbb{R}^2$. 
+
+\label{tcp} \subitm Show that the triple cross product identity 
+\[
+\mathbf{a}\times(\mathbf{b}\times\mathbf{a}) = (\mathbf{a}\cdot\mathbf{a})\mathbf{b} - (\mathbf{a}\cdot\mathbf{b})\mathbf{a}
+\]
+follows from \eqref{eq::orth}  and \eqref{eq::mag}. 
+
+\subitm Use (d) to show that no nontrivial cross product exists in $\mathbf{R}^4$.  
+
+\subitm Guess which integers $n>1$ have the property that there exists a cross product in $\mathbf{R}^n$. (I don't recommend trying to work this out. Just speculate.)
+
+\sol{(a) Equation \eqref{eq::orth} says that the cross product of two vectors is orthogonal to each of them. (b) Equation \eqref{eq::mag} says that the magnitude of a cross product is equal to the area of the spanned parallelogram. (c) There is no cross product in $\mathbf{R}^2$, because $\mathbf{i}\times\mathbf{j}$ has to be orthogonal to both $\mathbf{i}$ and $\mathbf{j}$. Thus $\mathbf{i}\times\mathbf{j}$ equals the zero vector. This contradicts \eqref{eq::mag}. 
+
+(d) Note that $0 = (\vec{a}-\vec{b})\cdot(\vec{c}\times(\vec{b}-\vec{a}))= \vec{a}\cdot(\vec{c}\times \vec{b}) + \vec{b}\cdot(\vec{c}\times\vec{a}),$ which gives the triple scalar product identity. By writing $\vec{b}$ as the sum of a vector parallel to $\vec{a}$ and a vector orthogonal to $\vec{a}$, it suffices to consider the case when $\vec{b}$ is orthogonal to $\vec{a}$ (one should check this). Normalizing $\vec{a}$ and $\vec{b}$, we reduce the problem to showing
+\[
+\vec{a}\times(\vec{b}\times\vec{a}) = \vec{b} \quad \text{ when }\vec{a}\cdot\vec{b}=0\text{ and }|\vec{a}|=1\text{ and }|\vec{b}|=1.
+\]
+We can use the triple scalar product identity to observe that $[\vec{a}\times(\vec{b}\times\vec{a})]\cdot \vec{b}=(\vec{b}\times\vec{a})\cdot (\vec{b}\times\vec{a}) = 1$. The only unit vector that dots with $\vec{b}$ to give $1$ is $\vec{b}$ itself. 
+
+(e) Note that the above formula implies that the vectors $\vec{i}$, $\vec{j}$, and $\vec{k}$ cross as they usually do in $\vec{R}^3$ (possibly with an overall sign change). Using $\vec{l}=(0,0,0,1)$ as the fourth standard basis vector, we note that $\vec{l}\times \vec{i}=\alpha \vec{j}+\beta\vec{k}$ for some $\alpha,\beta\in \R$. But then $\vec{l}=\vec{i}\times(\vec{l}\times\vec{i}) = \vec{i}\times(\alpha \vec{j}+\beta\vec{k}) = \pm(\alpha \vec{k} - \beta \vec{j})$, a contradiction. 
+
+(f) It turns out that a cross product exists in $\R^n$ if and only if $n\in\{3,7\}$! This has been known since 1943, but the first elementary proof was discovered in 1996. See the paper http://arxiv.org/pdf/math/0204357v1.pdf for more details. 
+}{}
+
+\end{document}

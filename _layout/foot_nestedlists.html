@@ -1,0 +1,11 @@
+<!--collapsible lists:-->
+<script>
+$('h2').click(function(e) {
+  e.stopPropagation();
+  $(this).children('ul,ol').slideToggle();
+});
+$('li').click(function(e) {
+  e.stopPropagation();
+  $(this).children('ul,ol').slideToggle();
+});
+</script>

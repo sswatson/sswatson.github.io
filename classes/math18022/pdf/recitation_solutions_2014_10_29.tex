@@ -1,0 +1,165 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8x]{inputenc}
+\usepackage[L7x]{fontenc}  
+\usepackage[pdftex]{graphicx}
+\usepackage{fourier}
+\usepackage{hyperref}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{wrapfig}
+\usepackage{sectsty}
+\usepackage{asymptote}
+\usepackage{colonequals}
+\usepackage{color}
+\usepackage{calc}
+\usepackage{etoolbox}
+
+% COMMENT OUT THE SECOND LINE TO MAKE A HANDOUT WITHOUT SOLUTIONS
+\newtoggle{solutions}
+\toggletrue{solutions}
+
+\usepackage{amsthm}
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{defn}{Definition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newtheorem{exercise}{Exercise}
+
+\sectionfont{\large}
+\sectionfont{\normalsize}
+
+\def\Arg{\mathop{\rm Arg}\nolimits}
+\def\Res{\mathop{\rm Res}}
+\renewcommand\Im{\mathop{\rm Im}\nolimits}
+\renewcommand\Re{\mathop{\rm Re}\nolimits}
+\newcommand\Arctan{\mathop{\rm Arctan}\nolimits}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\renewcommand{\P}{\mathbb{P}}
+\newcommand{\Chat}{\hat{\mathbb{C}}}
+\newcommand{\UHP}{\mathbb{H}}
+\DeclareMathOperator{\area}{area}
+\DeclareMathOperator{\dist}{dist}
+\DeclareMathOperator{\interior}{int}
+\DeclareMathOperator{\id}{id}
+
+\pagestyle{empty}
+
+\textwidth = 6.5 in
+\textheight = 9 in
+\oddsidemargin = -0.125 in
+\evensidemargin = 0.0 in
+\topmargin = -0.2 in
+\headheight = 0.0 in
+\headsep = 0.2 in
+\parskip = 0.2 in
+\parindent = 0.0 in
+
+\def\inv{^{-1}}
+
+\newcounter{prob}
+	\setcounter{prob}{1}
+
+\newcounter{subprob}
+	\setcounter{subprob}{1}
+
+\newcommand\itm{\theprob.  \stepcounter{prob}\setcounter{subprob}{1}}
+\newcommand\subitm{(\alph{subprob}) \refstepcounter{subprob}}
+
+\newcommand\sol[2]{\iftoggle{solutions}{\textit{Solution}. #1}{#2}}
+%\newcommand\sol[2]{#2}
+
+
+\newcommand{\problem}[1]{
+\makebox[0.2cm]{\textbf{\itm}}  \begin{minipage}[t]{\linewidth-0.75cm}
+#1
+\end{minipage}
+}
+
+\newcommand\twomatrix[4]{
+\left(
+\begin{array}{cc}
+#1 & #2 \\
+#3 & #4
+\end{array}
+\right)
+}
+
+\renewcommand\vec[1]{\mathbf{#1}}
+\newcommand\pd[2]{\frac{\partial #1}{\partial #2}}
+
+\begin{document}
+\thispagestyle{empty}
+
+\begin{center}
+  18.022 Recitation Handout \iftoggle{solutions}{(with solutions)}{} \\
+  29 October 2014 
+\end{center}
+
+
+\itm Minimize the function $f(x,y) = (x-y)^2$ subject to the constraint $xy = 1$ without using Lagrange multipliers. Verify that the method of Lagrange multipliers gives the same result.
+
+\sol{Geometrically, we are asked to minimize the (squared) difference between $x$ and $y$ for a point on the graph of the function $y = \frac{1}{x}$. In fact, it is possible for $x-y$ to be zero, namely if $x=\pm 1$. Therefore, the minimum is zero, achieved at $(1,1)$ and $(-1,-1)$. 
+
+The method of Lagrange multipliers tells us that extrema occur at solutions to the system $\nabla f = \lambda \nabla g$, where $g(x,y) = xy$. Differentiating, we obtain
+\[
+\left\{
+\begin{array}{r@{\:}c@{\:}l}
+ 1 &=& xy \\
+ 2(x-y) &=& \lambda y \\
+ -2(x-y) &=& \lambda x. 
+\end{array} 
+\right.
+\]
+Adding the second and third equations tells us that either $\lambda = 0$ or $x=y$. In the former case, the second equation implies $x = y$, so no matter what we have $x=y$. Substituting into the first equation gives $x = \pm 1$, as desired. 
+}{\vfill}
+
+%\iftoggle{solutions}{}{\vfill} 
+
+\itm (4.3.19 in \emph{Colley}) Find the maximum and minimum values of $f(x,y) = x^2+xy+y^2$ on the closed disk $D=\{ (x,y): x^2+y^2 \leq 4 \}$. Can you do it without using Lagrange multipliers? (Hint: $(x\pm y)^2 \geq 0$.)
+
+\sol{ We have $\nabla f = (2x+y,x+2y)$ and $\nabla g = (2x,2y)$. The system $\nabla f = \lambda \nabla g$ gives  
+\[
+\left\{
+\begin{array}{r@{\:}c@{\:}l}
+ 2x+y &=& 2\lambda x \\
+ x+2y &=& 2\lambda y. 
+\end{array} 
+\right.
+\]
+Solving this system, we get either $x=y=0$ or $2(\lambda - 1) = \pm 1$, i.e. $x=\pm y$. Suppose $x=y$ and $x^2+y^2 \leq 4$. Then $f(x,y)$ is maximized at $\pm (\sqrt{2},\sqrt{2})$ with $f(x,y) = 6$ and minimized at $(x,y)=(0,0)$ with $f(x,y)=0$. Now suppose $x=-y$ and $x^2+y^2 \leq 4$, $f(x,y)$ is maximized at $(-\sqrt{2},\sqrt{2})$ and $(\sqrt{2},-\sqrt{2})$ with $f(x,y) = 2$ and again minimized at $(x,y)=(0,0)$. Combining these two cases, we conclude that the maximum value and the minimum value of $f$ are 6 and 0, respectively.
+
+Without using Lagrange multipliers: Expanding $(x-y)^2 \geq 0$, we obtain
+$xy \leq \frac{1}{2} (x^2+y^2)$. Therefore
+\[ f(x,y) = x^2+y^2 + xy \leq \frac{3}{2}(x^2+y^2) \leq 6. \]
+This means the value of $f(x,y)$ inside the disk $D$ cannot exceed 6. On the other hand, we see that if $x=y=\sqrt{2}$ then $f(x,y)=6$. So the maximum value of $f$ is indeed 6. To find the minimum value of $f$, we start with $(x+y)^2\geq 0$, or $xy \geq -\frac{1}{2}(x^2+y^2)$. So
+\[ f(x,y) = x^2+y^2 + xy \geq \frac{1}{2}(x^2+y^2) \geq 0. \]
+Finally $f(0,0)= 0$ justifies the minimum value of $f$.
+}{\vfill}
+
+
+\iftoggle{solutions}{}{\newpage}
+
+\itm (4.3.24 in \emph{Colley}) Heron's formula for the area of a triangle whose sides have lengths $x,y,$ and $z$ is
+\[ \text{Area } = \sqrt{s(s-x)(s-y)(s-z)}, \] where $s =
+\frac{1}{2}(x+y+z)$ is the so-called semi-perimeter of the triangle. Use
+Heron's formula to show that, for a fixed perimeter $P$, the triangle with
+the largest area is equilateral.
+
+\sol{Equivalently, we want to maximize the function 
+\[ f(x,y,z) = (P-2x)(P-2y)(P-2z) \]
+subject to the constraint $g(x,y,z) = x+y+z = P$. Note that $\nabla g = (1,1,1)$ and
+\[ \nabla f = -2((P-2y)(P-2z),(P-2x)(P-2z),(P-2x)(P-2y)). \]
+So, by the method of Lagrange multipliers, the maxima occur only when 
+\[ (P-2x)(P-2y) = (P-2y)(P-2z) = (P-2z)(P-2x). \]
+Since none of $(P-2x),(P-2y),(P-2z)$ can be zero (why?), the only case is when $P-2x=P-2y=P-2z$, i.e. $x=y=z$. 
+
+}{\vfill} 
+
+
+\end{document}
+

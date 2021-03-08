@@ -1,0 +1,326 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}  
+\usepackage[pdftex]{graphicx}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{wrapfig}
+\usepackage{sectsty}
+\usepackage{colonequals}
+\usepackage{color}
+\usepackage{calc}
+\usepackage{etoolbox}
+\usepackage{multicol} 
+
+% COMMENT OUT THE SECOND LINE TO MAKE A HANDOUT WITHOUT SOLUTIONS
+\newtoggle{solutions}
+\toggletrue{solutions}
+
+\usepackage{amsthm}
+
+\usepackage{palatino} 
+\usepackage{pxfonts} 
+
+\sectionfont{\large}
+\sectionfont{\normalsize}
+
+\def\Arg{\mathop{\rm Arg}\nolimits}
+\def\Res{\mathop{\rm Res}}
+\renewcommand\Im{\mathop{\rm Im}\nolimits}
+\renewcommand\Re{\mathop{\rm Re}\nolimits}
+\newcommand\Arctan{\mathop{\rm Arctan}\nolimits}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\renewcommand{\P}{\mathbb{P}}
+\newcommand{\Chat}{\hat{\mathbb{C}}}
+\newcommand{\UHP}{\mathbb{H}}
+\DeclareMathOperator{\area}{area}
+\DeclareMathOperator{\dist}{dist}
+\DeclareMathOperator{\interior}{int}
+\DeclareMathOperator{\id}{id}
+
+\pagestyle{empty}
+
+\textwidth = 6.5 in
+\textheight = 9 in
+\oddsidemargin = -0.125 in
+\evensidemargin = 0.0 in
+\topmargin = -0.2 in
+\headheight = 0.0 in
+\headsep = 0.2 in
+\parskip = 0.2 in
+\parindent = 0.0 in
+
+\def\inv{^{-1}}
+
+\newcounter{prob}
+	\setcounter{prob}{1}
+
+\newcounter{subprob}
+	\setcounter{subprob}{1}
+
+\newcommand\itm{\theprob.  \stepcounter{prob}\setcounter{subprob}{1}}
+\newcommand\subitm{(\alph{subprob}) \refstepcounter{subprob}}
+
+\newcommand\sol[2]{\iftoggle{solutions}{\begin{proof}[Solution] #1\end{proof}}{#2}}
+%\newcommand\sol[2]{\iftoggle{solutions}{\textit{Solution}. #1}{#2}}
+%\newcommand\sol[2]{#2}
+
+
+\newcommand{\problem}[1]{
+\makebox[0.2cm]{\textbf{\itm}}  \begin{minipage}[t]{\linewidth-0.75cm}
+#1
+\end{minipage}
+}
+
+\newcommand\twomatrix[4]{
+\left(
+\begin{array}{cc}
+#1 & #2 \\
+#3 & #4
+\end{array}
+\right)
+}
+
+\renewcommand\vec[1]{\mathbf{#1}}
+\newcommand\pd[2]{\frac{\partial #1}{\partial #2}}
+
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{bb}[theorem]{Blackboard}
+
+
+\newcommand{\vecl}[1]{\overrightarrow{#1}}
+\newcommand{\dls}[1]{\overrightarrow{#1}}
+
+\def\vproj{\mbox{proj}}
+\def\half{{\textstyle \frac12}}
+\def\third{{\textstyle \frac13}}
+
+\def\C{\mathbb{C}}
+\def\R{\mathbb{R}}
+\def\N{\mathbb{N}}
+\def\vv{\vec{v}}
+\def\vu{\vec{u}}
+\def\vw{\vec{w}}
+\def\vz{\vec{0}}
+\def\va{\vec{a}}
+\def\vb{\vec{b}}
+\def\vc{\vec{c}}
+\def\vr{\vec{r}}
+\def\ih{\hat{\imath}}
+\def\jh{\hat{\jmath}}
+\def\kh{\hat{k}}
+\def\eps{\epsilon}
+\def\dd{\mathrm{d}}
+
+\def\dir{\operatorname{div}}
+
+\newcommand\blfootnote[1]{%
+  \begingroup
+  \renewcommand\thefootnote{}\footnote{#1}%
+  \addtocounter{footnote}{-1}%
+  \endgroup
+}
+
+\newcommand*\colvec[3][]{
+    \begin{pmatrix}\ifx\relax#1\relax\else#1\\\fi#2\\#3\end{pmatrix}
+}
+
+
+\begin{document}
+\thispagestyle{empty}
+
+\begin{center}
+  18.022 Recitation Handout \iftoggle{solutions}{(with solutions)}{} \\
+  8 December 2014 \\
+\end{center}
+
+\newcommand{\itemt}[2]{\item {\bf {#1}} \newline{#2}}
+%\newcommand{\solution}[1]{\vspace{0.15in}{\bf Solution:  {#1}}\vspace{0.15in}}
+\newcommand{\solution}[1]{}
+
+
+
+Let $D \subset \R^2$ be the region enclosed by the curve $r = g(\theta)$,
+for some $\mathcal{C}^1$, non-negative $g \colon \R \to \R$ such that
+$g(x+2\pi)=g(x)$ for all $x \in \R$.
+
+\itm Calculate the length of $\partial D$, the boundary of
+    $D$. Express your answer as an integral involving $g$ and its
+    first derivative.
+
+    \sol{ We parametrize the curve by $\vec r(\theta) =
+      g(\theta)(\cos\theta, \sin\theta)$ for $\theta \in
+      [0,2\pi]$. Then
+      \begin{align*}
+        \vec r'(\theta) = \frac{\partial
+          g}{\partial\theta}(\theta)(\cos\theta,\sin\theta) + g(\theta)(-\sin\theta,\cos\theta)
+      \end{align*}
+      and
+      \begin{align*}
+        |\vec r'(\theta)|^2 = \left(\frac{\partial
+          g}{\partial\theta}(\theta)\right)^2+g(\theta)^2.
+      \end{align*}
+      Hence
+      \begin{align*}
+        \mathrm{length}(\partial D) = \int_0^{2\pi}\sqrt{\left(\frac{\partial
+          g}{\partial\theta}(\theta)\right)^2+g(\theta)^2}\,\dd \theta.
+      \end{align*}
+    }{\vspace{4cm} }
+
+  \itm Let
+    \begin{align*}
+      (x(\theta),y(\theta)) = (g(\theta)\cos\theta, g(\theta)\sin\theta)
+    \end{align*}
+    be a parametrization of $\partial D$. Calculate the length of
+    $\partial D$ again, but this time express the answer as an
+    integral involving the derivatives of $x$ and $y$.
+
+    \sol{
+      The velocity is now $(x'(\theta),y'(\theta))$, and so 
+      \begin{align*}
+        \mathrm{length}(\partial D) = \int_0^{2\pi}\sqrt{x'(\theta)^2+y'(\theta)^2}\,\dd \theta.
+      \end{align*}
+    }{\vspace{4cm} }
+    
+    
+  \itm Calculate the length of $\partial D$ for the case that
+    $g(\theta) = 1-\cos\theta$. 
+
+    \sol{
+      Note that $g'(\theta) = \sin\theta$. Hence
+      \begin{align*}
+        \ell(a,b) &= \int_0^{2\pi}\sqrt{\left(\frac{\partial
+              g}{\partial\theta}(\theta)\right)^2+g(\theta)^2}\,\dd \theta\\
+        &= \int_0^{2\pi}\sqrt{\sin^2\theta+1-2\cos\theta+\cos^2\theta}\,\dd \theta\\
+        &= \int_0^{2\pi}\sqrt{2(1-\cos\theta)}\,\dd \theta\\
+        &= 8.
+      \end{align*}
+    }{\vspace{7cm} }
+
+    \itm In the remainder of this problem we will prove an important
+    theorem, called the {\em isoperimetric inequality} (this proof is due
+    to E.\ Schmidt, from 1938): it states that the length of the boundary
+    of any shape on the plane is at least equal to the square root of
+    $4\pi$ times its area.
+
+    Let $C$ be the unit circle.  Explain why
+    \begin{align} \label{green}
+      \mathrm{area}(D) +\pi &= \oint_{\partial D}(0,x)\cdot\dd
+      \vec s + \oint_{C}(-y,0)\cdot\dd
+      \vec s.
+    \end{align}
+
+    \sol{This follows from Green's Theorem.}{\vspace{4cm} }
+   
+ 
+  \itm
+    Assume henceforth that $g(x) \leq 1$ and $g(0) = g(\pi) =
+    1$. Show that
+    \begin{align} \label{C-param}
+      (x(\theta),w(\theta)) =
+      \begin{cases}
+        (g(\theta)\cos\theta,
+        \sqrt{1-g(\theta)^2\cos^2\theta} & 0 \leq \theta \leq \pi \\
+        (g(\theta)\cos\theta,
+        -\sqrt{1-g(\theta)^2\cos^2\theta} & \pi \leq \theta  \leq 2\pi 
+      \end{cases}
+    \end{align} 
+    is a parametrization of a unit circle.
+
+
+    \sol{ Since $g(\theta) \leq 1$ then $w$ is real, and
+      $x(\theta)^2+w(\theta)^2=1$. Hence all the points
+      $(x(\theta),w(\theta))$ lie on the unit circle. Now, $x(0)=1$
+      and $x(\pi)=-1$, since $g(0) = g(\pi) = 1$. Since $g$ is
+      continuous $x$ is continuous, and so $x([0,\pi]) = [-1,1]$. It
+      follows that $(x([0,\pi]),w([0,\pi]))$ is the upper half
+      circle. By a similar argument $(x([\pi,2\pi]),w([\pi,2\pi]))$ is the
+      lower half circle.
+    }{\vspace{7cm} }
+    
+  \itm Let $(x(\theta),w(\theta))$ be the parametrization of the unit
+    circle $C$ from~\eqref{C-param}. Again let
+    \begin{align*}
+      (x(\theta),y(\theta)) = (g(\theta)\cos\theta, g(\theta)\sin\theta)
+    \end{align*}
+    be a parametrization of $\partial D$. Using~\eqref{green}, show that
+    \begin{align*}
+      \mathrm{area}(D) +\pi = \oint_0^{2\pi}( x(\theta),-
+      w(\theta))\cdot( y'(\theta),  x'(\theta))\,\dd\theta.
+    \end{align*}
+    
+    \sol{
+      \begin{align*}
+        \mathrm{area}(D) +2\pi &= \oint_{\partial D}(0,x)\cdot\dd \vec s
+        + \oint_{C}(-y,0)\cdot\dd
+        \vec s\\
+        &=
+        \oint_0^{2\pi} x(\theta) y'(\theta)\,\dd \theta -\oint_0^{2\pi} w(\theta) x'(\theta)\,\dd\theta\\
+        &=
+        \oint_0^{2\pi} x(\theta) y'(\theta)- w(\theta) x'(\theta)\,\dd\theta\\
+        &= \oint_0^{2\pi}( x(\theta),- w(\theta))\cdot( y'(\theta),
+        y'(\theta))\,\dd\theta.
+      \end{align*}    
+    }{\vspace{7cm} }
+    
+    
+  \itm Explain why it follows from the previous question that
+    \begin{align*}
+      \mathrm{area}(D) +\pi \leq \oint_0^{2\pi}\sqrt{(
+        x(\theta)^2+ w(\theta)^2)\cdot(
+        x'(\theta)^2+ y'(\theta)^2)}\,\dd\theta.
+    \end{align*}
+    
+    \sol{The follows immediately from the
+      Cauchy-Schwarz-Bunyakowski inequality for vectors in $\R^2$.  }{\vspace{4cm} }
+    
+    
+  \itm Explain why
+    \begin{align*}
+      \mathrm{area}(D) +\pi \leq \mathrm{length}(\partial D).
+    \end{align*}
+    
+    \sol{ Since $(x(\theta),w(\theta))$ is a parametrization of a
+      unit circle, $x(\theta)^2+ w(\theta)^2=1$. The remaining
+      integral is the length of $\partial D$.  }{\vspace{4cm} }
+    
+    \itm Recall the AMGM inequality: for $a,b>0$ it holds that
+    $\sqrt{ab}\leq (a+b)/2$. Use this to show that
+    \begin{align*}
+      \sqrt{4\pi\cdot \mathrm{area}(D)} \leq \mathrm{length}(\partial D).
+    \end{align*}
+    For which shape are these two quantities equal?
+
+    \sol{
+      Since
+      \begin{align*}
+        \mathrm{area}(D) +\pi \leq \mathrm{length}(\partial D),
+      \end{align*}
+      \begin{align*}
+        \frac{2\mathrm{area}(D) +2\pi}{2} \leq \mathrm{length}(\partial D).
+      \end{align*}
+      By the AMGM inequality
+      \begin{align*}
+        \sqrt{2\cdot\mathrm{area}(D)\cdot 2\pi} \leq \frac{2\mathrm{area}(D) +2\pi}{2},
+      \end{align*}
+      and so
+    \begin{align*}
+      \sqrt{4\pi\cdot \mathrm{area}(D)} \leq \mathrm{length}(\partial D).
+    \end{align*}
+
+    Equality is achieved for circles.
+    }{\vspace{7cm} }
+
+
+\end{document}
+

@@ -1,0 +1,157 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8x]{inputenc}
+\usepackage[L7x]{fontenc}  
+\usepackage[pdftex]{graphicx}
+\usepackage{fourier}
+\usepackage{hyperref}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{wrapfig}
+\usepackage{sectsty}
+\usepackage{asymptote}
+\usepackage{colonequals}
+\usepackage{color}
+\usepackage{calc}
+\usepackage{etoolbox}
+
+% COMMENT OUT THE SECOND LINE TO MAKE A HANDOUT WITHOUT SOLUTIONS
+\newtoggle{solutions}
+\toggletrue{solutions}
+
+\usepackage{amsthm}
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{defn}{Definition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newtheorem{exercise}{Exercise}
+
+\sectionfont{\large}
+\sectionfont{\normalsize}
+
+\def\Arg{\mathop{\rm Arg}\nolimits}
+\def\Res{\mathop{\rm Res}}
+\renewcommand\Im{\mathop{\rm Im}\nolimits}
+\renewcommand\Re{\mathop{\rm Re}\nolimits}
+\newcommand\Arctan{\mathop{\rm Arctan}\nolimits}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\renewcommand{\P}{\mathbb{P}}
+\newcommand{\Chat}{\hat{\mathbb{C}}}
+\newcommand{\UHP}{\mathbb{H}}
+\DeclareMathOperator{\area}{area}
+\DeclareMathOperator{\dist}{dist}
+\DeclareMathOperator{\interior}{int}
+\DeclareMathOperator{\id}{id}
+
+\pagestyle{empty}
+
+\textwidth = 6.5 in
+\textheight = 9 in
+\oddsidemargin = -0.125 in
+\evensidemargin = 0.0 in
+\topmargin = -0.2 in
+\headheight = 0.0 in
+\headsep = 0.2 in
+\parskip = 0.2 in
+\parindent = 0.0 in
+
+\def\inv{^{-1}}
+
+\newcounter{prob}
+	\setcounter{prob}{1}
+
+\newcounter{subprob}
+	\setcounter{subprob}{1}
+
+\newcommand\itm{\theprob.  \stepcounter{prob}\setcounter{subprob}{1}}
+\newcommand\subitm{(\alph{subprob}) \refstepcounter{subprob}}
+
+\newcommand\sol[2]{\iftoggle{solutions}{\textit{Solution}. #1}{#2}}
+%\newcommand\sol[2]{#2}
+
+
+\newcommand{\problem}[1]{
+\makebox[0.2cm]{\textbf{\itm}}  \begin{minipage}[t]{\linewidth-0.75cm}
+#1
+\end{minipage}
+}
+
+\newcommand\twomatrix[4]{
+\left(
+\begin{array}{cc}
+#1 & #2 \\
+#3 & #4
+\end{array}
+\right)
+}
+
+\renewcommand\vec[1]{\mathbf{#1}}
+\newcommand\pd[2]{\frac{\partial #1}{\partial #2}}
+
+\begin{document}
+\thispagestyle{empty}
+
+\begin{center}
+  18.022 Recitation Handout \iftoggle{solutions}{(with solutions)}{} \\
+  3 November 2014 
+\end{center}
+
+
+\itm Evaluate $\displaystyle{\int_{0}^{1}\!\int_{0}^{y^2} x^2 y \,dx\,dy}$ and sketch the region of integration in $\R^2$ indicated by the limits of integration. 
+
+\sol{
+The domain of integration is shown below. 
+\begin{center}
+  \includegraphics{figures/region}
+\end{center}
+Evaluating the integral, we find 
+  \begin{align*}
+    \int_{0}^{1}\!\int_{0}^{y^2} x^2 y \,dx\,dy &= \int_{0}^{1} \left[\frac{x^3}{3}y\right]_{0}^{y^2}\,dy  \\
+    &= \int_0^1 \frac{y^7}{3}\,dy \\
+    &= \boxed{1/24}. \qedhere
+  \end{align*}
+}{\vfill}
+
+
+\itm Evaluate $\int_{0}^\pi \!\int_{y}^{\pi}\frac{\sin x}{x} \,dx\,dy$.
+
+\sol{We reverse the order of integration. The region of integration is a triangle with vertices at $(0,0)$, $(\pi,0)$, and $(\pi,\pi)$. So the integral is equal to 
+\[
+\int_{0}^{\pi}\!\int_{0}^{x}\frac{\sin x}{x} \,dy\,dx = \int_0^\pi \left[y\right]_{0}^x \sin(x)/x \,dx = \int_0^\pi \sin x \,dx = \boxed{2}.  \qedhere
+\] 
+}{\vfill}
+
+\iftoggle{solutions}{}{\newpage} 
+
+\itm (Putnam exam '89) Evaluate
+$\displaystyle{\int_0^a\int_0^b e^{{\rm max}\{b^2x^2, a^2y^2\}}\,dy\,dx}$
+where $a$ and $b$ are positive.
+\sol{ Omitted. }{\vfill}
+
+\itm (Fun/Challenge, based on 5.2.29 in \textit{Colley}) Define a function $f(x,y)$ on $[0,1] \times [0,2]$ by
+\[
+f(x,y) = \left\{ \begin{array}{cl}
+1 & \text{ if }x\text{ is rational} \\
+0 & \text{ if }x\text{ is irrational and }y \leq 1 \\
+2 & \text{ if }x\text{ is irrational and }y > 1. 
+\end{array} 
+\right.
+\]
+Show that the iterated Riemann integral $\int_0^1\int_0^2 f(x,y)\,dy\,dx$ exists, and find its value. Show that the iterated Riemann integral $\int_0^2\int_0^1 f(x,y)\,dx\,dy$ does not exist. 
+
+\sol{To show that $\int_0^1\int_0^2 f(x,y)\,dy\,dx$ exists, we first calculate $\int_0^2 f(x,y)\,dy$. If $x$ is rational, then this integral is $\int_0^21\,dy = 2$. If $x$ is irrational, then this integral reduces to $\int_1^2 2\,dy =2$. Therefore, regardless of the value of $x$, the inner integral $\int_0^2 f(x,y)\,dy$ is equal to 2. Therefore, $\int_0^1\int_0^2 f(x,y)\,dy\,dx=\int_0^12\,dx=2$. 
+
+On the other hand, there is no value of $y$ for which the integral $\int_0^1 f(x,y)\,dx$ exists. To see this, note that (for $y\leq 1$, say) the upper and lower Riemann sums are equal to 1 and 0, respectively. For if $0=x_0<x_1<\ldots<x_n = 1$ is some partition of $[0,1]$, then the sum
+\[
+\sum_{k=0}^{n-1} f(x_k^*)(x_{k+1}-x_k)
+\]
+can be made as large as 1 by choosing each $x_k^*\in(x_{k+1}-x_k)$ to be rational and as small as 0 by choosing each $x_k^*\in(x_{k+1}-x_k)$ to be irrational. Since the inner integral doesn't exist, the iterated integral doesn't exist either.  }{\vfill}
+
+
+
+\end{document}
+

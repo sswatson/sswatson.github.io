@@ -1,0 +1,70 @@
+@def title = "Cool Stuff"
+
+# Cool Stuff
+
+- Data Science
+    - Software
+        - Languages
+            - **Python**. Most popular language for data science in industry. Also well-suited to application building.
+            - **R**. Most popular language among statisticians. Excellent focus on user experience, and lots of amazing tooling.
+            - **Julia**. A beautifully designed, fast, and increasingly popular language for data science and other scientific computing applications. My personal favorite.
+        - Packages
+            - **Plotly**. Beautiful, easy-to-make graphs for the web (both 2D and 3D). Very well integrated with Python, R, and Julia.
+            - **Tidyverse**. An opinionated but powerful collection of packages for doing data science in R.
+            - **Esquisse**. An R package for creating data visualizations quickly and beautifully, without code.
+            - **Spark**. Distributed computing framework, commonly used in industry.
+        - Applications
+            - **Jupyter**. Very popular notebook computing environment which supports many languages, including Julia, Python, and R. 
+            - **Pluto**. Julia-specific alternative to Jupyter which is *reactive* (changing anything causes everything downstream of it to change too).
+            - **ObservableHQ**. Reactive notebooks specifically for Javascript.
+            - **RStudio**. Premier development environment for R. Can also be used for both Python and Julia.
+            - **Superset**. Open source data visualization dashboards. 
+    - Websites
+        - Applications
+            - **CoCalc**. Cloud environment with excellent collaboration tools which supports practically every piece of open source scientific computing software.
+            - **Colab**. A Google-managed cloud Jupyter environment; Python-only and with slightly hackish support for collaboration, but it *does* include free GPU, which is important for deep learning and some other applications.
+            - **NextJournal**. Another free-GPU cloud Jupyter service.
+        - Books
+            - **Introduction to Data Science in R**. Superb online book written by Rafael Irizarry at Harvard.
+        - Community
+            - **Kaggle**. Datasets, problems, and contests.
+- Content creation tools and utilities
+    - **Prismia**. Create and deploy interactive lessons.
+    - **Desmos**. A mathlet creation environment for everyone.
+    - **math3d.org**. Desmos, but in 3D. Really beautiful.
+    - **JSXGraph**. Create reactive mathlets (with code). What Prismia uses for its 2D mathlet system.
+    - **Ipe**. Desktop application for making precise 2D mathematical figures quickly (using a graphical user interface).
+    - **TinyTeX**. An easy-to-use distribution of LaTeX that does not take up a ton of hard drive space.
+    - **MathPix**. Snapshot math expressions or tables on your screen and convert them automatically to LaTeX (using optical character recognition).
+    - **TextSniper**. Like MathPix, but with plain text. For macOS.
+    - **Keyboard Maestro**. Automate tasks at the operating system level (e.g., scroll down 60 pixels and click, then repeat 100 times). Hopefully you don't need it often, but it's a lifesaver when you do.
+    - **Copier**. Templating system for quickly creating new files or projects on your computer (a Python package). Especially useful for software projects with boilerplate, stock letters, etc.
+    - **ungit**. A visual approach to version control. Solves a lot of Git's UX problems.
+- Web development
+    - **React**. One of the most popular Javascript frameworks for creating web applications. It's the only one I know, but I do like it.
+    - **Visual Studio Code**. The development environment that all the cool kids are using these days.
+    - **Firebase**. An easy way to create a low-cost, scalable web application. Hosting, database, and cloud functions are all integrated and well documented.
+    - **AG Grid**. Possibly the best open source data table package for the web. Highly recommended over plain HTML for large tables.
+- Learning
+    - Websites
+        - **Art of Problem Solving**. Premier math learning community for middle school and high school.
+        - **Mathigon**. Most polished, beautiful math lessons on the internet.
+        - **Data Gymnasia**. Data science content built on Mathigon technology.
+        - **3Blue1Brown**. The best math videos on YouTube. Beautiful visualizations, original exposition, and excellent storytelling. 
+        - **Distill.pub**. Visually stunning interactive articles on data science topics.
+    - Books
+        - **Concrete Mathematics** by Knuth, Graham, and Patashnik. Original, expertly crafted book on a variety of discrete math topics.
+        - **Probability with Martingales** by David Williams. Succinct probability textbook from the University of Cambridge (the one I learned basic probability from).
+        - **Linear Algebra Done Right** by Sheldon Axler. An expository masterpiece with an original and elegant take on basic linear algebra.
+        - **Visual Complex Analysis** by Tristan Needham. The title says it all.
+- Personal
+    - Transportation
+        - **Bike Friday**. Really cool folding bicycles (better ride).
+        - **Brompton**. Really cool folding bicycles (more compact).
+    - Food
+        - **Taza Chocolate.** Amazing chocolate made locally in Somerville. Unique, slightly gritty texture (and dairy free).
+    - Entertainment
+        - **xckd**. Premier nerd comic on the web.
+        - **Quora**. Social media site built around the question-and-answer concept. Lots of excellent writers and a good algorithm for surfacing quality content.
+        - **Meetup.com**. Find folks in your area with common interests.
+        - **Pocket**. Browser extension and app for stashing articles you find and want to read later.

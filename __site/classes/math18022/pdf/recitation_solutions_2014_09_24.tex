@@ -1,0 +1,168 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8x]{inputenc}
+\usepackage[L7x]{fontenc}  
+\usepackage[pdftex]{graphicx}
+\usepackage{fourier}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{wrapfig}
+\usepackage{sectsty}
+\usepackage{asymptote}
+\usepackage{colonequals}
+\usepackage{color}
+\usepackage{calc}
+\usepackage{etoolbox}
+
+% COMMENT OUT THE SECOND LINE TO MAKE A HANDOUT WITHOUT SOLUTIONS
+\newtoggle{solutions}
+\toggletrue{solutions}
+
+\usepackage{amsthm}
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{defn}{Definition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newtheorem{exercise}{Exercise}
+
+\sectionfont{\large}
+\sectionfont{\normalsize}
+
+\def\Arg{\mathop{\rm Arg}\nolimits}
+\def\Res{\mathop{\rm Res}}
+\renewcommand\Im{\mathop{\rm Im}\nolimits}
+\renewcommand\Re{\mathop{\rm Re}\nolimits}
+\newcommand\Arctan{\mathop{\rm Arctan}\nolimits}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\renewcommand{\P}{\mathbb{P}}
+\newcommand{\Chat}{\hat{\mathbb{C}}}
+\newcommand{\UHP}{\mathbb{H}}
+\DeclareMathOperator{\area}{area}
+\DeclareMathOperator{\dist}{dist}
+\DeclareMathOperator{\interior}{int}
+\DeclareMathOperator{\id}{id}
+
+\pagestyle{empty}
+
+\textwidth = 6.5 in
+\textheight = 9 in
+\oddsidemargin = -0.125 in
+\evensidemargin = 0.0 in
+\topmargin = -0.2 in
+\headheight = 0.0 in
+\headsep = 0.2 in
+\parskip = 0.2 in
+\parindent = 0.0 in
+
+\def\inv{^{-1}}
+
+\newcounter{prob}
+	\setcounter{prob}{1}
+
+\newcounter{subprob}
+	\setcounter{subprob}{1}
+
+\newcommand\itm{\theprob.  \stepcounter{prob}\setcounter{subprob}{1}}
+\newcommand\subitm{(\alph{subprob}) \refstepcounter{subprob}}
+
+\newcommand\sol[2]{\iftoggle{solutions}{\textit{Solution}. #1}{#2}}
+%\newcommand\sol[2]{#2}
+
+
+\newcommand{\problem}[1]{
+\makebox[0.2cm]{\textbf{\itm}}  \begin{minipage}[t]{\linewidth-0.75cm}
+#1
+\end{minipage}
+}
+
+\newcommand\twomatrix[4]{
+\left(
+\begin{array}{cc}
+#1 & #2 \\
+#3 & #4
+\end{array}
+\right)
+}
+
+\renewcommand\vec[1]{\mathbf{#1}}
+
+\begin{document}
+\thispagestyle{empty}
+
+\begin{center}
+  18.022 Recitation Handout \iftoggle{solutions}{(with solutions)}{} \\
+  24 September 2014 
+\end{center}
+
+\itm Let $A = \left( \begin{array}{cc} 2 & 6 \\ 0 & 2 \end{array}
+\right)$, and let $U$ be the unit square $\{(x,y)\,:\, 0 \leq x \leq 1
+\text{ and } 0 \leq y \leq 1\}$ in $\R^2$. Let $U'$ be the image under $A$
+of $U$. Find the area of $U$. 
+
+\sol{Note that $A =  2\left( \begin{array}{cc} 1 & 3 \\ 0 & 1 \end{array}
+\right) \equalscolon 2M$. The image of $U$ under $M$ is a parallelogram
+with unit base and height, and therefore it has unit area. The factor of 2
+doubles the shape in both dimensions, giving a factor of 4 increase from
+the original area. So the area of $U'$ is $1\times 4 = \boxed{4}$. }{\vfill}
+
+% \itm Find an equation for the plane containing the points $(3, -1, 2), (2, 0, 5)$, and $(1, -2, 4)$. Express your answer in standard form. 
+
+% \sol{Let $\vec{a}=(3, -1, 2), \vec{b}=(2, 0, 5)$, and $\vec{c}=(1, -2, 4)$. Then the normal to the plane is perpendicular to $\vec{a}-\vec{c}=(2,1,-2)$ and $\vec{b}-\vec{c}=(1,2,1)$, so it's parallel to their cross product $\vec{n} = (5,-4,3)$. Substituting any of the given points $P$ into $\vec{n}\cdot ((x,y,z)-P)=0$, we find that the equation in standard form is $\boxed{5x-4y+3z=25}$}{\vfill}
+
+\itm Find the distance from the line $(4+t,-1-2t,3-7t)$ to the plane $3x-2y+z=3$. 
+
+\sol{Since $(3,-2,1)\cdot (1,-2,-7) = 0$, the line is parallel to the plane. Let $P=(4,-1,3)$ be a point on the line, and let $Q$ be the point in the plane which is nearest to $P$. Since $\overrightarrow{QP}$ is parallel to the plane's normal vector $(3,-2,1)$, we can write $Q = P - \lambda (3,-2,1)$ for some scalar $\lambda$, substitute the resulting coordinates into the equation for the plane, and solve to find $\lambda =1$. Therefore, the distance from the line to the plane is $\sqrt{3^2+(-2)^2+1^2}=\boxed{\sqrt{14}}.$}{\vfill}
+
+\itm Let $A = \left( \begin{array}{cc} 2 & -3 \\ 1 & 4 \end{array} \right)$ and $B = \left( \begin{array}{cc} 1 & -2 \\ 5 & 0 \end{array} \right)$. Find $AB-BA$. 
+
+\sol{We calculate $AB=\left( \begin{array}{cc}-13 & -4 \\ 21 &
+      -2 \end{array} \right)$ and $BA=\left( \begin{array}{cc} 0 & -11 \\
+      10 & -15 \end{array} \right)$, so the difference $AB -BA$ is
+  $\boxed{\left( \begin{array}{cc}-13 & 7 \\ 11 & 13 \end{array}
+    \right)}$. Notice that this matrix measures the failure of $A$ and $B$
+  to commute. }{\vfill}
+
+\iftoggle{solutions}{}{\newpage}
+
+% \itm (a) Find the volume of revolution obtained by rotating the line $\ell_1(t) = (t,2t,t)$ about the $z$-axis. Express your answer in spherical coordinates (include the space ``inside'' the cones). (b) (Fun/Challenge problem) Repeat with $\ell_1(t)$ rotated about $\ell_2(t) = (t,t,0)$ instead of the $z$-axis.
+
+% \sol{For part (a), the resulting solid is $0\leq \varphi \leq \arccos(1/\sqrt{6})$ or $\pi - \arccos(1/\sqrt{6}) \leq \varphi \leq \pi $, because the angle between the $z$-axis and $(1,2,1)$ is $\arccos\left(\frac{(0,0,1)\cdot (1,2,1)}{\|(0,0,1)\|\|1,2,1\|}\right)$. For $(b)$, we calculate an angle of $30^\circ$ between the two lines. Since $\theta = 45^\circ$ for $\ell_2(t)$, this means that $\theta$ ranges between $15^\circ$ and $75^\circ$. and between $195^\circ$ and $255^\circ$. Given $\theta$, $\varphi$ ranges from $0$ to $\arccos(v_z)$, where $v_z$ is the $z$-coordinate of a unit vector $\vec{v}$ with spherical coordinate $\theta$ and having 30-degree angle with respect to $(1,1,0)$. In terms of the coordinates $v_x, v_y,$ and $v_z$ of $v$, we have 
+% \begin{align*}
+% \frac{\vec{v} \cdot (1,1,0)}{\sqrt{2}}&=\frac{\sqrt{3}}{2} \\
+% v_x^2 + v_y^2 + v_z^2 &= 1 \\
+% \tan\theta = \frac{v_x}{v_y}.
+% \end{align*}
+% Solving this system for $v_z$, we find that $v_z=\sqrt{1-\frac{3}{2}\left(\frac{1+\tan^2\theta}{(1+\tan\theta)^2}\right)}$. Altogether, we get 
+% \begin{align*}
+% \arccos\left(\sqrt{1-\frac{3}{2}\left(\frac{1+\tan^2\theta}{(1+\tan\theta)^2}\right)}\right) \leq \varphi \leq \pi - \arccos\left(\sqrt{1-\frac{3}{2}\left(\frac{1+\tan^2\theta}{(1+\tan\theta)^2}\right)}\right).
+% \end{align*}
+% Incidentally, the trig expression in parentheses can be simplified somewhat to $1/(1+\sin2\theta)$. 
+% }{\vfill}
+
+
+\itm Consider the function $f(x,y,z) = (x^2 + y^2)/\sin(z)$. Describe the level
+surfaces for different values. What coordinate system is best suited for
+this? 
+
+\sol{Cylindrical coordinates are best suited, since $x^2+y^2$ simplifies to
+  $r^2$. The level surfaces $\{(x,y,z)\,:f(x,y,z)=c\}$ are surfaces of
+  revolution obtained by revolving a graph of $r^2 = c \sin z$ (thought of
+  as a curve in 2D) about the $z$-axis.}{\vfill}
+
+\itm We say that a function $f:\R^m \to \R^n$ is linear if $f(\lambda x +
+\mu y) = \lambda f(x) + \mu f(y)$. Characterize all linear functions from
+$\R$ to $\R$. Is $f(x) = 7x - 4$ linear, according to this definition? 
+
+\sol{Applying the definition of linearity with $x = 1$, $y=0$, and
+  $\lambda \in \R$ arbitrary, we find that $f(\lambda) = \lambda f(1).$ In
+  other words, every linear function takes the form $f(x) = mx$ for some
+  constant $m$. Conversely, every function of the form $f(x) = mx$ is
+  linear. Therefore, the linear functions are the ones whose graphs are
+  lines passing through the origin. }{\vfill}
+
+
+\end{document}

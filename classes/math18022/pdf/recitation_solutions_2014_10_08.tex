@@ -1,0 +1,204 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8x]{inputenc}
+\usepackage[L7x]{fontenc}  
+\usepackage[pdftex]{graphicx}
+\usepackage{fourier}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{wrapfig}
+\usepackage{sectsty}
+\usepackage{asymptote}
+\usepackage{colonequals}
+\usepackage{color}
+\usepackage{calc}
+\usepackage{etoolbox}
+
+% COMMENT OUT THE SECOND LINE TO MAKE A HANDOUT WITHOUT SOLUTIONS
+\newtoggle{solutions}
+\toggletrue{solutions}
+
+\usepackage{amsthm}
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{defn}{Definition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newtheorem{exercise}{Exercise}
+
+\sectionfont{\large}
+\sectionfont{\normalsize}
+
+\def\Arg{\mathop{\rm Arg}\nolimits}
+\def\Res{\mathop{\rm Res}}
+\renewcommand\Im{\mathop{\rm Im}\nolimits}
+\renewcommand\Re{\mathop{\rm Re}\nolimits}
+\newcommand\Arctan{\mathop{\rm Arctan}\nolimits}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\renewcommand{\P}{\mathbb{P}}
+\newcommand{\Chat}{\hat{\mathbb{C}}}
+\newcommand{\UHP}{\mathbb{H}}
+\DeclareMathOperator{\area}{area}
+\DeclareMathOperator{\dist}{dist}
+\DeclareMathOperator{\interior}{int}
+\DeclareMathOperator{\id}{id}
+
+\pagestyle{empty}
+
+\textwidth = 6.5 in
+\textheight = 9 in
+\oddsidemargin = -0.125 in
+\evensidemargin = 0.0 in
+\topmargin = -0.2 in
+\headheight = 0.0 in
+\headsep = 0.2 in
+\parskip = 0.2 in
+\parindent = 0.0 in
+
+\def\inv{^{-1}}
+
+\newcounter{prob}
+	\setcounter{prob}{1}
+
+\newcounter{subprob}
+	\setcounter{subprob}{1}
+
+\newcommand\itm{\theprob.  \stepcounter{prob}\setcounter{subprob}{1}}
+\newcommand\subitm{(\alph{subprob}) \refstepcounter{subprob}}
+
+\newcommand\sol[2]{\iftoggle{solutions}{\textit{Solution}. #1}{#2}}
+%\newcommand\sol[2]{#2}
+
+
+\newcommand{\problem}[1]{
+\makebox[0.2cm]{\textbf{\itm}}  \begin{minipage}[t]{\linewidth-0.75cm}
+#1
+\end{minipage}
+}
+
+\newcommand\twomatrix[4]{
+\left(
+\begin{array}{cc}
+#1 & #2 \\
+#3 & #4
+\end{array}
+\right)
+}
+
+\renewcommand\vec[1]{\mathbf{#1}}
+\newcommand\pd[2]{\frac{\partial #1}{\partial #2}}
+
+\begin{document}
+\thispagestyle{empty}
+
+\begin{center}
+  18.022 Recitation Handout \iftoggle{solutions}{(with solutions)}{} \\
+  8 October 2014 
+\end{center}
+\itm Sketch the image of the path $\vec{x}(t)=(\cos t, e^t)$. 
+
+
+\sol{
+See the graph below. There is actually a lot of oscillating that happens
+near the origin, but you can't see it in the graph because $e^t$ converges
+to zero rapidly as $t<0$ goes to $-\infty$. 
+  \begin{center}
+    \includegraphics{figures/parametric5}
+  \end{center}
+}{
+\vfill
+}
+
+\itm (3.1.25 in \textit{Colley}) A malfunctioning rocket is traveling according to a path $\vec{x}(t)=(e^{2t},3t^3-2t, t-1/t)$ in the hope of reaching a repair station at the point $(7e^4,35,5)$. (Here $t$ represents time in minutes and spatial coordinates are measured in miles). At $t=2$, the rocket's engines suddenly cease. Will the rocket coast into the repair station? 
+
+\sol{
+  The rocket's direction vector at time $t$ is
+  $\vec{x}'(t)=(2e^{2t},9t^2-2, 1+1/t^2)$, which at the time the engine
+  stops is $(2e^4,34,5/4)$. To check whether the rocket reaches the station
+  at the point $P=(7e^4,35,5)$, we just have to check whether the vector
+  $P-\vec{x}(2)=(7e^4,35,5)-(e^{4},20, 3/2)=(6e^4,15,7/2)$ is parallel to
+  the velocity vector $(2e^4,34,5/4)$. The ratio of $x$-components is not
+  the same as the ratio of $y$-components, so there is no scalar $\lambda$
+  for which $P-\vec{x}(2) = \vec{x}'(2)$.
+}
+{\vfill}
+
+\iftoggle{solutions}{}{\newpage}
+
+\itm (3.2.7 in \textit{Colley}) Calculate total length of the curve given by $(a\cos^3t,a\sin^3 t)$, where $a$ is a positive constant. This is the shape you get when you roll a circle of radius $a/4$ around inside a circle of radius $a$ and track the trajectory of a point on the smaller circle (see below). 
+
+
+\iftoggle{solutions}{\begin{wrapfigure}[6]{r}{4cm}
+      \includegraphics{figures/astroid}
+    \end{wrapfigure}}{}
+\sol{ 
+We first consider $t$ ranging over $[0,\pi/2]$. We get an arclength of
+\begin{align*}
+\int_{0}^{\pi/2} \sqrt{(-3a\cos^2t \sin t)^2+(3a\sin^2t\cos t)^2}\,dt &= 
+3a \int_{0}^{\pi/2} \sqrt{\sin^2t \cos^2 t (\cos^2 t + \sin^2 t)} \\ &=  
+3a \int_{0}^{\pi/2} \sin t \cos t \,dt. 
+\end{align*}
+In the last line, we have used the fact that $\sin t \cos t \geq 0$. This is
+why it was useful to assume $t\in [0,\pi/2]$.\footnote{If $x<0$, it is not
+  correct to say that $\sqrt{x^2} = x$.}
+}{}
+
+
+\iftoggle{solutions}{
+Writing $\sin t \cos t=\frac{1}{2}
+\sin 2t,$ we integrate to get $3a/2$ for the arclength of one quarter of
+the hypocycloid. Therefore, the total arclength is $\boxed{6a}$. 
+}{
+\begin{flushright} \includegraphics[width=3cm]{figures/astroid}
+\end{flushright}
+
+\vfill 
+}
+
+
+\itm Explain why the arclength of $\sin(1/x)$ over $x\in [0,1]$ does not
+exist (no calculation necessary). 
+
+\sol{The arclength is infinite because the graph oscillates infinitely many
+times between $-1$ and $1$. Each of these oscillations contributes an
+arclength of at least 2, and $2+2+\ldots = +\infty$.}{\vspace{1.0cm}} 
+
+(b) Does the arclength of $x\sin(1/x)$ over $x\in [0,1]$ exist? 
+
+\sol{The arclength is infinite for this example as well. Consider the
+  arclength contributed by the portions of the graph above the intervals
+  $I_n=(\frac{1}{\pi (2n+1)},\frac{1}{2\pi n})$ for $n$ ranging over the
+  positive integers. These are the intervals where the function is
+  positive. Note that the arclength of the graph above $I_n$ is at least
+  twice the maximum of the function on the interval, which is at least
+  $\frac{2}{\pi/2+2\pi n}$. Summing this expression over $n$ gives
+  $+\infty$, by comparison with $\sum\frac1n$.}{\vspace{2cm}}
+
+(c) Does the arclength of $x^2 \sin(1/x)$ over $x\in [0,1]$ exist? 
+
+\sol{The analysis in the previous problem suggests that the arclength is
+  finite. That analysis can be made rigorous for this problem too, but we
+  need to upper bound the arclength corresponding to each interval, and
+  this is more difficult than a lower bound.
+
+  Alternatively, we can calculate the arclength as 
+\begin{align*}
+\int_{0}^1 \sqrt{1+f'(x)^2}\,dx &= \int_0^1
+\sqrt{1+(2x\sin(1/x)+x^2(-1/x^2)\cos(1/x))^2}\,dx \\ &= \int_0^1
+  \sqrt{1+(2x\sin(1/x)-\cos(1/x))^2}\,dx. 
+\end{align*}
+This is an integral of a bounded function over a bounded interval and
+therefore is finite. 
+}{\vspace{3cm}}
+
+(d) (Fun/Challenge) Determine the values of $m$ and $n$ for which $x^m\sin(x^n)$ has finite arc length over $x\in[0,1]$.
+
+\sol{Left as an exercise.}{\vfill}
+
+\vspace{0.5cm} 
+
+\end{document}
+

@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../franklin"
+		},
+		{
+			"path": "../brown-frog"
+		}
+	],
+	"settings": {}
+}

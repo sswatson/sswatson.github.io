@@ -1,0 +1,184 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}  
+\usepackage[pdftex]{graphicx}
+\usepackage{hyperref}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{wrapfig}
+\usepackage{sectsty}
+\usepackage{asymptote}
+\usepackage{colonequals}
+\usepackage{color}
+\usepackage{calc}
+\usepackage{etoolbox}
+
+\allowdisplaybreaks
+
+% COMMENT OUT THE SECOND LINE TO MAKE A HANDOUT WITHOUT SOLUTIONS
+\newtoggle{solutions}
+%\toggletrue{solutions}
+
+\usepackage{amsthm}
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{defn}{Definition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newtheorem{exercise}{Exercise}
+
+\usepackage{palatino} 
+\usepackage{pxfonts} 
+
+\sectionfont{\large}
+\sectionfont{\normalsize}
+
+\def\Arg{\mathop{\rm Arg}\nolimits}
+\def\Res{\mathop{\rm Res}}
+\renewcommand\Im{\mathop{\rm Im}\nolimits}
+\renewcommand\Re{\mathop{\rm Re}\nolimits}
+\newcommand\Arctan{\mathop{\rm Arctan}\nolimits}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\renewcommand{\P}{\mathbb{P}}
+\newcommand{\Chat}{\hat{\mathbb{C}}}
+\newcommand{\UHP}{\mathbb{H}}
+\DeclareMathOperator{\area}{area}
+\DeclareMathOperator{\dist}{dist}
+\DeclareMathOperator{\interior}{int}
+\DeclareMathOperator{\id}{id}
+
+\pagestyle{empty}
+
+\textwidth = 6.5 in
+\textheight = 9 in
+\oddsidemargin = -0.125 in
+\evensidemargin = 0.0 in
+\topmargin = -0.2 in
+\headheight = 0.0 in
+\headsep = 0.2 in
+\parskip = 0.2 in
+\parindent = 0.0 in
+
+\def\inv{^{-1}}
+
+\newcounter{prob}
+	\setcounter{prob}{1}
+
+\newcounter{subprob}
+	\setcounter{subprob}{1}
+
+\newcommand\itm{\theprob.  \stepcounter{prob}\setcounter{subprob}{1}}
+\newcommand\subitm{(\alph{subprob}) \refstepcounter{subprob}}
+
+\newcommand\sol[2]{\iftoggle{solutions}{\begin{proof}[Solution] #1\end{proof}}{#2}}
+%\newcommand\sol[2]{\iftoggle{solutions}{\textit{Solution}. #1}{#2}}
+%\newcommand\sol[2]{#2}
+
+
+\newcommand{\problem}[1]{
+\makebox[0.2cm]{\textbf{\itm}}  \begin{minipage}[t]{\linewidth-0.75cm}
+#1
+\end{minipage}
+}
+\newcommand\twomatrix[4]{
+\left(
+\begin{array}{cc}
+#1 & #2 \\
+#3 & #4
+\end{array}
+\right)
+}
+
+\newcommand\twomatrixdet[4]{
+\left|
+\begin{array}{cc}
+#1 & #2 \\
+#3 & #4
+\end{array}
+\right|
+}
+
+
+\renewcommand\vec[1]{\mathbf{#1}}
+\newcommand\pd[2]{\frac{\partial #1}{\partial #2}}
+
+\begin{document}
+\thispagestyle{empty}
+
+\begin{center}
+  18.022 Recitation Handout \iftoggle{solutions}{(with solutions)}{} \\
+  13 November 2014 \\
+
+\end{center}
+
+
+% $\displaystyle{\int_{}^{}\int_{}^{}\,dx\,dy}$
+
+
+\itm (5.5.10 in \textit{Colley}) Evaluate the integral $\displaystyle{\int_{0}^{2}\!\int_{x/2}^{x/2+1} x^5 (2y - x)e^{(2y-x)^2} \,dy\,dx}$ by making the substitution $u = x$ and $v=2y-x$. 
+
+\sol{
+Substitution shows that the limits of integration become $u \in [0,2]$ and $v\in [0,2]$. We calculate 
+\[
+\left|\frac{\partial(x,y)}{\partial(u,v)}\right| = \left|
+\begin{array}{cc}
+1 & 1/2 \\
+0 & 1/2
+\end{array}
+\right|=1/2,
+\]
+so the formula for change of variables gives 
+  \begin{align*}
+    \int_{0}^{2}\!\int_{0}^{2} u^5 v e^{v^2} \left|\frac{\partial(x,y)}{\partial(u,v)}\right| \,dv\,du &=
+    \int_{0}^{2} \frac{1}{2}\left[\frac12 u^5 e^{v^2}\right]_{0}^{2} \, du \\
+    &= \int_{0}^{2} \frac14 u^5 (e^4-1) \, du 
+    = \boxed{\frac{8}{3}(e^4-1)}. \qedhere
+  \end{align*}
+}{\vfill}
+\itm Let $D$ be a parallelogram with vertices $(0,0)$, $(1,0)$, $(1,1)$, and $(2,1)$. Calculate $\iint_D 1\,dA$ in two ways:
+
+(a) Find $\iint_D 1\,dA$ without using calculus. 
+
+(b) Find $\iint_D 1\,dA$ using the change of variables $u = 2x - 2y$ and $v=2y$. 
+
+\sol{
+(a) The integral in question is the area of the parallelogram, which is $(\text{base})(\text{height})=1\times 1 = \boxed{1}$. (b) To calculate this area using the suggested change of variables, we note that the linear transformation sends the four vertices of $D$ to the vertices of a square $[0,2]\times[0,2]$. Since the transformation is linear, it sends $D$ to $[0,2]\times[0,2]$. We calculate 
+\begin{align*}
+  \iint_D 1\,dA &= \int_0^2\!\int_0^2 1 \twomatrixdet{\partial x/\partial u}{\partial y/\partial u}{\partial x/\partial v}{\partial y/ \partial v} du \,dv\\
+&= \int_0^2\!\int_0^2 1 \twomatrixdet{\frac12}{0}{\frac12}{1/2} du \,dv\\
+&= 4(1/2)^2 = \boxed{1}. \qedhere
+\end{align*}
+}{\vfill} 
+
+\iftoggle{solutions}{}{\newpage} 
+
+
+\itm (5.5.30 in \textit{Colley}) Find the volume of the solid that is bounded by the paraboloid $z = 9 - x^2 - y^2$, the $xy$-plane, and the cylinder $x^2 + y^2 = 4$. 
+
+\sol{
+  To find the volume of the region, we integrate 1 over the region. We use cylindrical coordinates:
+\begin{equation*}
+  \text{volume} = \int_{0}^{2\pi} \!\int_0^2 \int_{0}^{9-r^2} 1 \,r\, dz \,dr\,d\theta =   (2\pi) \!\int_0^2(9-r^2)r\,dr. = \boxed{28\pi}. \qedhere
+\end{equation*}
+}{\vfill} 
+
+\itm (5.5.29 in \textit{Colley}) Find the volume of the region $W$ that
+represents the intersection of the solid cylinder $x^2+y^2 \leq 1$ and the
+solid ellipsoid $2(x^2+y^2)+z^2\leq 10.$ 
+
+\sol{We integrate in cylindrical coordinates: 
+\[
+\int_{0}^{1}\int_{0}^{2\pi}\int_{-\sqrt{10-2r^2}}^{\sqrt{10-2r^2}}\,r\,dz\,dr\,
+d\theta = 2\pi \int_0^12r\sqrt{10-2r^2}\,dr = 
+\boxed{\frac{4}{3} \sqrt{2} \left(5 \sqrt{5}-8\right) \pi}.\qedhere
+\]}{\vfill}
+
+
+
+
+\end{document}
+
