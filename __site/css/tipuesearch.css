@@ -42,14 +42,14 @@ http://www.tipue.com/search
 {
   color: inherit;
   max-width: 100px;
-	padding: 2px;
-	border: 1px solid rgb(255, 255, 255, 0.3);
-	border-radius: 2px;
-	-moz-appearance: none;
-	-webkit-appearance: none;
-	box-shadow: none; 
-	outline: 0;
-	margin: 0; 
+     padding: 6px;
+     border: 1px solid rgb(255, 255, 255, 0.3);
+     border-radius: 2px;
+     -moz-appearance: none;
+     -webkit-appearance: none;
+     box-shadow: none; 
+     outline: 0;
+     margin: 0; 
   background-color: inherit;
   font-size: 10pt;
 }
@@ -58,14 +58,14 @@ http://www.tipue.com/search
 {
   color: #333;
   max-width: 210px;
-	padding: 17px;
-	border: 1px solid #e3e3e3;
-	border-radius: 0;
-	-moz-appearance: none;
-	-webkit-appearance: none;
-	box-shadow: none; 
-	outline: 0;
-	margin: 0; 
+     padding: 17px;
+     border: 1px solid #e3e3e3;
+     border-radius: 0;
+     -moz-appearance: none;
+     -webkit-appearance: none;
+     box-shadow: none; 
+     outline: 0;
+     margin: 0; 
 }
 
 .franklin-content img#tipue_search_icon
@@ -77,8 +77,8 @@ http://www.tipue.com/search
 .tipue_search_left_menu
 {
      float: left;
-     padding: 0 1px 0 0;
-
+     padding: 0;
+     transform: translate(0, 1px);
 }
 .tipue_search_left
 {
