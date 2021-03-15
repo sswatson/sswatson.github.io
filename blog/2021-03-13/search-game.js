@@ -9,7 +9,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var randLotteryCard = function randLotteryCard() {
   var s = Math.round(20 + 10 * Math.sqrt(Math.random())) + '-';
   for (var i = 0; i < 2; i++) {
-    s += Math.round(100 * Math.random()) + "-";
+    s += Math.round(10 + 90 * Math.random()) + "-";
   }
   return s.slice(0, -1);
 };
