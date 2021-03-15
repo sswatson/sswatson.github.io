@@ -128,6 +128,12 @@
     <priority>0.5</priority>
 </url>
 <url>
+    <loc>https://sswatson.com/blog/webpack-example/index.html</loc>
+    <lastmod>2021-03-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
     <loc>https://sswatson.com/classes/math1610/index.html</loc>
     <lastmod>2021-03-01</lastmod>
     <changefreq>monthly</changefreq>
@@ -136,6 +142,12 @@
 <url>
     <loc>https://sswatson.com/index.html</loc>
     <lastmod>2021-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://sswatson.com/blog/2021-03-13/index.html</loc>
+    <lastmod>2021-03-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
 </url>
