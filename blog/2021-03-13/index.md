@@ -12,7 +12,7 @@ button:focus {
 
 You bought 100 lottery tickets, and you want to be able to tell as quickly as possible whether you have a winning ticket. So before the announcement event, you put all of your tickets in order. 
 
-Click on the triple question marks below to see the winning ticket number, and then click on your cards to find it. Try to do it in as few clicks as possible.
+Click on the button below to see the winning ticket number, and then click on your cards to find it. Try to do it in as few clicks as possible.
 
 ~~~
 <!--
