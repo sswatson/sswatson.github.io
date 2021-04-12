@@ -117,7 +117,7 @@
 </url>
 <url>
     <loc>https://sswatson.com/coolstuff/index.html</loc>
-    <lastmod>2021-03-04</lastmod>
+    <lastmod>2021-04-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
 </url>
@@ -298,6 +298,12 @@
 <url>
     <loc>https://sswatson.com/classes/data1010/calendar/demos/external-dragging/</loc>
     <lastmod>2021-02-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://sswatson.com/mathlets/conditional-convergence/index/</loc>
+    <lastmod>2021-04-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
 </url>
