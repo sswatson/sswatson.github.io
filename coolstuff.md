@@ -19,6 +19,8 @@
             - **ObservableHQ**. Reactive notebooks specifically for Javascript.
             - **RStudio**. Premier development environment for R. Can also be used for both Python and Julia.
             - **Superset**. Open source data visualization dashboards. 
+        - Miscellaneous
+            - **RAWGraphs** ([rawgraphs.io](https://rawgraphs.io)) Kind of like Esquisse (or Superset), but it works as a web app that you can paste your data into as a CSV. Gives you a ton of cool visualizations and ways to map the data.
     - Websites
         - Applications
             - **CoCalc**. Cloud environment with excellent collaboration tools which supports practically every piece of open source scientific computing software.
@@ -28,6 +30,9 @@
             - **Introduction to Data Science in R**. Superb online book written by Rafael Irizarry at Harvard.
         - Community
             - **Kaggle**. Datasets, problems, and contests.
+        - Visualizations
+            - [Seeing Theory](https://seeing-theory.brown.edu). Introduction to probability and statistics with some great visualizations. Based on D3.
+            - [Permutation Test](https://www.jwilber.me/permutationtest/). Very nice scrollytelling exposition.
 - Content creation tools and utilities
     - **Prismia**. Create and deploy interactive lessons.
     - **Desmos**. A mathlet creation environment for everyone.
@@ -41,7 +46,8 @@
     - **Copier**. Templating system for quickly creating new files or projects on your computer (a Python package). Especially useful for software projects with boilerplate, stock letters, etc.
     - **ungit**. A visual approach to version control. Solves a lot of Git's UX problems.
 - Web development
-    - **React**. One of the most popular Javascript frameworks for creating web applications. It's the only one I know, but I do like it.
+    - **React**. One of the most popular Javascript frameworks for creating web applications.
+    - **Svelte**. A front-end framework that's simple, really fast, and genuinely reactive.
     - **Visual Studio Code**. The development environment that all the cool kids are using these days.
     - **Firebase**. An easy way to create a low-cost, scalable web application. Hosting, database, and cloud functions are all integrated and well documented.
     - **AG Grid**. Possibly the best open source data table package for the web. Highly recommended over plain HTML for large tables.
