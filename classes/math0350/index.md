@@ -25,27 +25,27 @@
 
 *   [2015 Brown Math 0200 Exam I](pdf/math0200_exam1.pdf) [[solution]](pdf/math0200_exam1sol.pdf)
 *   [2015 MIT Interphase Exam I](pdf/interphase_2015_exam1.pdf) [[solution]](pdf/interphase_2015_exam1sol.pdf) 
-*   [Practice midterm](pdf/math0350_practicemidterm.pdf) [[solution]](pdf/math0350_practicemidterm1sol.pdf)
-*   [Midterm](pdf/math0350_midterm.pdf) [[solution]](pdf/math0350_midtermsol.pdf)
+*   [Practice midterm](pdf/math0350_practicemidterm.pdf) 
+*   [Midterm](pdf/math0350_midterm.pdf) 
 
 ### Final
 
-*   [Practice Final](pdf/math0350_practicefinal.pdf)   [[solution]](pdf/math0350_practicefinalsol.pdf)
-*   [Final Exam solutions](pdf/math0350_finalsol.pdf)
+*   [Practice Final](pdf/math0350_practicefinal.pdf) 
+
 
 ## Problem Sets
 
-*   [Gradescope 1](pdf/math0350_pset1.pdf) [[solution]](pdf/math0350_pset1sol.pdf)
-*   [Gradescope 2](pdf/math0350_pset2.pdf) [[solution]](pdf/math0350_pset2sol.pdf)
-*   [Gradescope 3](pdf/math0350_pset3.pdf) [[solution]](pdf/math0350_pset3sol.pdf)
-*   [Gradescope 4](pdf/math0350_pset4.pdf) [[solution]](pdf/math0350_pset4sol.pdf)
-*   [Gradescope 5](pdf/math0350_pset5.pdf) [[solution]](pdf/math0350_pset5sol.pdf)
-*   [Gradescope 6](pdf/math0350_pset6.pdf) [[solution]](pdf/math0350_pset6sol.pdf)
-*   [Gradescope 7](pdf/math0350_pset7.pdf) [[solution]](pdf/math0350_pset7sol.pdf)
-*   [Gradescope 8](pdf/math0350_pset8.pdf) [[solution]](pdf/math0350_pset8sol.pdf)
-*   [Gradescope 9](pdf/math0350_pset9.pdf) [[solution]](pdf/math0350_pset9sol.pdf)
-*   [Gradescope 10](pdf/math0350_pset10.pdf) [[solution]](pdf/math0350_pset10sol.pdf)
-*   [Gradescope 11](pdf/math0350_pset11.pdf) [[solution]](pdf/math0350_pset11sol.pdf)
+*   [Gradescope 1](pdf/math0350_pset1.pdf) 
+*   [Gradescope 2](pdf/math0350_pset2.pdf) 
+*   [Gradescope 3](pdf/math0350_pset3.pdf) 
+*   [Gradescope 4](pdf/math0350_pset4.pdf) 
+*   [Gradescope 5](pdf/math0350_pset5.pdf) 
+*   [Gradescope 6](pdf/math0350_pset6.pdf) 
+*   [Gradescope 7](pdf/math0350_pset7.pdf) 
+*   [Gradescope 8](pdf/math0350_pset8.pdf) 
+*   [Gradescope 9](pdf/math0350_pset9.pdf) 
+*   [Gradescope 10](pdf/math0350_pset10.pdf) 
+*   [Gradescope 11](pdf/math0350_pset11.pdf) 
 
 ## Lecture videos
 
